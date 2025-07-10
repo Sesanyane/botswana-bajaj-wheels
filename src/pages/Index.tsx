@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -37,9 +36,15 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-blue-700 to-blue-900 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png)`
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/50" />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -72,8 +77,8 @@ const Index = () => {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                   <div className="text-white text-center">
                     <Zap className="w-20 h-20 mx-auto mb-4 text-blue-200" />
-                    <h3 className="text-2xl font-bold mb-4">Motorcycle Preview</h3>
-                    <p className="text-blue-100">High-performance motorcycles built for every journey</p>
+                    <h3 className="text-2xl font-bold mb-4">Experience Our Range</h3>
+                    <p className="text-blue-100">Motorcycles & Three-wheelers built for every journey</p>
                   </div>
                 </div>
               </div>
