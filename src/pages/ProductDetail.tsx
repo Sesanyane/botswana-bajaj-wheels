@@ -234,7 +234,7 @@ const ProductDetail = () => {
                     {isThreeWheeler ? "Capacity" : "Mileage"}
                   </h3>
                   <p className="text-2xl font-bold text-primary">
-                    {isThreeWheeler ? product.capacity : product.mileage}
+                    {isThreeWheeler ? (product as any).capacity : (product as any).mileage}
                   </p>
                 </div>
                 <div className="text-center">
@@ -245,7 +245,7 @@ const ProductDetail = () => {
                     {isThreeWheeler ? "Payload" : "Power"}
                   </h3>
                   <p className="text-2xl font-bold text-primary">
-                    {isThreeWheeler ? product.payload : product.power}
+                    {isThreeWheeler ? (product as any).payload : (product as any).power}
                   </p>
                 </div>
               </div>
