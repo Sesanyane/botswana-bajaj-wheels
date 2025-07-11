@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 const Products = () => {
   const motorcycles = [
     {
+      id: "bajaj-boxer-150",
       name: "Bajaj Boxer 150",
       category: "Commuter",
       price: "From P 15,000",
@@ -19,6 +20,7 @@ const Products = () => {
       description: "Perfect for daily commuting with excellent fuel efficiency"
     },
     {
+      id: "bajaj-pulsar-150",
       name: "Bajaj Pulsar 150",
       category: "Sports",
       price: "From P 22,000",
@@ -30,6 +32,7 @@ const Products = () => {
       description: "Sporty performance with aggressive styling"
     },
     {
+      id: "bajaj-pulsar-220f",
       name: "Bajaj Pulsar 220F",
       category: "Sports",
       price: "From P 35,000",
@@ -41,6 +44,7 @@ const Products = () => {
       description: "Premium sports motorcycle with superior performance"
     },
     {
+      id: "bajaj-discover-125",
       name: "Bajaj Discover 125",
       category: "Commuter",
       price: "From P 18,000",
@@ -52,6 +56,7 @@ const Products = () => {
       description: "Reliable commuter with modern features"
     },
     {
+      id: "bajaj-dominar-400",
       name: "Bajaj Dominar 400",
       category: "Touring",
       price: "From P 45,000",
@@ -63,6 +68,7 @@ const Products = () => {
       description: "Adventure touring motorcycle for long rides"
     },
     {
+      id: "bajaj-avenger-220",
       name: "Bajaj Avenger 220",
       category: "Cruiser",
       price: "From P 28,000",
@@ -77,6 +83,7 @@ const Products = () => {
 
   const threeWheelers = [
     {
+      id: "bajaj-re-compact",
       name: "Bajaj RE Compact",
       category: "Passenger",
       price: "From P 45,000",
@@ -88,17 +95,19 @@ const Products = () => {
       description: "Compact auto-rickshaw perfect for city transport"
     },
     {
+      id: "bajaj-re-4s",
       name: "Bajaj RE 4S",
       category: "Passenger",
       price: "From P 55,000",
       engine: "216.6cc",
       capacity: "4+1 Seater",
       payload: "340 kg",
-      image: "https://images.unsplash.com/photo-1605627079376-9239b2fa0c71?w=500&h=300&fit=crop",
+      image: "/lovable-uploads/bb787c09-261c-40ef-b1c1-a58286037ba0.png",
       features: ["4-Stroke Engine", "Hydraulic Shock Absorbers", "Side Doors"],
       description: "Spacious and comfortable passenger vehicle"
     },
     {
+      id: "bajaj-re-maxima",
       name: "Bajaj RE Maxima",
       category: "Cargo",
       price: "From P 48,000",
@@ -188,9 +197,11 @@ const Products = () => {
               Get Quote
             </Button>
           </Link>
-          <Button variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-white">
-            Learn More
-          </Button>
+          <Link to={`/product/${product.id}`} className="flex-1">
+            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+              Learn More
+            </Button>
+          </Link>
         </div>
       </CardContent>
     </Card>
