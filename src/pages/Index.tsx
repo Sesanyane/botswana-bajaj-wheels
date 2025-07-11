@@ -26,10 +26,12 @@ const Index = () => {
               <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
               <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
             </div>
-            <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
-            </Button>
+            <Link to="/contact">
+              <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -60,16 +62,22 @@ const Index = () => {
                   Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Gaborone's roads.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
-                    EXPLORE BOXER 150
-                    <ChevronRight className="w-5 h-5 ml-2" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                    FIND A DEALER
-                  </Button>
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                    BOOK A TEST RIDE
-                  </Button>
+                  <Link to="/products">
+                    <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
+                      EXPLORE BOXER 150
+                      <ChevronRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                      FIND A DEALER
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                      BOOK A TEST RIDE
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="relative">
@@ -146,9 +154,11 @@ const Index = () => {
                     <span><strong>RELIABLE</strong> - Dependable transport</span>
                   </li>
                 </ul>
-                <Button className="bg-primary hover:bg-blue-700 text-white px-8 py-3">
-                  VIEW FULL SPECS
-                </Button>
+                <Link to="/products">
+                  <Button className="bg-primary hover:bg-blue-700 text-white px-8 py-3">
+                    VIEW FULL SPECS
+                  </Button>
+                </Link>
               </div>
               <div className="relative">
                 <div className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden">
@@ -226,32 +236,25 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-4xl font-bold text-primary mb-6">OUR DEALER NETWORK</h2>
-                <h3 className="text-2xl font-bold text-primary mb-6">ACROSS BOTSWANA</h3>
+                <h3 className="text-2xl font-bold text-primary mb-6">IN GABORONE</h3>
                 <p className="text-lg text-gray-600 mb-8">
-                  Find authorized Bajaj dealers across Botswana for sales, service, and genuine spare parts.
+                  Visit our authorized Bajaj dealer in Gaborone for sales, service, and genuine spare parts.
                 </p>
-                <Button className="bg-primary hover:bg-blue-700 text-white px-8 py-3">
-                  FIND YOUR NEAREST DEALER
-                </Button>
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-blue-700 text-white px-8 py-3">
+                    FIND YOUR NEAREST DEALER
+                  </Button>
+                </Link>
               </div>
               <div className="relative">
                 <div className="bg-white rounded-2xl p-8 shadow-xl border">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="font-medium text-primary">Gaborone</p>
-                    </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="font-medium text-primary">Francistown</p>
-                    </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="font-medium text-primary">Maun</p>
-                    </div>
-                    <div className="text-center p-4 bg-blue-50 rounded-lg">
-                      <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="font-medium text-primary">Kasane</p>
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="text-center p-6 bg-blue-50 rounded-lg">
+                      <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-primary mb-2">Bajaj Gaborone</h3>
+                      <p className="text-gray-600 mb-2">Central Business District</p>
+                      <p className="text-gray-600 mb-2">Gaborone, Botswana</p>
+                      <p className="text-sm text-gray-500">+267 395 0000 4019</p>
                     </div>
                   </div>
                 </div>
@@ -274,7 +277,7 @@ const Index = () => {
                 />
               </div>
               <p className="text-blue-100 mb-4">
-                Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
+                Bringing reliable mobility solutions to Gaborone with world-class motorcycles and three-wheelers.
               </p>
             </div>
             <div>
@@ -288,20 +291,20 @@ const Index = () => {
               <h4 className="text-lg font-semibold mb-4">CONTACT</h4>
               <ul className="space-y-2 text-blue-100">
                 <li>Gaborone Office</li>
-                <li>395 0000 4019</li>
+                <li>+267 395 0000 4019</li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
               <ul className="space-y-2 text-blue-100">
-                <li><Link to="/" className="hover:text-white transition-colors">A Class of Bajaj</Link></li>
-                <li><Link to="/products" className="hover:text-white transition-colors">Brochure</Link></li>
-                <li><Link to="/services" className="hover:text-white transition-colors">Build Sheet</Link></li>
+                <li><Link to="/products" className="hover:text-white transition-colors">Products</Link></li>
+                <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
           </div>
           <div className="border-t border-blue-600 mt-12 pt-8 text-center text-blue-200">
-            <p>&copy; Copy Detectives. All rights reserved.</p>
+            <p>&copy; 2024 Bajaj Gaborone. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -51,26 +52,26 @@ const Products = () => {
       description: "Reliable commuter with modern features"
     },
     {
-      name: "Bajaj CT 110",
-      category: "Entry Level",
-      price: "From P 12,000",
-      engine: "115.45cc",
-      mileage: "80 kmpl",
-      power: "8.6 BHP",
-      image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=500&h=300&fit=crop",
-      features: ["Kick Start", "Spoke Wheels", "Carburetor"],
-      description: "Affordable and fuel-efficient for everyday use"
+      name: "Bajaj Dominar 400",
+      category: "Touring",
+      price: "From P 45,000",
+      engine: "373.3cc",
+      mileage: "35 kmpl",
+      power: "40 BHP",
+      image: "https://images.unsplash.com/photo-1558897512-d0f8db7ff8d5?w=500&h=300&fit=crop",
+      features: ["Liquid Cooled", "USD Forks", "LED Lighting"],
+      description: "Adventure touring motorcycle for long rides"
     },
     {
-      name: "Bajaj Platina 110",
-      category: "Comfort",
-      price: "From P 14,000",
-      engine: "115.45cc",
-      mileage: "75 kmpl",
-      power: "8.6 BHP",
-      image: "https://images.unsplash.com/photo-1558897512-d0f8db7ff8d5?w=500&h=300&fit=crop",
-      features: ["ComforTec Technology", "Spring Soft Suspension", "LED Tail Lamp"],
-      description: "Ultimate comfort for long rides"
+      name: "Bajaj Avenger 220",
+      category: "Cruiser",
+      price: "From P 28,000",
+      engine: "220cc",
+      mileage: "45 kmpl",
+      power: "19 BHP",
+      image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=500&h=300&fit=crop",
+      features: ["Cruiser Styling", "Comfortable Seating", "Chrome Finish"],
+      description: "Classic cruiser for relaxed highway rides"
     }
   ];
 
@@ -182,9 +183,11 @@ const Products = () => {
         </div>
         
         <div className="flex gap-2">
-          <Button className="flex-1 bg-primary hover:bg-primary/90 text-white">
-            Get Quote
-          </Button>
+          <Link to="/contact" className="flex-1">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+              Get Quote
+            </Button>
+          </Link>
           <Button variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-white">
             Learn More
           </Button>
@@ -213,10 +216,12 @@ const Products = () => {
               <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
               <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
             </div>
-            <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
-              <Phone className="w-4 h-4 mr-2" />
-              Call Now
-            </Button>
+            <Link to="/contact">
+              <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -279,12 +284,16 @@ const Products = () => {
             Visit our showroom to test ride any of our vehicles or get a personalized quote
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-              Schedule Test Ride
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-              Contact Dealer
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                Schedule Test Ride
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                Contact Dealer
+              </Button>
+            </Link>
           </div>
         </section>
       </div>
