@@ -14,7 +14,7 @@ const Products = () => {
       engine: "149.5cc",
       mileage: "70 kmpl",
       power: "12 BHP",
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=300&fit=crop",
+      image: "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png",
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp"],
       description: "Perfect for daily commuting with excellent fuel efficiency"
     },
