@@ -1,8 +1,8 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bike, Truck, Fuel, Gauge, Users } from "lucide-react";
+import { Bike, Truck, Fuel, Gauge, Users, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const motorcycles = [
@@ -195,13 +195,39 @@ const Products = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-primary backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                alt="Bajaj Gaborone"
+                className="h-12 w-auto"
+              />
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
+              <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
+              <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">PRODUCTS</Link>
+              <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
+              <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
+            </div>
+            <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
+              <Phone className="w-4 h-4 mr-2" />
+              Call Now
+            </Button>
+          </div>
+        </div>
+      </nav>
+
       {/* Header */}
       <div className="bg-primary text-white py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Discover our complete range of motorcycles and three-wheelers designed for Botswana roads
+              Discover our complete range of motorcycles and three-wheelers designed for Gaborone roads
             </p>
           </div>
         </div>

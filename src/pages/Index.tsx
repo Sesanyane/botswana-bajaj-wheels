@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,16 +13,14 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">B</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-white">BAJAJ</h1>
-                <p className="text-sm text-blue-200">Botswana</p>
-              </div>
+              <img 
+                src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                alt="Bajaj Gaborone"
+                className="h-12 w-auto"
+              />
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
+              <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">HOME</Link>
               <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
               <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium">PRODUCTS</Link>
               <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
@@ -49,16 +48,16 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                  🎉 Now Available in Botswana
+                  🎉 Now Available in Gaborone
                 </Badge>
                 <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                  BUILT FOR BOTSWANA.{" "}
+                  BUILT FOR GABORONE.{" "}
                   <span className="block text-blue-200">
                     READY FOR ANYTHING.
                   </span>
                 </h2>
                 <p className="text-xl text-blue-100 mb-8 max-w-2xl">
-                  Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Botswana's roads.
+                  Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Gaborone's roads.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
@@ -87,11 +86,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Bajaj Botswana */}
+      {/* Why Bajaj Gaborone */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">WHY BAJAJ BOTSWANA?</h2>
+            <h2 className="text-4xl font-bold text-primary mb-4">WHY BAJAJ GABORONE?</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
@@ -107,7 +106,7 @@ const Index = () => {
                 <Mountain className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold text-primary mb-3">BUILT FOR</h3>
-              <p className="text-sm font-medium text-gray-600 mb-2">BOTSWANA TERRAIN</p>
+              <p className="text-sm font-medium text-gray-600 mb-2">GABORONE TERRAIN</p>
               <p className="text-gray-600">Designed specifically for local conditions</p>
             </div>
             <div className="text-center">
@@ -152,11 +151,15 @@ const Index = () => {
                 </Button>
               </div>
               <div className="relative">
-                <div className="bg-white rounded-2xl p-8 shadow-xl border">
-                  <div className="text-center">
-                    <Zap className="w-32 h-32 mx-auto mb-4 text-primary" />
-                    <h3 className="text-2xl font-bold text-primary mb-4">Boxer 150</h3>
-                    <p className="text-gray-600">High-quality motorcycle image will be displayed here</p>
+                <div className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden">
+                  <img 
+                    src="/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png" 
+                    alt="Bajaj Boxer 150"
+                    className="w-full h-auto object-contain"
+                  />
+                  <div className="text-center mt-4">
+                    <h3 className="text-2xl font-bold text-primary mb-2">Boxer 150 HD</h3>
+                    <p className="text-gray-600">The perfect companion for your daily journey</p>
                   </div>
                 </div>
               </div>
@@ -264,13 +267,11 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-primary font-bold">B</span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold">BAJAJ</h3>
-                  <p className="text-sm text-blue-200">Botswana</p>
-                </div>
+                <img 
+                  src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                  alt="Bajaj Gaborone"
+                  className="h-8 w-auto"
+                />
               </div>
               <p className="text-blue-100 mb-4">
                 Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
