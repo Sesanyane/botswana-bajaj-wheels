@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -84,8 +85,8 @@ const About = () => {
                   <div>
                     <h3 className="text-xl font-semibold text-primary mb-2">STRATEGIC LOCATION</h3>
                     <p className="text-gray-600">
-                      Our showroom and service center are strategically located in Gaborone, 
-                      making it convenient for customers across the city to access our products and services.
+                      Located at Unit 5, Plot 22052 Kgomokasitwa RD, Gaborone West Industrial, 
+                      our showroom and service center are strategically positioned to serve customers across the city.
                     </p>
                   </div>
                 </div>
@@ -121,14 +122,75 @@ const About = () => {
                   <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-primary">EXPERIENCE</CardTitle>
+                  <CardTitle className="text-primary">MOTORCYCLES</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-3xl font-bold text-primary mb-2">75+</p>
-                  <p className="text-blue-700">Years of Excellence</p>
+                  <p className="text-3xl font-bold text-primary mb-2">18M+</p>
+                  <p className="text-blue-700">Motorcycles Sold</p>
                 </CardContent>
               </Card>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Us Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">ABOUT BAJAJ AUTO</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Born in India. Loved by the World - The World's Favourite Indian
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 mb-8">
+              <CardContent className="p-8">
+                <p className="text-gray-700 leading-relaxed mb-6 text-lg">
+                  Bajaj Auto Ltd (BAL) is the world's third-largest motorcycle manufacturer and the world's largest three-wheeler manufacturer.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Under the able leadership of Mr. Rahul Bajaj, Bajaj Auto Ltd has established its expertise in segments of utility, commuter and sports vehicles.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Boasting a line-up of petrol, diesel, compressed natural gas (CNG) and EV (electric vehicles) in the offering, Bajaj is widely recognised as a global leader of ESG driven mobility solutions.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Bajaj is established across Asia, Africa & Latin America with a footprint of over 70 countries.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="overflow-hidden hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-primary mb-4">The World's Favourite Indian</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  With more than 18 million motorcycles sold in over 70 countries, the Bajaj brand is truly 'The World's Favourite Indian'.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  From motorcycles to three-wheelers and now quadricycles, from Mumbai to Mexico City and Bogota to Bengaluru, there's a Bajaj for everyone.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">BAJAJ JOURNEY</h2>
+            <p className="text-xl text-gray-600">
+              Milestones that define our legacy
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <img 
+              src="/lovable-uploads/5495a6c9-3277-492a-8829-ec5b297f1b55.png" 
+              alt="Bajaj Timeline" 
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>
@@ -197,7 +259,7 @@ const About = () => {
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-4">HERITAGE & TRUST</h3>
                 <p className="text-gray-600">
-                  Founded in 1945, Bajaj Auto has built a legacy of trust and reliability 
+                  Founded in 1948, Bajaj Auto has built a legacy of trust and reliability 
                   that spans generations across the globe.
                 </p>
               </div>
@@ -271,7 +333,8 @@ const About = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">CONTACT</h4>
               <ul className="space-y-2 text-blue-100">
-                <li>Gaborone Office</li>
+                <li>Unit 5, Plot 22052 Kgomokasitwa RD</li>
+                <li>Gaborone West Industrial</li>
                 <li>+267 395 0000 4019</li>
               </ul>
             </div>
