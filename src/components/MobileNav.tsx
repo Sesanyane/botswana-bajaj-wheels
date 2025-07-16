@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Home, Info, Package, Wrench, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const MobileNav = () => {
@@ -11,20 +11,68 @@ export const MobileNav = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const menuVariants = {
-    closed: { opacity: 0, x: "100%" },
-    open: { opacity: 1, x: 0 }
+    closed: { 
+      opacity: 0, 
+      x: "100%",
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    },
+    open: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 40
+      }
+    }
   };
+
+  const linkVariants = {
+    closed: { x: 20, opacity: 0 },
+    open: (i: number) => ({
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: i * 0.1,
+        type: "spring",
+        stiffness: 400,
+        damping: 25
+      }
+    })
+  };
+
+  const menuItems = [
+    { to: "/", label: "HOME", icon: Home },
+    { to: "/about", label: "ABOUT", icon: Info },
+    { to: "/products", label: "PRODUCTS", icon: Package },
+    { to: "/services", label: "SERVICES", icon: Wrench },
+    { to: "/contact", label: "CONTACT US", icon: Mail },
+  ];
 
   return (
     <div className="md:hidden">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={toggleMenu}
-        className="text-white hover:bg-white/20"
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleMenu}
+          className="text-white hover:bg-white/20 transition-all duration-200"
+        >
+          <motion.div
+            animate={isOpen ? { rotate: 180 } : { rotate: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </motion.div>
+        </Button>
+      </motion.div>
 
       <AnimatePresence>
         {isOpen && (
@@ -34,7 +82,7 @@ export const MobileNav = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 z-40"
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
               onClick={() => setIsOpen(false)}
             />
             
@@ -44,72 +92,77 @@ export const MobileNav = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              transition={{ type: "tween", duration: 0.3 }}
-              className="fixed top-0 right-0 h-full w-80 bg-primary z-50 shadow-xl"
+              className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl"
             >
               <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between p-6 border-b border-white/20">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-primary to-blue-600">
                   <img 
                     src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
                     alt="Bajaj Gaborone"
-                    className="h-8 w-auto"
+                    className="h-10 w-auto"
                   />
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setIsOpen(false)}
-                    className="text-white hover:bg-white/20"
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    <X className="w-6 h-6" />
-                  </Button>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsOpen(false)}
+                      className="text-white hover:bg-white/20 rounded-full"
+                    >
+                      <X className="w-5 h-5" />
+                    </Button>
+                  </motion.div>
                 </div>
                 
-                <nav className="flex flex-col flex-1 p-6 space-y-6">
-                  <Link 
-                    to="/" 
-                    className="text-white hover:text-blue-200 transition-colors font-medium text-lg py-2"
-                    onClick={() => setIsOpen(false)}
+                {/* Navigation */}
+                <nav className="flex flex-col flex-1 p-6 space-y-2">
+                  {menuItems.map((item, index) => (
+                    <motion.div
+                      key={item.to}
+                      custom={index}
+                      variants={linkVariants}
+                      initial="closed"
+                      animate="open"
+                      whileHover={{ scale: 1.02, x: 4 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Link 
+                        to={item.to}
+                        className="flex items-center space-x-4 text-gray-700 hover:text-primary hover:bg-blue-50 transition-all duration-200 font-medium text-lg py-3 px-4 rounded-lg group"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <motion.div
+                          whileHover={{ rotate: 5 }}
+                          className="w-6 h-6 text-primary group-hover:text-primary"
+                        >
+                          <item.icon className="w-6 h-6" />
+                        </motion.div>
+                        <span>{item.label}</span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+                
+                {/* Call to Action */}
+                <div className="p-6 border-t border-gray-100 bg-gray-50">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    HOME
-                  </Link>
-                  <Link 
-                    to="/about" 
-                    className="text-white hover:text-blue-200 transition-colors font-medium text-lg py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    ABOUT
-                  </Link>
-                  <Link 
-                    to="/products" 
-                    className="text-white hover:text-blue-200 transition-colors font-medium text-lg py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    PRODUCTS
-                  </Link>
-                  <Link 
-                    to="/services" 
-                    className="text-white hover:text-blue-200 transition-colors font-medium text-lg py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    SERVICES
-                  </Link>
-                  <Link 
-                    to="/contact" 
-                    className="text-white hover:text-blue-200 transition-colors font-medium text-lg py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    CONTACT US
-                  </Link>
-                  
-                  <div className="pt-6 border-t border-white/20">
                     <Link to="/contact" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-white text-primary hover:bg-blue-50">
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-white shadow-lg">
                         <Phone className="w-4 h-4 mr-2" />
                         Call Now
                       </Button>
                     </Link>
-                  </div>
-                </nav>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           </>
