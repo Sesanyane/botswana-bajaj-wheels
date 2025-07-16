@@ -1,10 +1,14 @@
-
 import { useParams, Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Phone } from "lucide-react";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
+import { FadeIn } from "@/components/animations/FadeIn";
+import { SlideIn } from "@/components/animations/SlideIn";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { HoverScale } from "@/components/animations/HoverScale";
+import { motion } from "framer-motion";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -78,12 +82,14 @@ const ProductDetail = () => {
   if (!product) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <Link to="/products">
-            <Button>Back to Products</Button>
-          </Link>
-        </div>
+        <FadeIn>
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
+            <Link to="/products">
+              <Button>Back to Products</Button>
+            </Link>
+          </div>
+        </FadeIn>
       </div>
     );
   }
@@ -91,7 +97,12 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-primary backdrop-blur-sm">
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="sticky top-0 z-50 bg-primary backdrop-blur-sm"
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -116,103 +127,157 @@ const ProductDetail = () => {
             </Link>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       <div className="container mx-auto px-4 py-8">
         {/* Back Button */}
-        <Link to="/products" className="inline-flex items-center text-primary hover:text-blue-700 mb-6">
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Products
-        </Link>
+        <FadeIn>
+          <Link to="/products" className="inline-flex items-center text-primary hover:text-blue-700 mb-6">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Products
+          </Link>
+        </FadeIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Images */}
-          <div>
-            <ProductImageCarousel images={product.images} productName={product.name} />
-          </div>
+          <SlideIn direction="left">
+            <div>
+              <ProductImageCarousel images={product.images} productName={product.name} />
+            </div>
+          </SlideIn>
 
           {/* Product Info */}
-          <div className="space-y-6">
-            <div>
-              <Badge className="mb-3">{product.category}</Badge>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
-              <p className="text-xl text-gray-600 mb-4">{product.description}</p>
-              <p className="text-3xl font-bold text-primary">{product.price}</p>
-            </div>
-
-            {/* Key Features */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Key Features</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 gap-3">
-                  {product.keyFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
+          <SlideIn direction="right" delay={0.2}>
+            <div className="space-y-6">
+              <FadeIn delay={0.3}>
+                <div>
+                  <Badge className="mb-3">{product.category}</Badge>
+                  <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
+                  <p className="text-xl text-gray-600 mb-4">{product.description}</p>
+                  <p className="text-3xl font-bold text-primary">{product.price}</p>
                 </div>
-              </CardContent>
-            </Card>
+              </FadeIn>
 
-            {/* Colors */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Available Colors</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
-                  {product.colors.map((color) => (
-                    <Badge key={color} variant="secondary">{color}</Badge>
-                  ))}
+              {/* Key Features */}
+              <ScrollReveal delay={0.4}>
+                <HoverScale scale={1.02}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Key Features</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-2 gap-3">
+                        {product.keyFeatures.map((feature, index) => (
+                          <motion.div 
+                            key={index} 
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.3 }}
+                            className="flex items-center space-x-2"
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                            <span className="text-sm">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </ScrollReveal>
+
+              {/* Colors */}
+              <ScrollReveal delay={0.5}>
+                <HoverScale scale={1.02}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Available Colors</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2">
+                        {product.colors.map((color, index) => (
+                          <motion.div
+                            key={color}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.3 }}
+                            whileHover={{ scale: 1.1 }}
+                          >
+                            <Badge variant="secondary">{color}</Badge>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </ScrollReveal>
+
+              {/* CTA Buttons */}
+              <ScrollReveal delay={0.6}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <HoverScale className="flex-1">
+                    <Link to="/contact" className="flex-1">
+                      <Button size="lg" className="w-full">
+                        Get Quote
+                      </Button>
+                    </Link>
+                  </HoverScale>
+                  <HoverScale className="flex-1">
+                    <Link to="/contact" className="flex-1">
+                      <Button size="lg" variant="outline" className="w-full">
+                        Schedule Test Drive
+                      </Button>
+                    </Link>
+                  </HoverScale>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact" className="flex-1">
-                <Button size="lg" className="w-full">
-                  Get Quote
-                </Button>
-              </Link>
-              <Link to="/contact" className="flex-1">
-                <Button size="lg" variant="outline" className="w-full">
-                  Schedule Test Drive
-                </Button>
-              </Link>
+              </ScrollReveal>
             </div>
-          </div>
+          </SlideIn>
         </div>
 
         {/* Specifications */}
-        <Card className="mt-12">
-          <CardHeader>
-            <CardTitle className="text-center">Complete Specifications</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {Object.entries(product.specifications).map(([key, value]) => (
-                <div key={key} className="flex justify-between py-3 px-4 bg-gray-50 rounded-lg">
-                  <span className="font-medium text-gray-900">{key}</span>
-                  <span className="text-gray-600">{value}</span>
+        <ScrollReveal delay={0.7}>
+          <HoverScale scale={1.01}>
+            <Card className="mt-12">
+              <CardHeader>
+                <CardTitle className="text-center">Complete Specifications</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {Object.entries(product.specifications).map(([key, value], index) => (
+                    <motion.div 
+                      key={key} 
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05, duration: 0.3 }}
+                      whileHover={{ scale: 1.02 }}
+                      className="flex justify-between py-3 px-4 bg-gray-50 rounded-lg"
+                    >
+                      <span className="font-medium text-gray-900">{key}</span>
+                      <span className="text-gray-600">{value}</span>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+          </HoverScale>
+        </ScrollReveal>
 
         {/* Warranty Info */}
-        <Card className="mt-8">
-          <CardContent className="py-6">
-            <div className="text-center">
-              <h3 className="text-lg font-semibold mb-2">Warranty Coverage</h3>
-              <p className="text-gray-600">{product.warranty}</p>
-            </div>
-          </CardContent>
-        </Card>
+        <ScrollReveal delay={0.8}>
+          <HoverScale scale={1.02}>
+            <Card className="mt-8">
+              <CardContent className="py-6">
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold mb-2">Warranty Coverage</h3>
+                  <p className="text-gray-600">{product.warranty}</p>
+                </div>
+              </CardContent>
+            </Card>
+          </HoverScale>
+        </ScrollReveal>
       </div>
     </div>
   );

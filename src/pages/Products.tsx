@@ -1,10 +1,14 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Bike, Truck, Fuel, Gauge, Users, Phone, Car, Package, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FadeIn } from "@/components/animations/FadeIn";
+import { SlideIn } from "@/components/animations/SlideIn";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { HoverScale } from "@/components/animations/HoverScale";
+import { motion } from "framer-motion";
 
 const Products = () => {
   const quadricycles = [
@@ -45,8 +49,6 @@ const Products = () => {
       description: "Perfect for daily commuting with excellent fuel efficiency"
     }
   ];
-
-  // Remove three wheeler section as not in current offering
 
   const riderGear = [
     {
@@ -112,29 +114,117 @@ const Products = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     
     return (
+      <HoverScale scale={1.03}>
+        <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div className="relative overflow-hidden">
+            <img 
+              src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
+              alt={product.name}
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <Badge className="absolute top-3 left-3 bg-primary text-white">
+              {product.category}
+            </Badge>
+            {product.gallery && (
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {product.gallery.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+          <CardHeader>
+            <div className="flex justify-between items-start">
+              <div>
+                <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+                <CardDescription className="text-primary font-semibold text-lg">
+                  {product.price}
+                </CardDescription>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm">{product.description}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Gauge className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Engine</p>
+                <p className="text-sm font-semibold">{product.engine}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Fuel className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Mileage</p>
+                <p className="text-sm font-semibold">{product.mileage}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Users className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Capacity</p>
+                <p className="text-sm font-semibold">{product.capacity}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Truck className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Storage</p>
+                <p className="text-sm font-semibold">{product.storage}</p>
+              </div>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
+              <div className="flex flex-wrap gap-1">
+                {product.features.map((feature, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {feature}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex gap-2">
+              <Link to="/contact" className="flex-1">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                  Get Quote
+                </Button>
+              </Link>
+              <Link to={`/product/${product.id}`} className="flex-1">
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </HoverScale>
+    );
+  };
+
+  const ProductCard = ({ product, isThreeWheeler = false }) => (
+    <HoverScale scale={1.03}>
       <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
         <div className="relative overflow-hidden">
           <img 
-            src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
+            src={product.image} 
             alt={product.name}
-            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
           />
           <Badge className="absolute top-3 left-3 bg-primary text-white">
             {product.category}
           </Badge>
-          {product.gallery && (
-            <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-              {product.gallery.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImageIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                  }`}
-                />
-              ))}
-            </div>
-          )}
         </div>
         <CardHeader>
           <div className="flex justify-between items-start">
@@ -148,7 +238,7 @@ const Products = () => {
           <p className="text-gray-600 text-sm">{product.description}</p>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
                 <Gauge className="h-4 w-4 text-primary mr-1" />
@@ -158,24 +248,29 @@ const Products = () => {
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                <Fuel className="h-4 w-4 text-primary mr-1" />
+                {isThreeWheeler ? (
+                  <Users className="h-4 w-4 text-primary mr-1" />
+                ) : (
+                  <Fuel className="h-4 w-4 text-primary mr-1" />
+                )}
               </div>
-              <p className="text-xs text-gray-500">Mileage</p>
-              <p className="text-sm font-semibold">{product.mileage}</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-1">
-                <Users className="h-4 w-4 text-primary mr-1" />
-              </div>
-              <p className="text-xs text-gray-500">Capacity</p>
-              <p className="text-sm font-semibold">{product.capacity}</p>
+              <p className="text-xs text-gray-500">
+                {isThreeWheeler ? "Capacity" : "Mileage"}
+              </p>
+              <p className="text-sm font-semibold">
+                {isThreeWheeler ? product.capacity : product.mileage}
+              </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
                 <Truck className="h-4 w-4 text-primary mr-1" />
               </div>
-              <p className="text-xs text-gray-500">Storage</p>
-              <p className="text-sm font-semibold">{product.storage}</p>
+              <p className="text-xs text-gray-500">
+                {isThreeWheeler ? "Payload" : "Power"}
+              </p>
+              <p className="text-sm font-semibold">
+                {isThreeWheeler ? product.payload : product.power}
+              </p>
             </div>
           </div>
           
@@ -204,151 +299,71 @@ const Products = () => {
           </div>
         </CardContent>
       </Card>
-    );
-  };
-
-  const ProductCard = ({ product, isThreeWheeler = false }) => (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="relative overflow-hidden">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <Badge className="absolute top-3 left-3 bg-primary text-white">
-          {product.category}
-        </Badge>
-      </div>
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <div>
-            <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-            <CardDescription className="text-primary font-semibold text-lg">
-              {product.price}
-            </CardDescription>
-          </div>
-        </div>
-        <p className="text-gray-600 text-sm">{product.description}</p>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-3 gap-4 mb-4">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              <Gauge className="h-4 w-4 text-primary mr-1" />
-            </div>
-            <p className="text-xs text-gray-500">Engine</p>
-            <p className="text-sm font-semibold">{product.engine}</p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              {isThreeWheeler ? (
-                <Users className="h-4 w-4 text-primary mr-1" />
-              ) : (
-                <Fuel className="h-4 w-4 text-primary mr-1" />
-              )}
-            </div>
-            <p className="text-xs text-gray-500">
-              {isThreeWheeler ? "Capacity" : "Mileage"}
-            </p>
-            <p className="text-sm font-semibold">
-              {isThreeWheeler ? product.capacity : product.mileage}
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-1">
-              <Truck className="h-4 w-4 text-primary mr-1" />
-            </div>
-            <p className="text-xs text-gray-500">
-              {isThreeWheeler ? "Payload" : "Power"}
-            </p>
-            <p className="text-sm font-semibold">
-              {isThreeWheeler ? product.payload : product.power}
-            </p>
-          </div>
-        </div>
-        
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-          <div className="flex flex-wrap gap-1">
-            {product.features.map((feature, index) => (
-              <Badge key={index} variant="secondary" className="text-xs">
-                {feature}
-              </Badge>
-            ))}
-          </div>
-        </div>
-        
-        <div className="flex gap-2">
-          <Link to="/contact" className="flex-1">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-              Get Quote
-            </Button>
-          </Link>
-          <Link to={`/product/${product.id}`} className="flex-1">
-            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-              Learn More
-            </Button>
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+    </HoverScale>
   );
 
   const AccessoryCard = ({ product }) => (
-    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-      <div className="relative overflow-hidden">
-        <img 
-          src={product.image} 
-          alt={product.name}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
-        <Badge className="absolute top-3 left-3 bg-secondary text-primary">
-          {product.category}
-        </Badge>
-      </div>
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <div>
-            <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-            <CardDescription className="text-primary font-semibold text-lg">
-              {product.price}
-            </CardDescription>
+    <HoverScale scale={1.03}>
+      <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div className="relative overflow-hidden">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <Badge className="absolute top-3 left-3 bg-secondary text-primary">
+            {product.category}
+          </Badge>
+        </div>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+              <CardDescription className="text-primary font-semibold text-lg">
+                {product.price}
+              </CardDescription>
+            </div>
           </div>
-        </div>
-        <p className="text-gray-600 text-sm">{product.description}</p>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-4">
-          <h4 className="text-sm font-semibold text-gray-700 mb-2">Includes:</h4>
-          <div className="flex flex-wrap gap-1">
-            {product.features.map((feature, index) => (
-              <Badge key={index} variant="outline" className="text-xs">
-                {feature}
-              </Badge>
-            ))}
+          <p className="text-gray-600 text-sm">{product.description}</p>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-gray-700 mb-2">Includes:</h4>
+            <div className="flex flex-wrap gap-1">
+              {product.features.map((feature, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  {feature}
+                </Badge>
+              ))}
+            </div>
           </div>
-        </div>
-        
-        <div className="flex gap-2">
-          <Link to="/contact" className="flex-1">
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-              Order Now
-            </Button>
-          </Link>
-          <Link to="/contact" className="flex-1">
-            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-              Get Info
-            </Button>
-          </Link>
-        </div>
-      </CardContent>
-    </Card>
+          
+          <div className="flex gap-2">
+            <Link to="/contact" className="flex-1">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                Order Now
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex-1">
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                Get Info
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </HoverScale>
   );
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-primary backdrop-blur-sm">
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="sticky top-0 z-50 bg-primary backdrop-blur-sm"
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -373,116 +388,142 @@ const Products = () => {
             </Link>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Header */}
-      <div className="bg-primary text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              🚗 Qute Quadricycle • 🏍️ Boxer 150 • 🛠️ Genuine Spare Parts • 🧤 Rider Gear
-            </p>
+      <SlideIn direction="down">
+        <div className="bg-primary text-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
+              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+                🚗 Qute Quadricycle • 🏍️ Boxer 150 • 🛠️ Genuine Spare Parts • 🧤 Rider Gear
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </SlideIn>
 
       <div className="container mx-auto px-4 py-12">
         {/* Quadricycles Section */}
         <section className="mb-16">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <Car className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">Quadricycles</h2>
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Car className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Quadricycles</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                🚗 European certified quadricycle with advanced manufacturing quality and DTS-i technology
+              </p>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              🚗 European certified quadricycle with advanced manufacturing quality and DTS-i technology
-            </p>
-          </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {quadricycles.map((product, index) => (
-              <QuadricycleCard key={index} product={product} />
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <QuadricycleCard product={product} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* Motorcycles Section */}
         <section className="mb-16">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <Bike className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">Motorcycles</h2>
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Bike className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Motorcycles</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                🏍️ Reliable and fuel-efficient motorcycle perfect for daily commuting and commercial use
+              </p>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              🏍️ Reliable and fuel-efficient motorcycle perfect for daily commuting and commercial use
-            </p>
-          </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {motorcycles.map((product, index) => (
-              <ProductCard key={index} product={product} />
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <ProductCard product={product} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* Rider Gear Section */}
         <section className="mb-16">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <Package className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">🧤 Rider Gear</h2>
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Package className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">🧤 Rider Gear</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Premium protective gear and accessories for safe and comfortable riding
+              </p>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Premium protective gear and accessories for safe and comfortable riding
-            </p>
-          </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {riderGear.map((product, index) => (
-              <AccessoryCard key={index} product={product} />
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <AccessoryCard product={product} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* Spare Parts Section */}
         <section className="mb-16">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center mb-4">
-              <Wrench className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-3xl font-bold text-gray-900">Genuine Spare Parts</h2>
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Wrench className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Genuine Spare Parts</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Original equipment parts for optimal performance and reliability
+              </p>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Original equipment parts for optimal performance and reliability
-            </p>
-          </div>
+          </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {spareParts.map((product, index) => (
-              <AccessoryCard key={index} product={product} />
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <AccessoryCard product={product} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
-          <h3 className="text-3xl font-bold mb-4">Ready to Experience Bajaj?</h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Visit our showroom in Gaborone West Industrial to explore our complete range or get a personalized quote
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-                Schedule Test Ride
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                Contact Dealer
-              </Button>
-            </Link>
-          </div>
-        </section>
+        <ScrollReveal>
+          <HoverScale scale={1.02}>
+            <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
+              <h3 className="text-3xl font-bold mb-4">Ready to Experience Bajaj?</h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Visit our showroom in Gaborone West Industrial to explore our complete range or get a personalized quote
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <HoverScale>
+                  <Link to="/contact">
+                    <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                      Schedule Test Ride
+                    </Button>
+                  </Link>
+                </HoverScale>
+                <HoverScale>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                      Contact Dealer
+                    </Button>
+                  </Link>
+                </HoverScale>
+              </div>
+            </section>
+          </HoverScale>
+        </ScrollReveal>
       </div>
     </div>
   );
