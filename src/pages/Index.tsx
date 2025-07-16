@@ -8,6 +8,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { SlideIn } from "@/components/animations/SlideIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { HoverScale } from "@/components/animations/HoverScale";
+import { MobileNav } from "@/components/MobileNav";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -50,13 +51,17 @@ const Index = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex items-center space-x-4"
             >
-              <Link to="/contact">
-                <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now
-                </Button>
-              </Link>
+              <div className="hidden md:block">
+                <Link to="/contact">
+                  <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Call Now
+                  </Button>
+                </Link>
+              </div>
+              <MobileNav />
             </motion.div>
           </div>
         </div>
@@ -101,22 +106,22 @@ const Index = () => {
                 >
                   <HoverScale>
                     <Link to="/products">
-                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
-                        EXPLORE BOXER 150
-                        <ChevronRight className="w-5 h-5 ml-2" />
+                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
+                        <span className="mr-2">EXPLORE BOXER 150</span>
+                        <ChevronRight className="w-5 h-5" />
                       </Button>
                     </Link>
                   </HoverScale>
                   <HoverScale>
                     <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
                         FIND A DEALER
                       </Button>
                     </Link>
                   </HoverScale>
                   <HoverScale>
                     <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
+                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
                         BOOK A TEST RIDE
                       </Button>
                     </Link>
