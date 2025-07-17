@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -93,11 +94,17 @@ const Index = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                  alt="Bajaj Gaborone"
-                  className="h-12 w-auto"
-                />
+                <Link to="/">
+                  <motion.img 
+                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                    alt="Bajaj Gaborone"
+                    className="h-12 w-auto hover:scale-105 transition-transform duration-200"
+                    whileHover={{ scale: 1.05 }}
+                    style={{
+                      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))"
+                    }}
+                  />
+                </Link>
               </div>
               <div className="hidden md:flex items-center space-x-8">
                 <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">HOME</Link>
@@ -139,10 +146,20 @@ const Index = () => {
                 </div>
               </SlideIn>
               <SlideIn direction="right">
-                <img
+                <motion.img
                   src="/lovable-uploads/69f79593-595d-4a94-8b8c-535663306501.png"
                   alt="Bajaj Motorcycles"
                   className="rounded-lg shadow-lg"
+                  style={{
+                    filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.3))",
+                    transform: "perspective(1000px) rotateX(5deg) rotateY(-5deg)"
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    rotateX: 10,
+                    rotateY: -10 
+                  }}
+                  transition={{ duration: 0.3 }}
                 />
               </SlideIn>
             </div>
@@ -162,7 +179,10 @@ const Index = () => {
               {products.map((product, index) => (
                 <ScrollReveal key={product.id} delay={index * 0.2}>
                   <HoverScale scale={1.03}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                      transform: "perspective(1000px) rotateX(2deg)"
+                    }}>
                       <CardHeader>
                         <div className="flex justify-between items-start">
                           <div>
@@ -179,6 +199,10 @@ const Index = () => {
                           src={product.image}
                           alt={product.name}
                           className="mt-4 rounded-md"
+                          style={{
+                            filter: "drop-shadow(0 8px 16px rgba(0,0,0,0.2))",
+                            transform: "perspective(500px) rotateX(3deg)"
+                          }}
                         />
                       </CardHeader>
                       <CardContent>
@@ -215,7 +239,10 @@ const Index = () => {
               {services.map((service, index) => (
                 <ScrollReveal key={service.title} delay={index * 0.2}>
                   <HoverScale scale={1.03}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                      transform: "perspective(1000px) rotateX(2deg)"
+                    }}>
                       <CardHeader>
                         <div className="flex justify-between items-start">
                           <div>
@@ -242,7 +269,7 @@ const Index = () => {
                         </Link>
                       </CardContent>
                     </Card>
-                  </HoverScale>
+                  </HoveScale>
                 </ScrollReveal>
               ))}
             </div>
@@ -262,7 +289,10 @@ const Index = () => {
               {testimonials.map((testimonial, index) => (
                 <ScrollReveal key={testimonial.name} delay={index * 0.2}>
                   <HoverScale scale={1.02}>
-                    <Card className="bg-blue-50">
+                    <Card className="bg-blue-50" style={{
+                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+                      transform: "perspective(1000px) rotateX(2deg)"
+                    }}>
                       <CardHeader>
                         <CardTitle className="text-xl text-gray-900">{testimonial.name}</CardTitle>
                         <div className="flex items-center mt-2">
