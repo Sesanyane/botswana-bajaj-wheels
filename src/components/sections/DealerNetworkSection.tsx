@@ -9,7 +9,7 @@ export const DealerNetworkSection = () => {
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal direction="left">
+          <ScrollReveal>
             <div>
               <h2 className="text-4xl font-bold text-primary mb-8">
                 OUR DEALER NETWORK
@@ -24,7 +24,7 @@ export const DealerNetworkSection = () => {
             </div>
           </ScrollReveal>
           
-          <ScrollReveal direction="right">
+          <ScrollReveal delay={0.2}>
             <div className="relative">
               {/* Simplified map representation */}
               <div className="bg-gray-200 h-64 rounded-lg relative overflow-hidden">

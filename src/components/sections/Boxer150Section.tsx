@@ -15,7 +15,7 @@ export const Boxer150Section = () => {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal direction="left">
+          <ScrollReveal>
             <div>
               <h2 className="text-4xl font-bold text-primary mb-8">BOXER 150</h2>
               <ul className="space-y-4 mb-8">
@@ -29,7 +29,7 @@ export const Boxer150Section = () => {
             </div>
           </ScrollReveal>
           
-          <ScrollReveal direction="right">
+          <ScrollReveal delay={0.2}>
             <div className="text-center">
               <img
                 src="/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png"
