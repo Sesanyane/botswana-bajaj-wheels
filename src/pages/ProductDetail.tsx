@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Phone, Palette } from "lucide-react";
+import { ArrowLeft, Phone } from "lucide-react";
 import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { SlideIn } from "@/components/animations/SlideIn";
@@ -16,7 +15,6 @@ import { ScooterLoader } from "@/components/animations/ScooterLoader";
 
 const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedColor, setSelectedColor] = useState("Yellow");
   const { id } = useParams();
 
   useEffect(() => {
@@ -60,14 +58,7 @@ const ProductDetail = () => {
         "Top Speed": "70 kmph",
         "Certification": "European WVTA"
       },
-      colors: [
-        { name: "Yellow", hex: "#FFD700", rgb: "255, 212, 0" },
-        { name: "Red", hex: "#DC2626", rgb: "220, 38, 38" },
-        { name: "Green", hex: "#16A34A", rgb: "22, 163, 74" },
-        { name: "Black", hex: "#1F2937", rgb: "31, 41, 55" },
-        { name: "White", hex: "#F9FAFB", rgb: "249, 250, 251" },
-        { name: "Blue", hex: "#2563EB", rgb: "37, 99, 235" }
-      ],
+      colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"],
       warranty: "12 months comprehensive warranty"
     },
     "bajaj-boxer-150": {
@@ -93,10 +84,7 @@ const ProductDetail = () => {
         "Weight": "140 kg",
         "Wheels": "17\" Alloy with Tubeless Tires"
       },
-      colors: [
-        { name: "Red", hex: "#DC2626", rgb: "220, 38, 38" },
-        { name: "Black", hex: "#1F2937", rgb: "31, 41, 55" }
-      ],
+      colors: ["Red", "Black"],
       warranty: "12 months warranty for 30,000 KMs"
     }
   };
@@ -135,17 +123,11 @@ const ProductDetail = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Link to="/">
-                  <motion.img 
-                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Gaborone"
-                    className="h-12 w-auto hover:scale-105 transition-transform duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    style={{
-                      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))"
-                    }}
-                  />
-                </Link>
+                <img 
+                  src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                  alt="Bajaj Gaborone"
+                  className="h-12 w-auto"
+                />
               </div>
               <div className="hidden md:flex items-center space-x-8">
                 <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
@@ -181,16 +163,7 @@ const ProductDetail = () => {
             {/* Product Images */}
             <SlideIn direction="left">
               <div>
-                <div 
-                  className="relative"
-                  style={{
-                    filter: `hue-rotate(${selectedColor === 'Red' ? '0deg' : selectedColor === 'Blue' ? '240deg' : selectedColor === 'Green' ? '120deg' : selectedColor === 'Black' ? '0deg' : selectedColor === 'White' ? '0deg' : '45deg'}) saturate(${selectedColor === 'Black' ? '0%' : selectedColor === 'White' ? '20%' : '100%'}) brightness(${selectedColor === 'Black' ? '30%' : selectedColor === 'White' ? '150%' : '100%'})`,
-                    transform: "perspective(1000px) rotateX(5deg) rotateY(-5deg)",
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
-                  }}
-                >
-                  <ProductImageCarousel images={product.images} productName={product.name} />
-                </div>
+                <ProductImageCarousel images={product.images} productName={product.name} />
               </div>
             </SlideIn>
 
@@ -206,53 +179,10 @@ const ProductDetail = () => {
                   </div>
                 </FadeIn>
 
-                {/* Color Picker */}
-                <ScrollReveal delay={0.35}>
-                  <HoverScale scale={1.02}>
-                    <Card style={{
-                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                      transform: "perspective(1000px) rotateX(2deg)"
-                    }}>
-                      <CardHeader>
-                        <CardTitle className="flex items-center">
-                          <Palette className="w-5 h-5 mr-2" />
-                          Choose Your Color
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="flex flex-wrap gap-3">
-                          {product.colors.map((color, index) => (
-                            <motion.button
-                              key={color.name}
-                              onClick={() => setSelectedColor(color.name)}
-                              className={`w-12 h-12 rounded-full border-4 transition-all duration-300 ${
-                                selectedColor === color.name ? 'border-primary scale-110' : 'border-gray-300 hover:border-gray-400'
-                              }`}
-                              style={{ 
-                                backgroundColor: color.hex,
-                                boxShadow: `0 4px 12px rgba(${color.rgb}, 0.3)`
-                              }}
-                              whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
-                              title={color.name}
-                            />
-                          ))}
-                        </div>
-                        <p className="mt-3 text-sm text-gray-600">
-                          Selected: <span className="font-medium text-primary">{selectedColor}</span>
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </HoverScale>
-                </ScrollReveal>
-
                 {/* Key Features */}
                 <ScrollReveal delay={0.4}>
                   <HoverScale scale={1.02}>
-                    <Card style={{
-                      boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                      transform: "perspective(1000px) rotateX(2deg)"
-                    }}>
+                    <Card>
                       <CardHeader>
                         <CardTitle>Key Features</CardTitle>
                       </CardHeader>
@@ -269,6 +199,33 @@ const ProductDetail = () => {
                             >
                               <div className="w-2 h-2 bg-primary rounded-full"></div>
                               <span className="text-sm">{feature}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </HoverScale>
+                </ScrollReveal>
+
+                {/* Colors */}
+                <ScrollReveal delay={0.5}>
+                  <HoverScale scale={1.02}>
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Available Colors</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {product.colors.map((color, index) => (
+                            <motion.div
+                              key={color}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              whileInView={{ opacity: 1, scale: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: index * 0.1, duration: 0.3 }}
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              <Badge variant="secondary">{color}</Badge>
                             </motion.div>
                           ))}
                         </div>
@@ -303,10 +260,7 @@ const ProductDetail = () => {
           {/* Specifications */}
           <ScrollReveal delay={0.7}>
             <HoverScale scale={1.01}>
-              <Card className="mt-12" style={{
-                boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
-                transform: "perspective(1000px) rotateX(1deg)"
-              }}>
+              <Card className="mt-12">
                 <CardHeader>
                   <CardTitle className="text-center">Complete Specifications</CardTitle>
                 </CardHeader>
@@ -321,9 +275,6 @@ const ProductDetail = () => {
                         transition={{ delay: index * 0.05, duration: 0.3 }}
                         whileHover={{ scale: 1.02 }}
                         className="flex justify-between py-3 px-4 bg-gray-50 rounded-lg"
-                        style={{
-                          boxShadow: "0 4px 8px rgba(0,0,0,0.05)"
-                        }}
                       >
                         <span className="font-medium text-gray-900">{key}</span>
                         <span className="text-gray-600">{value}</span>
@@ -338,10 +289,7 @@ const ProductDetail = () => {
           {/* Warranty Info */}
           <ScrollReveal delay={0.8}>
             <HoverScale scale={1.02}>
-              <Card className="mt-8" style={{
-                boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                transform: "perspective(1000px) rotateX(2deg)"
-              }}>
+              <Card className="mt-8">
                 <CardContent className="py-6">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-2">Warranty Coverage</h3>
