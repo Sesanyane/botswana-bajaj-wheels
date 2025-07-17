@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -157,8 +156,8 @@ const About = () => {
           </section>
 
           {/* Our Vision */}
-          <section className="mb-16">
-            <ScrollReveal>
+          <ScrollReveal>
+            <section className="mb-16">
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center mb-4">
                   <Eye className="h-8 w-8 text-primary mr-3" />
@@ -203,8 +202,8 @@ const About = () => {
           </section>
 
           {/* Our Team */}
-          <section className="mb-16">
-            <ScrollReveal>
+          <ScrollReveal>
+            <section className="mb-16">
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center mb-4">
                   <Users className="h-8 w-8 text-primary mr-3" />
@@ -241,8 +240,8 @@ const About = () => {
           </section>
 
           {/* Our Stats */}
-          <section className="bg-gray-50 rounded-2xl p-8">
-            <ScrollReveal>
+          <ScrollReveal>
+            <section className="bg-gray-50 rounded-2xl p-8">
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center mb-4">
                   <Heart className="h-8 w-8 text-primary mr-3" />
@@ -271,38 +270,36 @@ const About = () => {
                   </ScrollReveal>
                 ))}
               </div>
-            </ScrollReveal>
-          </section>
+            </section>
+          </ScrollReveal>
 
           {/* CTA Section */}
-          <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
-            <ScrollReveal>
-              <HoverScale scale={1.02}>
-                <div>
-                  <h3 className="text-3xl font-bold mb-4">Ready to Experience the Bajaj Difference?</h3>
-                  <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                    Visit our showroom today and let our team help you find the perfect vehicle for your needs
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <HoverScale>
-                      <Link to="/products">
-                        <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-                          View Our Products
-                        </Button>
-                      </Link>
-                    </HoverScale>
-                    <HoverScale>
-                      <Link to="/contact">
-                        <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                          Contact Us
-                        </Button>
-                      </Link>
-                    </HoverScale>
-                  </div>
+          <ScrollReveal>
+            <HoverScale scale={1.02}>
+              <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
+                <h3 className="text-3xl font-bold mb-4">Ready to Experience the Bajaj Difference?</h3>
+                <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                  Visit our showroom today and let our team help you find the perfect vehicle for your needs
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <HoverScale>
+                    <Link to="/products">
+                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                        View Our Products
+                      </Button>
+                    </Link>
+                  </HoverScale>
+                  <HoverScale>
+                    <Link to="/contact">
+                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                        Contact Us
+                      </Button>
+                    </Link>
+                  </HoverScale>
                 </div>
-              </HoverScale>
-            </ScrollReveal>
-          </section>
+              </section>
+            </HoverScale>
+          </ScrollReveal>
         </div>
       </div>
     </>
