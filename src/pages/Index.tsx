@@ -14,15 +14,7 @@ import { MobileNav } from "@/components/MobileNav";
 import { ScooterLoader } from "@/components/animations/ScooterLoader";
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [isLoading, setIsLoading] = useState(false);
 
   const products = [
     {
