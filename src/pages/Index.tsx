@@ -269,7 +269,7 @@ const Index = () => {
                         </Link>
                       </CardContent>
                     </Card>
-                  </HoverScale>
+                  </HoveScale>
                 </ScrollReveal>
               ))}
             </div>
