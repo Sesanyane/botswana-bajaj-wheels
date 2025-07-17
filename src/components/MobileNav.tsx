@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Home, Info, Package, Wrench, Mail } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const menuVariants: Variants = {
+  const menuVariants = {
     closed: { 
       opacity: 0, 
       x: "100%",
       transition: {
-        type: "spring" as const,
+        type: "spring",
         stiffness: 400,
         damping: 40
       }
@@ -24,24 +24,25 @@ export const MobileNav = () => {
       opacity: 1, 
       x: 0,
       transition: {
-        type: "spring" as const,
+        type: "spring",
         stiffness: 400,
         damping: 40
       }
     }
   };
 
-  const linkVariants: Variants = {
+  const linkVariants = {
     closed: { x: 20, opacity: 0 },
-    open: {
+    open: (i: number) => ({
       x: 0,
       opacity: 1,
       transition: {
-        type: "spring" as const,
+        delay: i * 0.1,
+        type: "spring",
         stiffness: 400,
         damping: 25
       }
-    }
+    })
   };
 
   const menuItems = [
@@ -62,11 +63,7 @@ export const MobileNav = () => {
           variant="ghost"
           size="icon"
           onClick={toggleMenu}
-          className="text-white hover:bg-white/20 transition-all duration-200 bg-white/10 backdrop-blur-sm border border-white/20"
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(10px)"
-          }}
+          className="text-white hover:bg-white/20 transition-all duration-200"
         >
           <motion.div
             animate={isOpen ? { rotate: 180 } : { rotate: 0 }}
@@ -96,26 +93,15 @@ export const MobileNav = () => {
               exit="closed"
               variants={menuVariants}
               className="fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.98)",
-                backdropFilter: "blur(20px)",
-                boxShadow: "0 25px 50px rgba(0,0,0,0.25)"
-              }}
             >
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-primary to-blue-600">
-                  <Link to="/" onClick={() => setIsOpen(false)}>
-                    <motion.img 
-                      src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                      alt="Bajaj Gaborone"
-                      className="h-10 w-auto hover:scale-105 transition-transform duration-200"
-                      whileHover={{ scale: 1.05 }}
-                      style={{
-                        filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))"
-                      }}
-                    />
-                  </Link>
+                  <img 
+                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                    alt="Bajaj Gaborone"
+                    className="h-10 w-auto"
+                  />
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -132,14 +118,14 @@ export const MobileNav = () => {
                 </div>
                 
                 {/* Navigation */}
-                <nav className="flex flex-col flex-1 p-6 space-y-2 bg-white">
+                <nav className="flex flex-col flex-1 p-6 space-y-2">
                   {menuItems.map((item, index) => (
                     <motion.div
                       key={item.to}
+                      custom={index}
                       variants={linkVariants}
                       initial="closed"
                       animate="open"
-                      transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.02, x: 4 }}
                       whileTap={{ scale: 0.98 }}
                     >

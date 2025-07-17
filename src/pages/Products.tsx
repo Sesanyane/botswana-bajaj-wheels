@@ -1,233 +1,531 @@
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Fuel, Users, Zap } from "lucide-react";
+import { Bike, Truck, Fuel, Gauge, Users, Phone, Car, Package, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { SlideIn } from "@/components/animations/SlideIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { HoverScale } from "@/components/animations/HoverScale";
-import { motion, AnimatePresence } from "framer-motion";
-import { MobileNav } from "@/components/MobileNav";
-import { ScooterLoader } from "@/components/animations/ScooterLoader";
+import { motion } from "framer-motion";
 
 const Products = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const products = [
+  const quadricycles = [
     {
       id: "bajaj-qute",
       name: "Bajaj Qute Quadricycle",
-      category: "Quadricycle",
+      category: "Passenger Vehicle",
       price: "From P 85,000",
-      description: "Europe's first quadricycle designed for efficient urban transportation",
-      image: "/lovable-uploads/14fd21c4-d6c7-4b63-a09d-0d1395111e7c.png",
-      keyFeatures: ["217cc DTS-i Engine", "36 kmpl Fuel Efficiency", "4-Seater Capacity", "191L Storage Space"],
-      badge: "Most Popular"
-    },
+      engine: "217cc",
+      mileage: "36 kmpl",
+      power: "13.2 BHP",
+      capacity: "4 Seater",
+      maxSpeed: "70 kmph",
+      storage: "191L",
+      image: "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png",
+      gallery: [
+        "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png",
+        "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png", 
+        "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png",
+        "/lovable-uploads/cbed80e8-405a-4d08-aded-ae7ea6c13fb7.png"
+      ],
+      features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
+      description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
+    }
+  ];
+
+  const motorcycles = [
     {
       id: "bajaj-boxer-150",
       name: "Bajaj Boxer 150",
       category: "Motorcycle",
       price: "From P 15,000",
-      description: "Reliable motorcycle perfect for daily commuting",
+      engine: "149.5cc",
+      mileage: "70 kmpl",
+      power: "12 BHP",
       image: "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png",
-      keyFeatures: ["149.5cc Engine", "70 kmpl Fuel Efficiency", "5-Speed Transmission", "Telescopic Front Fork"],
-      badge: "Best Value"
+      features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
+      description: "Perfect for daily commuting with excellent fuel efficiency"
     }
   ];
 
-  return (
-    <>
-      <AnimatePresence>
-        {isLoading && <ScooterLoader />}
-      </AnimatePresence>
-      
-      <div className="min-h-screen bg-gray-50">
-        {/* Navigation */}
-        <motion.nav 
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="sticky top-0 z-50 bg-primary backdrop-blur-sm"
-        >
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <img 
-                  src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                  alt="Bajaj Gaborone"
-                  className="h-12 w-auto"
-                />
-              </div>
-              <div className="hidden md:flex items-center space-x-8">
-                <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
-                <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
-                <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">PRODUCTS</Link>
-                <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
-                <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Link to="/contact" className="hidden md:block">
-                  <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call Now
-                  </Button>
-                </Link>
-                <MobileNav />
-              </div>
-            </div>
-          </div>
-        </motion.nav>
+  const riderGear = [
+    {
+      id: "helmets",
+      name: "Protective Helmets",
+      category: "Rider Gear",
+      price: "From P 800",
+      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=300&fit=crop",
+      features: ["ISI Certified", "Multiple Sizes", "Ventilation System", "Anti-fog Visor"],
+      description: "Premium safety helmets for motorcycle riders"
+    },
+    {
+      id: "riding-jackets",
+      name: "Riding Jackets",
+      category: "Rider Gear", 
+      price: "From P 1,200",
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&h=300&fit=crop",
+      features: ["Weather Resistant", "Protective Padding", "Reflective Strips", "Multiple Pockets"],
+      description: "Durable and comfortable riding jackets"
+    },
+    {
+      id: "gloves-gear",
+      name: "Riding Gloves & Gear",
+      category: "Rider Gear",
+      price: "From P 400",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop",
+      features: ["Grip Enhancement", "Knuckle Protection", "Breathable Material", "Knee Pads"],
+      description: "Essential protective gear for safe riding"
+    }
+  ];
 
-        {/* Header */}
-        <SlideIn direction="down">
-          <div className="bg-primary text-white py-16">
-            <div className="container mx-auto px-4">
-              <div className="text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
-                <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                  Explore our range of Bajaj motorcycles and quadricycles available in Gaborone
-                </p>
-              </div>
-            </div>
-          </div>
-        </SlideIn>
+  const spareParts = [
+    {
+      id: "engine-components",
+      name: "Engine Components",
+      category: "Spare Parts",
+      price: "From P 150",
+      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&h=300&fit=crop",
+      features: ["Engine Oil", "Oil Filters", "Air Filters", "Spark Plugs"],
+      description: "Genuine engine parts for optimal performance"
+    },
+    {
+      id: "electrical-components",
+      name: "Electrical Components",
+      category: "Spare Parts",
+      price: "From P 200",
+      image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=500&h=300&fit=crop",
+      features: ["Batteries", "Headlights", "Wiring Harnesses", "Alternators"],
+      description: "Complete electrical system components"
+    },
+    {
+      id: "body-chassis",
+      name: "Body & Chassis",
+      category: "Spare Parts",
+      price: "From P 400",
+      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&h=300&fit=crop",
+      features: ["Bumpers", "Mirrors", "Suspension Components", "Tires"],
+      description: "Body and chassis parts for structural integrity"
+    }
+  ];
 
-        <div className="container mx-auto px-4 py-12">
-          {/* Products Section */}
-          <section className="mb-16">
-            <ScrollReveal>
-              <div className="text-center mb-12">
-                <div className="flex items-center justify-center mb-4">
-                  <Zap className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-3xl font-bold text-gray-900">Explore Our Range</h2>
-                </div>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                  Discover the perfect Bajaj vehicle for your needs, from efficient quadricycles to reliable motorcycles
-                </p>
-              </div>
-            </ScrollReveal>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.map((product, index) => (
-                <ScrollReveal key={product.id} delay={index * 0.1}>
-                  <HoverScale scale={1.03}>
-                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                      <CardHeader>
-                        <div className="relative">
-                          <img 
-                            src={product.image} 
-                            alt={product.name} 
-                            className="rounded-md w-full h-48 object-cover" 
-                          />
-                          {product.badge && (
-                            <Badge className="absolute top-2 right-2">{product.badge}</Badge>
-                          )}
-                        </div>
-                        <CardTitle className="text-xl text-gray-900 mt-4">{product.name}</CardTitle>
-                        <CardDescription className="text-primary font-semibold text-lg">
-                          {product.price}
-                        </CardDescription>
-                        <p className="text-gray-600 text-sm">{product.description}</p>
-                      </CardHeader>
-                      <CardContent>
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-                        <ul className="list-disc pl-5 text-gray-600">
-                          {product.keyFeatures.map((feature, index) => (
-                            <li key={index} className="text-sm">{feature}</li>
-                          ))}
-                        </ul>
-                        <Link to={`/product/${product.id}`}>
-                          <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-white">
-                            View Details <ArrowRight className="w-4 h-4 ml-2" />
-                          </Button>
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </HoverScale>
-                </ScrollReveal>
-              ))}
-            </div>
-          </section>
-
-          {/* Why Choose Bajaj Section */}
-          <ScrollReveal>
-            <section className="bg-gray-50 rounded-2xl p-8">
-              <div className="text-center mb-12">
-                <div className="flex items-center justify-center mb-4">
-                  <Fuel className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-3xl font-bold text-gray-900">Why Choose Bajaj?</h2>
-                </div>
-                <p className="text-gray-600 max-w-2xl mx-auto">
-                  Experience the benefits of Bajaj vehicles: fuel efficiency, reliability, and affordability
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[
-                  { icon: Fuel, title: "Fuel Efficiency", desc: "Save money with our fuel-efficient engines" },
-                  { icon: Users, title: "Reliability", desc: "Dependable vehicles built to last" },
-                  { icon: Star, title: "Affordability", desc: "Get the best value for your money" }
-                ].map((item, index) => (
-                  <ScrollReveal key={index} delay={index * 0.2}>
-                    <HoverScale>
-                      <div className="text-center">
-                        <motion.div 
-                          whileHover={{ y: -5, rotate: 5 }}
-                          className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4"
-                        >
-                          <item.icon className="w-10 h-10 text-white" />
-                        </motion.div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.desc}</p>
-                      </div>
-                    </HoverScale>
-                  </ScrollReveal>
+  const QuadricycleCard = ({ product }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+    return (
+      <HoverScale scale={1.03}>
+        <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div className="relative overflow-hidden">
+            <img 
+              src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
+              alt={product.name}
+              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <Badge className="absolute top-3 left-3 bg-primary text-white">
+              {product.category}
+            </Badge>
+            {product.gallery && (
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {product.gallery.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
                 ))}
               </div>
-            </section>
-          </ScrollReveal>
-
-          {/* CTA Section */}
-          <ScrollReveal delay={0.3}>
-            <HoverScale scale={1.02}>
-              <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
-                <h3 className="text-3xl font-bold mb-4">Ready to Find Your Perfect Ride?</h3>
-                <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                  Explore our product range and contact us today to schedule a test ride or get a quote
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <HoverScale>
-                    <Link to="/contact">
-                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-                        Get a Quote
-                      </Button>
-                    </Link>
-                  </HoverScale>
-                  <HoverScale>
-                    <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                        Schedule Test Ride
-                      </Button>
-                    </Link>
-                  </HoverScale>
+            )}
+          </div>
+          <CardHeader>
+            <div className="flex justify-between items-start">
+              <div>
+                <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+                <CardDescription className="text-primary font-semibold text-lg">
+                  {product.price}
+                </CardDescription>
+              </div>
+            </div>
+            <p className="text-gray-600 text-sm">{product.description}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Gauge className="h-4 w-4 text-primary mr-1" />
                 </div>
-              </section>
-            </HoverScale>
-          </ScrollReveal>
+                <p className="text-xs text-gray-500">Engine</p>
+                <p className="text-sm font-semibold">{product.engine}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Fuel className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Mileage</p>
+                <p className="text-sm font-semibold">{product.mileage}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Users className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Capacity</p>
+                <p className="text-sm font-semibold">{product.capacity}</p>
+              </div>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Truck className="h-4 w-4 text-primary mr-1" />
+                </div>
+                <p className="text-xs text-gray-500">Storage</p>
+                <p className="text-sm font-semibold">{product.storage}</p>
+              </div>
+            </div>
+            
+            <div className="mb-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
+              <div className="flex flex-wrap gap-1">
+                {product.features.map((feature, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {feature}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            
+            <div className="flex gap-2">
+              <Link to="/contact" className="flex-1">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                  Get Quote
+                </Button>
+              </Link>
+              <Link to={`/product/${product.id}`} className="flex-1">
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </HoverScale>
+    );
+  };
+
+  const ProductCard = ({ product, isThreeWheeler = false }) => (
+    <HoverScale scale={1.03}>
+      <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div className="relative overflow-hidden">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <Badge className="absolute top-3 left-3 bg-primary text-white">
+            {product.category}
+          </Badge>
         </div>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+              <CardDescription className="text-primary font-semibold text-lg">
+                {product.price}
+              </CardDescription>
+            </div>
+          </div>
+          <p className="text-gray-600 text-sm">{product.description}</p>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-3 gap-4 mb-4">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-1">
+                <Gauge className="h-4 w-4 text-primary mr-1" />
+              </div>
+              <p className="text-xs text-gray-500">Engine</p>
+              <p className="text-sm font-semibold">{product.engine}</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-1">
+                {isThreeWheeler ? (
+                  <Users className="h-4 w-4 text-primary mr-1" />
+                ) : (
+                  <Fuel className="h-4 w-4 text-primary mr-1" />
+                )}
+              </div>
+              <p className="text-xs text-gray-500">
+                {isThreeWheeler ? "Capacity" : "Mileage"}
+              </p>
+              <p className="text-sm font-semibold">
+                {isThreeWheeler ? product.capacity : product.mileage}
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-1">
+                <Truck className="h-4 w-4 text-primary mr-1" />
+              </div>
+              <p className="text-xs text-gray-500">
+                {isThreeWheeler ? "Payload" : "Power"}
+              </p>
+              <p className="text-sm font-semibold">
+                {isThreeWheeler ? product.payload : product.power}
+              </p>
+            </div>
+          </div>
+          
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
+            <div className="flex flex-wrap gap-1">
+              {product.features.map((feature, index) => (
+                <Badge key={index} variant="secondary" className="text-xs">
+                  {feature}
+                </Badge>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex gap-2">
+            <Link to="/contact" className="flex-1">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                Get Quote
+              </Button>
+            </Link>
+            <Link to={`/product/${product.id}`} className="flex-1">
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                Learn More
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </HoverScale>
+  );
+
+  const AccessoryCard = ({ product }) => (
+    <HoverScale scale={1.03}>
+      <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div className="relative overflow-hidden">
+          <img 
+            src={product.image} 
+            alt={product.name}
+            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <Badge className="absolute top-3 left-3 bg-secondary text-primary">
+            {product.category}
+          </Badge>
+        </div>
+        <CardHeader>
+          <div className="flex justify-between items-start">
+            <div>
+              <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+              <CardDescription className="text-primary font-semibold text-lg">
+                {product.price}
+              </CardDescription>
+            </div>
+          </div>
+          <p className="text-gray-600 text-sm">{product.description}</p>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-gray-700 mb-2">Includes:</h4>
+            <div className="flex flex-wrap gap-1">
+              {product.features.map((feature, index) => (
+                <Badge key={index} variant="outline" className="text-xs">
+                  {feature}
+                </Badge>
+              ))}
+            </div>
+          </div>
+          
+          <div className="flex gap-2">
+            <Link to="/contact" className="flex-1">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                Order Now
+              </Button>
+            </Link>
+            <Link to="/contact" className="flex-1">
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                Get Info
+              </Button>
+            </Link>
+          </div>
+        </CardContent>
+      </Card>
+    </HoverScale>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Navigation */}
+      <motion.nav 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="sticky top-0 z-50 bg-primary backdrop-blur-sm"
+      >
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                alt="Bajaj Gaborone"
+                className="h-12 w-auto"
+              />
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
+              <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
+              <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">PRODUCTS</Link>
+              <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
+              <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
+            </div>
+            <Link to="/contact">
+              <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50">
+                <Phone className="w-4 h-4 mr-2" />
+                Call Now
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Header */}
+      <SlideIn direction="down">
+        <div className="bg-primary text-white py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
+              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+                🚗 Qute Quadricycle • 🏍️ Boxer 150 • 🛠️ Genuine Spare Parts • 🧤 Rider Gear
+              </p>
+            </div>
+          </div>
+        </div>
+      </SlideIn>
+
+      <div className="container mx-auto px-4 py-12">
+        {/* Quadricycles Section */}
+        <section className="mb-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Car className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Quadricycles</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                🚗 European certified quadricycle with advanced manufacturing quality and DTS-i technology
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {quadricycles.map((product, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <QuadricycleCard product={product} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Motorcycles Section */}
+        <section className="mb-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Bike className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Motorcycles</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                🏍️ Reliable and fuel-efficient motorcycle perfect for daily commuting and commercial use
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {motorcycles.map((product, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <ProductCard product={product} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Rider Gear Section */}
+        <section className="mb-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Package className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">🧤 Rider Gear</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Premium protective gear and accessories for safe and comfortable riding
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {riderGear.map((product, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <AccessoryCard product={product} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Spare Parts Section */}
+        <section className="mb-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Wrench className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Genuine Spare Parts</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Original equipment parts for optimal performance and reliability
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {spareParts.map((product, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <AccessoryCard product={product} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <ScrollReveal>
+          <HoverScale scale={1.02}>
+            <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
+              <h3 className="text-3xl font-bold mb-4">Ready to Experience Bajaj?</h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Visit our showroom in Gaborone West Industrial to explore our complete range or get a personalized quote
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <HoverScale>
+                  <Link to="/contact">
+                    <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
+                      Schedule Test Ride
+                    </Button>
+                  </Link>
+                </HoverScale>
+                <HoverScale>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                      Contact Dealer
+                    </Button>
+                  </Link>
+                </HoverScale>
+              </div>
+            </section>
+          </HoverScale>
+        </ScrollReveal>
       </div>
-    </>
+    </div>
   );
 };
 
