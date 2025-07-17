@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -69,17 +68,11 @@ const About = () => {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <Link to="/">
-                  <motion.img 
-                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Gaborone"
-                    className="h-12 w-auto hover:scale-105 transition-transform duration-200"
-                    whileHover={{ scale: 1.05 }}
-                    style={{
-                      filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))"
-                    }}
-                  />
-                </Link>
+                <img 
+                  src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                  alt="Bajaj Gaborone"
+                  className="h-12 w-auto"
+                />
               </div>
               <div className="hidden md:flex items-center space-x-8">
                 <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
@@ -133,10 +126,7 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <ScrollReveal>
                 <FadeIn>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                    transform: "perspective(1000px) rotateX(2deg)"
-                  }}>
+                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <CardHeader>
                       <CardTitle className="text-xl text-gray-900">Customer Satisfaction</CardTitle>
                     </CardHeader>
@@ -150,10 +140,7 @@ const About = () => {
               </ScrollReveal>
               <ScrollReveal delay={0.2}>
                 <FadeIn>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                    transform: "perspective(1000px) rotateX(2deg)"
-                  }}>
+                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <CardHeader>
                       <CardTitle className="text-xl text-gray-900">Quality Products</CardTitle>
                     </CardHeader>
@@ -180,45 +167,39 @@ const About = () => {
                   To be the leading provider of motorcycles and quadricycles in Botswana, empowering individuals and businesses with reliable transportation
                 </p>
               </div>
-            </section>
-          </ScrollReveal>
+            </ScrollReveal>
             
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <ScrollReveal>
-              <FadeIn>
-                <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                  transform: "perspective(1000px) rotateX(2deg)"
-                }}>
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">Innovation</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
-                      We embrace innovation and constantly seek new ways to improve our products and services
-                    </p>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <FadeIn>
-                <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                  transform: "perspective(1000px) rotateX(2deg)"
-                }}>
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900">Community Engagement</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600">
-                      We are committed to giving back to the community and supporting local initiatives
-                    </p>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            </ScrollReveal>
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <ScrollReveal>
+                <FadeIn>
+                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <CardHeader>
+                      <CardTitle className="text-xl text-gray-900">Innovation</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">
+                        We embrace innovation and constantly seek new ways to improve our products and services
+                      </p>
+                    </CardContent>
+                  </Card>
+                </FadeIn>
+              </ScrollReveal>
+              <ScrollReveal delay={0.2}>
+                <FadeIn>
+                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <CardHeader>
+                      <CardTitle className="text-xl text-gray-900">Community Engagement</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">
+                        We are committed to giving back to the community and supporting local initiatives
+                      </p>
+                    </CardContent>
+                  </Card>
+                </FadeIn>
+              </ScrollReveal>
+            </div>
+          </section>
 
           {/* Our Team */}
           <ScrollReveal>
@@ -232,37 +213,31 @@ const About = () => {
                   Our dedicated team is here to provide you with exceptional service and support
                 </p>
               </div>
-            </section>
-          </ScrollReveal>
+            </ScrollReveal>
             
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <HoverScale>
-                  <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style={{
-                    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-                    transform: "perspective(1000px) rotateX(2deg)"
-                  }}>
-                    <CardHeader className="text-center">
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" 
-                        style={{
-                          filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))"
-                        }}
-                      />
-                      <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
-                      <CardDescription className="text-gray-600">{member.role}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600 text-center">{member.experience}</p>
-                    </CardContent>
-                  </Card>
-                </HoverScale>
-              </ScrollReveal>
-            ))}
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {teamMembers.map((member, index) => (
+                <ScrollReveal key={index} delay={index * 0.1}>
+                  <HoverScale>
+                    <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                      <CardHeader className="text-center">
+                        <img 
+                          src={member.image} 
+                          alt={member.name} 
+                          className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" 
+                        />
+                        <CardTitle className="text-xl text-gray-900">{member.name}</CardTitle>
+                        <CardDescription className="text-gray-600">{member.role}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-gray-600 text-center">{member.experience}</p>
+                      </CardContent>
+                    </Card>
+                  </HoverScale>
+                </ScrollReveal>
+              ))}
+            </div>
+          </section>
 
           {/* Our Stats */}
           <ScrollReveal>
@@ -285,9 +260,6 @@ const About = () => {
                         <motion.div 
                           whileHover={{ y: -5, rotate: 5 }}
                           className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4"
-                          style={{
-                            boxShadow: "0 10px 25px rgba(0,0,0,0.15)"
-                          }}
                         >
                           <stat.icon className="w-10 h-10 text-white" />
                         </motion.div>
@@ -304,9 +276,7 @@ const About = () => {
           {/* CTA Section */}
           <ScrollReveal>
             <HoverScale scale={1.02}>
-              <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white" style={{
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-              }}>
+              <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
                 <h3 className="text-3xl font-bold mb-4">Ready to Experience the Bajaj Difference?</h3>
                 <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                   Visit our showroom today and let our team help you find the perfect vehicle for your needs
