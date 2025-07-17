@@ -3,19 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone, Home, Info, Package, Wrench, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 export const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     closed: { 
       opacity: 0, 
       x: "100%",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
@@ -24,25 +24,24 @@ export const MobileNav = () => {
       opacity: 1, 
       x: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
     }
   };
 
-  const linkVariants = {
+  const linkVariants: Variants = {
     closed: { x: 20, opacity: 0 },
-    open: (i: number) => ({
+    open: {
       x: 0,
       opacity: 1,
       transition: {
-        delay: i * 0.1,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 25
       }
-    })
+    }
   };
 
   const menuItems = [
@@ -122,10 +121,10 @@ export const MobileNav = () => {
                   {menuItems.map((item, index) => (
                     <motion.div
                       key={item.to}
-                      custom={index}
                       variants={linkVariants}
                       initial="closed"
                       animate="open"
+                      transition={{ delay: index * 0.1 }}
                       whileHover={{ scale: 1.02, x: 4 }}
                       whileTap={{ scale: 0.98 }}
                     >
