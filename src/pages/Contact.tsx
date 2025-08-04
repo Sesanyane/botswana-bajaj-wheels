@@ -3,15 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Facebook, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Send, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { MobileNav } from "@/components/MobileNav";
 import { ScooterLoader } from "@/components/animations/ScooterLoader";
 import { AnimatePresence } from "framer-motion";
+import { supabase, type ContactSubmission } from "@/lib/supabase";
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,34 +39,79 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Create mailto link
-    const subject = encodeURIComponent(formData.subject || "Inquiry from Bajaj Gaborone Website");
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n\n` +
-      `Message:\n${formData.message}`
-    );
-    
-    const mailtoLink = `mailto:info@bajajgaborone.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Email Client Opened",
-      description: "Your default email client has been opened with the message. Please send the email to complete your inquiry.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
+    try {
+      // Validate required fields
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        toast({
+          title: "Missing Information",
+          description: "Please fill in all required fields (Name, Email, and Message).",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Submit to Supabase
+      const submission: Omit<ContactSubmission, 'id' | 'created_at'> = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        phone: formData.phone.trim() || null,
+        subject: formData.subject.trim() || null,
+        message: formData.message.trim(),
+      };
+
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .insert([submission])
+        .select();
+
+      if (error) {
+        console.error('Supabase error:', error);
+        // Fallback to mailto if database submission fails
+        const subject = encodeURIComponent(formData.subject || "Inquiry from Bajaj Gaborone Website");
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\n` +
+          `Email: ${formData.email}\n` +
+          `Phone: ${formData.phone}\n\n` +
+          `Message:\n${formData.message}`
+        );
+        
+        const mailtoLink = `mailto:info@bajajgaborone.com?subject=${subject}&body=${body}`;
+        window.open(mailtoLink, '_blank');
+        
+        toast({
+          title: "Fallback: Email Client Opened",
+          description: "We couldn't save your message online, but your email client is ready to send it.",
+        });
+      } else {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+        });
+      }
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Submission Error",
+        description: "There was an error sending your message. Please try again or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -202,9 +249,22 @@ const Contact = () => {
                       />
                     </div>
                     
-                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white">
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
                     </Button>
                   </form>
                 </CardContent>
