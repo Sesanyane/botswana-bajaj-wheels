@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Facebook, Send, Loader2 } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Send, Loader2, MessageCircle, Webhook } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { MobileNav } from "@/components/MobileNav";
@@ -14,6 +14,7 @@ import { supabase, type ContactSubmission } from "@/lib/supabase";
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [webhookUrl, setWebhookUrl] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,43 +55,73 @@ const Contact = () => {
         return;
       }
 
-      // Submit to Supabase
-      const submission: Omit<ContactSubmission, 'id' | 'created_at'> = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        phone: formData.phone.trim() || null,
-        subject: formData.subject.trim() || null,
-        message: formData.message.trim(),
-      };
+      let submitted = false;
 
-      const { data, error } = await supabase
-        .from('contact_submissions')
-        .insert([submission])
-        .select();
+      // Try Zapier webhook first if provided
+      if (webhookUrl.trim()) {
+        try {
+          await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            mode: "no-cors",
+            body: JSON.stringify({
+              ...formData,
+              timestamp: new Date().toISOString(),
+              source: "Bajaj Gaborone Website"
+            }),
+          });
+          
+          toast({
+            title: "Message Sent via Zapier!",
+            description: "Your message was sent successfully. We'll get back to you soon.",
+          });
+          submitted = true;
+        } catch (error) {
+          console.error('Zapier webhook error:', error);
+        }
+      }
 
-      if (error) {
-        console.error('Supabase error:', error);
-        // Fallback to mailto if database submission fails
-        const subject = encodeURIComponent(formData.subject || "Inquiry from Bajaj Gaborone Website");
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\n` +
-          `Email: ${formData.email}\n` +
-          `Phone: ${formData.phone}\n\n` +
-          `Message:\n${formData.message}`
-        );
-        
-        const mailtoLink = `mailto:info@bajajgaborone.com?subject=${subject}&body=${body}`;
-        window.open(mailtoLink, '_blank');
-        
-        toast({
-          title: "Fallback: Email Client Opened",
-          description: "We couldn't save your message online, but your email client is ready to send it.",
-        });
-      } else {
-        toast({
-          title: "Message Sent Successfully!",
-          description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-        });
+      // Try Supabase if Zapier failed or wasn't configured
+      if (!submitted) {
+        const submission: Omit<ContactSubmission, 'id' | 'created_at'> = {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || null,
+          subject: formData.subject.trim() || null,
+          message: formData.message.trim(),
+        };
+
+        const { data, error } = await supabase
+          .from('contact_submissions')
+          .insert([submission])
+          .select();
+
+        if (error) {
+          console.error('Supabase error:', error);
+          // Fallback to mailto if both Zapier and Supabase fail
+          const subject = encodeURIComponent(formData.subject || "Inquiry from Bajaj Gaborone Website");
+          const body = encodeURIComponent(
+            `Name: ${formData.name}\n` +
+            `Email: ${formData.email}\n` +
+            `Phone: ${formData.phone}\n\n` +
+            `Message:\n${formData.message}`
+          );
+          
+          const mailtoLink = `mailto:info@bajajgaborone.com?subject=${subject}&body=${body}`;
+          window.open(mailtoLink, '_blank');
+          
+          toast({
+            title: "Email Client Opened",
+            description: "We couldn't save your message online, but your email client is ready to send it.",
+          });
+        } else {
+          toast({
+            title: "Message Sent Successfully!",
+            description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+          });
+        }
       }
       
       // Reset form
@@ -106,12 +137,27 @@ const Contact = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Submission Error",
-        description: "There was an error sending your message. Please try again or call us directly.",
+        description: "There was an error sending your message. Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleWhatsAppContact = () => {
+    const message = formData.name && formData.message 
+      ? `Hi! I'm ${formData.name}. ${formData.message}`
+      : "Hi! I'm interested in your motorcycles and would like more information.";
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/26777962660?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+    
+    toast({
+      title: "WhatsApp Opened",
+      description: "Continue the conversation on WhatsApp for instant replies!",
+    });
   };
 
   return (
@@ -170,10 +216,29 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900">Send us a Message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible
+                    Fill out the form below or contact us directly via WhatsApp for instant replies
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {/* Zapier Webhook Option */}
+                  <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <label htmlFor="webhook" className="block text-sm font-medium text-blue-900 mb-2">
+                      <Webhook className="w-4 h-4 inline mr-1" />
+                      Zapier Webhook URL (Optional)
+                    </label>
+                    <Input
+                      id="webhook"
+                      type="url"
+                      value={webhookUrl}
+                      onChange={(e) => setWebhookUrl(e.target.value)}
+                      placeholder="https://hooks.zapier.com/hooks/catch/..."
+                      className="bg-white"
+                    />
+                    <p className="text-xs text-blue-700 mt-1">
+                      Connect your own Zapier webhook for custom automation
+                    </p>
+                  </div>
+
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -251,7 +316,7 @@ const Contact = () => {
                     
                     <Button 
                       type="submit" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white"
+                      className="w-full bg-primary hover:bg-primary/90 text-white mb-3"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -265,6 +330,17 @@ const Contact = () => {
                           Send Message
                         </>
                       )}
+                    </Button>
+                    
+                    {/* WhatsApp Alternative */}
+                    <Button 
+                      type="button"
+                      variant="outline"
+                      className="w-full border-green-500 text-green-600 hover:bg-green-50"
+                      onClick={handleWhatsAppContact}
+                    >
+                      <MessageCircle className="w-4 h-4 mr-2" />
+                      Contact via WhatsApp
                     </Button>
                   </form>
                 </CardContent>
@@ -326,6 +402,22 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
+                      <MessageCircle className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900">WhatsApp</h3>
+                      <p className="text-gray-600">+267 77 962 660</p>
+                      <button 
+                        onClick={() => window.open('https://wa.me/26777962660', '_blank')}
+                        className="text-green-600 hover:text-green-800 transition-colors text-sm mt-1"
+                      >
+                        Chat with us instantly
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                       <Facebook className="h-6 w-6 text-white" />
                     </div>
@@ -379,7 +471,7 @@ const Contact = () => {
           <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
             <h3 className="text-3xl font-bold mb-4">Need Immediate Assistance?</h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Call us directly or visit our showroom for immediate help with sales, service, or parts
+              Call us, WhatsApp us, visit our showroom, or message us on Facebook for immediate help
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -390,6 +482,14 @@ const Contact = () => {
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-green-500 text-white hover:bg-green-600"
+                onClick={() => window.open('https://wa.me/26777962660', '_blank')}
+              >
+                <MessageCircle className="w-4 h-4 mr-2" />
+                WhatsApp Us
               </Button>
               <Button 
                 size="lg" 
