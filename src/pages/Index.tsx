@@ -322,8 +322,8 @@ const Index = () => {
                         <div className="text-center p-6 bg-blue-50 rounded-lg">
                           <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
                           <h3 className="text-xl font-bold text-primary mb-2">Bajaj Gaborone</h3>
-                          <p className="text-gray-600 mb-2">Central Business District</p>
-                          <p className="text-gray-600 mb-2">Gaborone, Botswana</p>
+                          <p className="text-gray-600 mb-2">Unit 5, Plot 22052 Kgomokasitwa RD</p>
+                          <p className="text-gray-600 mb-2">Gaborone West Industrial</p>
                           <p className="text-sm text-gray-500">+267 395 0000 4019</p>
                         </div>
                       </div>

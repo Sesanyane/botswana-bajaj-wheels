@@ -227,9 +227,9 @@ const Contact = () => {
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Our Location</h3>
-                      <p className="text-gray-600">Central Business District</p>
-                      <p className="text-gray-600">Gaborone, Botswana</p>
+                       <h3 className="font-semibold text-gray-900">Our Location</h3>
+                       <p className="text-gray-600">Unit 5, Plot 22052 Kgomokasitwa RD</p>
+                       <p className="text-gray-600">Gaborone West Industrial</p>
                     </div>
                   </div>
                   
@@ -296,7 +296,8 @@ const Contact = () => {
                   <div className="bg-gray-100 rounded-lg p-8 text-center">
                     <MapPin className="h-20 w-20 text-primary mx-auto mb-4" />
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Bajaj Gaborone</h3>
-                    <p className="text-gray-600 mb-4">Central Business District, Gaborone</p>
+                    <p className="text-gray-600 mb-4">Unit 5, Plot 22052 Kgomokasitwa RD</p>
+                    <p className="text-gray-600 mb-4">Gaborone West Industrial</p>
                     <p className="text-sm text-gray-500 mb-4">
                       Easy to find location with ample parking available
                     </p>

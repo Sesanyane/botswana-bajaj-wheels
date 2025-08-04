@@ -15,7 +15,7 @@ export const MobileNav = () => {
       opacity: 0, 
       x: "100%",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
@@ -24,7 +24,7 @@ export const MobileNav = () => {
       opacity: 1, 
       x: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
@@ -38,7 +38,7 @@ export const MobileNav = () => {
       opacity: 1,
       transition: {
         delay: i * 0.1,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 25
       }
