@@ -70,12 +70,12 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden min-h-[80vh]">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-125 contrast-125 saturate-110"
           style={{
             backgroundImage: `url(/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png)`
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/60 to-primary/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
