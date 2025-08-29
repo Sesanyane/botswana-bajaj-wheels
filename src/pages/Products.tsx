@@ -10,14 +10,14 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
-// Import high-quality product images
-import bajajaQuteYellow from "/lovable-uploads/bb787c09-261c-40ef-b1c1-a58286037ba0.png";
-import bajajQuteRed from "/lovable-uploads/cbed80e8-405a-4d08-aded-ae7ea6c13fb7.png";
-import bajajQuteInterior from "/lovable-uploads/2cb64d5e-8870-4195-a654-0b1aca1da155.png";
-import bajajQuteBlue from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
+// Import high-quality product images from uploads
+import bajajaQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
+import bajajQuteRed from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
+import bajajQuteInterior from "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png";
+import bajajQuteBlue from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
 import bajajBoxer150Red from "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png";
-import bajajBoxer150Black from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
-import motorcycleHelmets from "/lovable-uploads/c28c0d80-1236-4847-bead-eb51a991fc0b.png";
+import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
+import motorcycleHelmets from "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png";
 import ridingJackets from "/lovable-uploads/ba3a5cea-8a4a-42cd-9981-a7a66e9cd8fb.png";
 import ridingGlovesGear from "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png";
 import engineComponents from "/lovable-uploads/b896238e-1990-44d9-a2ef-bcb7815270d9.png";
