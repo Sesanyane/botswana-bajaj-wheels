@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = "26773950000"; // Bajaj Gaborone WhatsApp number
+  const phoneNumber = "26773103312"; // Bajaj Gaborone WhatsApp number
   const message = "Hi! I'm interested in Bajaj motorcycles. Can you help me?";
 
   const handleWhatsAppClick = () => {

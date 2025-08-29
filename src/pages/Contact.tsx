@@ -151,7 +151,7 @@ const Contact = () => {
       : "Hi! I'm interested in your motorcycles and would like more information.";
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/26777962660?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/26773103312?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
@@ -188,7 +188,7 @@ const Contact = () => {
               <div className="flex items-center space-x-4">
                 <Button variant="secondary" className="bg-white text-primary hover:bg-blue-50 hidden md:flex">
                   <Phone className="w-4 h-4 mr-2" />
-                  +267 395 0000 4019
+                  +267 73103 312
                 </Button>
                 <MobileNav />
               </div>
@@ -375,7 +375,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Phone</h3>
-                      <p className="text-gray-600">+267 395 0000 4019</p>
+                      <p className="text-gray-600">+267 73103 312</p>
                     </div>
                   </div>
                   
@@ -407,9 +407,9 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">WhatsApp</h3>
-                      <p className="text-gray-600">+267 77 962 660</p>
+                      <p className="text-gray-600">+267 73103 312</p>
                       <button 
-                        onClick={() => window.open('https://wa.me/26777962660', '_blank')}
+                        onClick={() => window.open('https://wa.me/26773103312', '_blank')}
                         className="text-green-600 hover:text-green-800 transition-colors text-sm mt-1"
                       >
                         Chat with us instantly
@@ -478,7 +478,7 @@ const Contact = () => {
                 size="lg" 
                 variant="secondary" 
                 className="bg-white text-primary hover:bg-gray-100"
-                onClick={() => window.location.href = 'tel:+2673950000401'}
+                onClick={() => window.location.href = 'tel:+26773103312'}
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
@@ -486,7 +486,7 @@ const Contact = () => {
               <Button 
                 size="lg" 
                 className="bg-green-500 text-white hover:bg-green-600"
-                onClick={() => window.open('https://wa.me/26777962660', '_blank')}
+                onClick={() => window.open('https://wa.me/26773103312', '_blank')}
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
                 WhatsApp Us

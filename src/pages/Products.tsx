@@ -11,18 +11,18 @@ import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
 // Import high-quality product images
-import bajajaQuteYellow from "@/assets/bajaj-qute-yellow.jpg";
-import bajajQuteRed from "@/assets/bajaj-qute-red.jpg";
-import bajajQuteInterior from "@/assets/bajaj-qute-interior.jpg";
-import bajajQuteBlue from "@/assets/bajaj-qute-blue.jpg";
-import bajajBoxer150Red from "@/assets/bajaj-boxer-150-red.jpg";
-import bajajBoxer150Black from "@/assets/bajaj-boxer-150-black.jpg";
-import motorcycleHelmets from "@/assets/motorcycle-helmets.jpg";
-import ridingJackets from "@/assets/riding-jackets.jpg";
-import ridingGlovesGear from "@/assets/riding-gloves-gear.jpg";
-import engineComponents from "@/assets/engine-components.jpg";
-import electricalComponents from "@/assets/electrical-components.jpg";
-import bodyChassisParts from "@/assets/body-chassis-parts.jpg";
+import bajajaQuteYellow from "/lovable-uploads/bb787c09-261c-40ef-b1c1-a58286037ba0.png";
+import bajajQuteRed from "/lovable-uploads/cbed80e8-405a-4d08-aded-ae7ea6c13fb7.png";
+import bajajQuteInterior from "/lovable-uploads/2cb64d5e-8870-4195-a654-0b1aca1da155.png";
+import bajajQuteBlue from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
+import bajajBoxer150Red from "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png";
+import bajajBoxer150Black from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
+import motorcycleHelmets from "/lovable-uploads/c28c0d80-1236-4847-bead-eb51a991fc0b.png";
+import ridingJackets from "/lovable-uploads/ba3a5cea-8a4a-42cd-9981-a7a66e9cd8fb.png";
+import ridingGlovesGear from "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png";
+import engineComponents from "/lovable-uploads/b896238e-1990-44d9-a2ef-bcb7815270d9.png";
+import electricalComponents from "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png";
+import bodyChassisParts from "/lovable-uploads/eb6732d3-23d4-4db0-83ae-eb7134b3787e.png";
 
 const Products = () => {
   const quadricycles = [

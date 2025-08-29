@@ -324,7 +324,7 @@ const Index = () => {
                           <h3 className="text-xl font-bold text-primary mb-2">Bajaj Gaborone</h3>
                           <p className="text-gray-600 mb-2">Unit 5, Plot 22052 Kgomokasitwa RD</p>
                           <p className="text-gray-600 mb-2">Gaborone West Industrial</p>
-                          <p className="text-sm text-gray-500">+267 395 0000 4019</p>
+                          <p className="text-sm text-gray-500">+267 73103 312</p>
                         </div>
                       </div>
                     </div>
@@ -360,7 +360,7 @@ const Index = () => {
               </motion.div>
               {[
                 { title: "ABOUT US", links: [{ text: "Our Story", to: "/about" }, { text: "Commitment", to: "/about" }] },
-                { title: "CONTACT", links: [{ text: "Gaborone Office", to: "#" }, { text: "+267 395 0000 4019", to: "#" }] },
+                { title: "CONTACT", links: [{ text: "Gaborone Office", to: "#" }, { text: "+267 73103 312", to: "#" }] },
                 { title: "QUICK LINKS", links: [{ text: "Products", to: "/products" }, { text: "Services", to: "/services" }, { text: "Contact", to: "/contact" }] }
               ].map((section, index) => (
                 <motion.div

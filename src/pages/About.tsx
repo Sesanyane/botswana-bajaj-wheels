@@ -356,7 +356,7 @@ const About = () => {
                 <ul className="space-y-2 text-blue-100">
                   <li>Unit 5, Plot 22052 Kgomokasitwa RD</li>
                   <li>Gaborone West Industrial</li>
-                  <li>+267 395 0000 4019</li>
+                  <li>+267 73103 312</li>
                 </ul>
               </div>
               <div>
