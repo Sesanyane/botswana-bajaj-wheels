@@ -10,6 +10,20 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
+// Import high-quality product images
+import bajajaQuteYellow from "@/assets/bajaj-qute-yellow.jpg";
+import bajajQuteRed from "@/assets/bajaj-qute-red.jpg";
+import bajajQuteInterior from "@/assets/bajaj-qute-interior.jpg";
+import bajajQuteBlue from "@/assets/bajaj-qute-blue.jpg";
+import bajajBoxer150Red from "@/assets/bajaj-boxer-150-red.jpg";
+import bajajBoxer150Black from "@/assets/bajaj-boxer-150-black.jpg";
+import motorcycleHelmets from "@/assets/motorcycle-helmets.jpg";
+import ridingJackets from "@/assets/riding-jackets.jpg";
+import ridingGlovesGear from "@/assets/riding-gloves-gear.jpg";
+import engineComponents from "@/assets/engine-components.jpg";
+import electricalComponents from "@/assets/electrical-components.jpg";
+import bodyChassisParts from "@/assets/body-chassis-parts.jpg";
+
 const Products = () => {
   const quadricycles = [
     {
@@ -23,12 +37,12 @@ const Products = () => {
       capacity: "4 Seater",
       maxSpeed: "70 kmph",
       storage: "191L",
-      image: "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png",
+      image: bajajaQuteYellow,
       gallery: [
-        "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png",
-        "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png", 
-        "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png",
-        "/lovable-uploads/cbed80e8-405a-4d08-aded-ae7ea6c13fb7.png"
+        bajajaQuteYellow,
+        bajajQuteRed,
+        bajajQuteInterior,
+        bajajQuteBlue
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
       description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
@@ -44,7 +58,8 @@ const Products = () => {
       engine: "149.5cc",
       mileage: "70 kmpl",
       power: "12 BHP",
-      image: "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png",
+      image: bajajBoxer150Red,
+      gallery: [bajajBoxer150Red, bajajBoxer150Black],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
       description: "Perfect for daily commuting with excellent fuel efficiency"
     }
@@ -56,7 +71,7 @@ const Products = () => {
       name: "Protective Helmets",
       category: "Rider Gear",
       price: "From P 800",
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=300&fit=crop",
+      image: motorcycleHelmets,
       features: ["ISI Certified", "Multiple Sizes", "Ventilation System", "Anti-fog Visor"],
       description: "Premium safety helmets for motorcycle riders"
     },
@@ -65,7 +80,7 @@ const Products = () => {
       name: "Riding Jackets",
       category: "Rider Gear", 
       price: "From P 1,200",
-      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=500&h=300&fit=crop",
+      image: ridingJackets,
       features: ["Weather Resistant", "Protective Padding", "Reflective Strips", "Multiple Pockets"],
       description: "Durable and comfortable riding jackets"
     },
@@ -74,7 +89,7 @@ const Products = () => {
       name: "Riding Gloves & Gear",
       category: "Rider Gear",
       price: "From P 400",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=300&fit=crop",
+      image: ridingGlovesGear,
       features: ["Grip Enhancement", "Knuckle Protection", "Breathable Material", "Knee Pads"],
       description: "Essential protective gear for safe riding"
     }
@@ -86,7 +101,7 @@ const Products = () => {
       name: "Engine Components",
       category: "Spare Parts",
       price: "From P 150",
-      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&h=300&fit=crop",
+      image: engineComponents,
       features: ["Engine Oil", "Oil Filters", "Air Filters", "Spark Plugs"],
       description: "Genuine engine parts for optimal performance"
     },
@@ -95,7 +110,7 @@ const Products = () => {
       name: "Electrical Components",
       category: "Spare Parts",
       price: "From P 200",
-      image: "https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=500&h=300&fit=crop",
+      image: electricalComponents,
       features: ["Batteries", "Headlights", "Wiring Harnesses", "Alternators"],
       description: "Complete electrical system components"
     },
@@ -104,7 +119,7 @@ const Products = () => {
       name: "Body & Chassis",
       category: "Spare Parts",
       price: "From P 400",
-      image: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=500&h=300&fit=crop",
+      image: bodyChassisParts,
       features: ["Bumpers", "Mirrors", "Suspension Components", "Tires"],
       description: "Body and chassis parts for structural integrity"
     }
@@ -213,19 +228,37 @@ const Products = () => {
     );
   };
 
-  const ProductCard = ({ product, isThreeWheeler = false }) => (
-    <HoverScale scale={1.03}>
-      <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-        <div className="relative overflow-hidden">
-          <img 
-            src={product.image} 
-            alt={product.name}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          <Badge className="absolute top-3 left-3 bg-primary text-white">
-            {product.category}
-          </Badge>
-        </div>
+  const ProductCard = ({ product, isThreeWheeler = false }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+    return (
+      <HoverScale scale={1.03}>
+        <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div className="relative overflow-hidden">
+            <img 
+              src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
+              alt={product.name}
+              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <Badge className="absolute top-3 left-3 bg-primary text-white">
+              {product.category}
+            </Badge>
+            {product.gallery && (
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {product.gallery.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 0.9 }}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         <CardHeader>
           <div className="flex justify-between items-start">
             <div>
@@ -298,9 +331,10 @@ const Products = () => {
             </Link>
           </div>
         </CardContent>
-      </Card>
-    </HoverScale>
-  );
+        </Card>
+      </HoverScale>
+    );
+  };
 
   const AccessoryCard = ({ product }) => (
     <HoverScale scale={1.03}>

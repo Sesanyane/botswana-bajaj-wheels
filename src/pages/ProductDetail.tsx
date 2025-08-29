@@ -13,6 +13,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MobileNav } from "@/components/MobileNav";
 import { ScooterLoader } from "@/components/animations/ScooterLoader";
 
+// Import high-quality product images
+import bajajaQuteYellow from "@/assets/bajaj-qute-yellow.jpg";
+import bajajQuteRed from "@/assets/bajaj-qute-red.jpg";
+import bajajQuteInterior from "@/assets/bajaj-qute-interior.jpg";
+import bajajQuteBlue from "@/assets/bajaj-qute-blue.jpg";
+import bajajBoxer150Red from "@/assets/bajaj-boxer-150-red.jpg";
+import bajajBoxer150Black from "@/assets/bajaj-boxer-150-black.jpg";
+
 const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -32,11 +40,10 @@ const ProductDetail = () => {
       price: "From P 85,000",
       description: "Europe's first quadricycle designed for efficient urban transportation",
       images: [
-        "/lovable-uploads/14fd21c4-d6c7-4b63-a09d-0d1395111e7c.png",
-        "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png",
-        "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png",
-        "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png",
-        "/lovable-uploads/cbed80e8-405a-4d08-aded-ae7ea6c13fb7.png"
+        bajajaQuteYellow,
+        bajajQuteRed,
+        bajajQuteInterior,
+        bajajQuteBlue
       ],
       keyFeatures: [
         "217cc DTS-i Engine",
@@ -66,7 +73,7 @@ const ProductDetail = () => {
       category: "Motorcycle", 
       price: "From P 15,000",
       description: "Reliable motorcycle perfect for daily commuting",
-      images: ["/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png"],
+      images: [bajajBoxer150Red, bajajBoxer150Black],
       keyFeatures: [
         "149.5cc Engine",
         "70 kmpl Fuel Efficiency",
