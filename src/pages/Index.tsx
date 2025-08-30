@@ -78,8 +78,8 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-8">
                 <FadeIn delay={0.2}>
                   <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
                     🎉 Now Available in Gaborone
@@ -129,12 +129,12 @@ const Index = () => {
                 </motion.div>
               </div>
               <SlideIn direction="right" delay={0.5}>
-                <div className="relative">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="lg:col-span-4 relative">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                     <div className="text-white text-center">
-                      <Zap className="w-20 h-20 mx-auto mb-4 text-blue-200" />
-                      <h3 className="text-2xl font-bold mb-4">Experience Our Range</h3>
-                      <p className="text-blue-100">Motorcycles & Three-wheelers built for every journey</p>
+                      <Zap className="w-12 h-12 mx-auto mb-3 text-blue-200" />
+                      <h3 className="text-lg font-bold mb-2">Experience Our Range</h3>
+                      <p className="text-blue-100 text-sm">Motorcycles & Three-wheelers built for every journey</p>
                     </div>
                   </div>
                 </div>

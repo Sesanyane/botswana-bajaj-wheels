@@ -11,15 +11,13 @@ import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
 // Import high-quality product images from uploads
-import bajajaQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
-import bajajQuteRed from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
-import bajajQuteInterior from "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png";
-import bajajQuteBlue from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
-import bajajBoxer150Red from "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png";
-import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
-import motorcycleHelmets from "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png";
-import ridingJackets from "/lovable-uploads/ba3a5cea-8a4a-42cd-9981-a7a66e9cd8fb.png";
-import ridingGlovesGear from "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png";
+import bajajaQuteYellow from "/lovable-uploads/0f4346de-a105-4c8e-b211-46cd71850e5c.png";
+import bajajQuteBlue from "/lovable-uploads/179b63a1-0171-4c6a-8999-54e0352a1b17.png";
+import bajajQuteBlueWithParts from "/lovable-uploads/d0f922d9-89a5-4c3e-84bd-23a9e693295b.png";
+import bajajBoxer150Black from "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png";
+import motorcycleHelmets from "/lovable-uploads/d6fda7d5-9fb4-4478-97e4-442fb77efb31.png";
+import ridingJackets from "/lovable-uploads/e3323c21-df89-47ef-a6ca-1f2957253817.png";
+import ridingGlovesGear from "/lovable-uploads/5063b4d3-be53-4fdf-92f3-fec884781202.png";
 import engineComponents from "/lovable-uploads/b896238e-1990-44d9-a2ef-bcb7815270d9.png";
 import electricalComponents from "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff659578a8.png";
 import bodyChassisParts from "/lovable-uploads/eb6732d3-23d4-4db0-83ae-eb7134b3787e.png";
@@ -30,9 +28,9 @@ const Products = () => {
       id: "bajaj-qute",
       name: "Bajaj Qute Quadricycle",
       category: "Passenger Vehicle",
-      price: "From P 85,000",
       engine: "217cc",
       mileage: "36 kmpl",
+      fuelRange: "300+ km",
       power: "13.2 BHP",
       capacity: "4 Seater",
       maxSpeed: "70 kmph",
@@ -40,9 +38,8 @@ const Products = () => {
       image: bajajaQuteYellow,
       gallery: [
         bajajaQuteYellow,
-        bajajQuteRed,
-        bajajQuteInterior,
-        bajajQuteBlue
+        bajajQuteBlue,
+        bajajQuteBlueWithParts
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
       description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
@@ -54,12 +51,12 @@ const Products = () => {
       id: "bajaj-boxer-150",
       name: "Bajaj Boxer 150",
       category: "Motorcycle",
-      price: "From P 15,000",
       engine: "149.5cc",
       mileage: "70 kmpl",
+      fuelRange: "450+ km",
       power: "12 BHP",
-      image: bajajBoxer150Red,
-      gallery: [bajajBoxer150Red, bajajBoxer150Black],
+      image: bajajBoxer150Black,
+      gallery: [bajajBoxer150Black],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
       description: "Perfect for daily commuting with excellent fuel efficiency"
     }
@@ -70,7 +67,6 @@ const Products = () => {
       id: "helmets",
       name: "Protective Helmets",
       category: "Rider Gear",
-      price: "From P 800",
       image: motorcycleHelmets,
       features: ["ISI Certified", "Multiple Sizes", "Ventilation System", "Anti-fog Visor"],
       description: "Premium safety helmets for motorcycle riders"
@@ -78,8 +74,7 @@ const Products = () => {
     {
       id: "riding-jackets",
       name: "Riding Jackets",
-      category: "Rider Gear", 
-      price: "From P 1,200",
+      category: "Rider Gear",
       image: ridingJackets,
       features: ["Weather Resistant", "Protective Padding", "Reflective Strips", "Multiple Pockets"],
       description: "Durable and comfortable riding jackets"
@@ -88,7 +83,6 @@ const Products = () => {
       id: "gloves-gear",
       name: "Riding Gloves & Gear",
       category: "Rider Gear",
-      price: "From P 400",
       image: ridingGlovesGear,
       features: ["Grip Enhancement", "Knuckle Protection", "Breathable Material", "Knee Pads"],
       description: "Essential protective gear for safe riding"
@@ -100,7 +94,6 @@ const Products = () => {
       id: "engine-components",
       name: "Engine Components",
       category: "Spare Parts",
-      price: "From P 150",
       image: engineComponents,
       features: ["Engine Oil", "Oil Filters", "Air Filters", "Spark Plugs"],
       description: "Genuine engine parts for optimal performance"
@@ -109,7 +102,6 @@ const Products = () => {
       id: "electrical-components",
       name: "Electrical Components",
       category: "Spare Parts",
-      price: "From P 200",
       image: electricalComponents,
       features: ["Batteries", "Headlights", "Wiring Harnesses", "Alternators"],
       description: "Complete electrical system components"
@@ -118,7 +110,6 @@ const Products = () => {
       id: "body-chassis",
       name: "Body & Chassis",
       category: "Spare Parts",
-      price: "From P 400",
       image: bodyChassisParts,
       features: ["Bumpers", "Mirrors", "Suspension Components", "Tires"],
       description: "Body and chassis parts for structural integrity"
@@ -160,9 +151,6 @@ const Products = () => {
             <div className="flex justify-between items-start">
               <div>
                 <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-                <CardDescription className="text-primary font-semibold text-lg">
-                  {product.price}
-                </CardDescription>
               </div>
             </div>
             <p className="text-gray-600 text-sm">{product.description}</p>
@@ -180,8 +168,8 @@ const Products = () => {
                 <div className="flex items-center justify-center mb-1">
                   <Fuel className="h-4 w-4 text-primary mr-1" />
                 </div>
-                <p className="text-xs text-gray-500">Mileage</p>
-                <p className="text-sm font-semibold">{product.mileage}</p>
+                <p className="text-xs text-gray-500">Fuel Range</p>
+                <p className="text-sm font-semibold">{product.fuelRange}</p>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-1">
@@ -263,9 +251,6 @@ const Products = () => {
           <div className="flex justify-between items-start">
             <div>
               <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-              <CardDescription className="text-primary font-semibold text-lg">
-                {product.price}
-              </CardDescription>
             </div>
           </div>
           <p className="text-gray-600 text-sm">{product.description}</p>
@@ -281,29 +266,17 @@ const Products = () => {
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
-                {isThreeWheeler ? (
-                  <Users className="h-4 w-4 text-primary mr-1" />
-                ) : (
-                  <Fuel className="h-4 w-4 text-primary mr-1" />
-                )}
+                <Fuel className="h-4 w-4 text-primary mr-1" />
               </div>
-              <p className="text-xs text-gray-500">
-                {isThreeWheeler ? "Capacity" : "Mileage"}
-              </p>
-              <p className="text-sm font-semibold">
-                {isThreeWheeler ? product.capacity : product.mileage}
-              </p>
+              <p className="text-xs text-gray-500">Fuel Range</p>
+              <p className="text-sm font-semibold">{product.fuelRange}</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
                 <Truck className="h-4 w-4 text-primary mr-1" />
               </div>
-              <p className="text-xs text-gray-500">
-                {isThreeWheeler ? "Payload" : "Power"}
-              </p>
-              <p className="text-sm font-semibold">
-                {isThreeWheeler ? product.payload : product.power}
-              </p>
+              <p className="text-xs text-gray-500">Power</p>
+              <p className="text-sm font-semibold">{product.power}</p>
             </div>
           </div>
           
@@ -353,9 +326,6 @@ const Products = () => {
           <div className="flex justify-between items-start">
             <div>
               <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-              <CardDescription className="text-primary font-semibold text-lg">
-                {product.price}
-              </CardDescription>
             </div>
           </div>
           <p className="text-gray-600 text-sm">{product.description}</p>
