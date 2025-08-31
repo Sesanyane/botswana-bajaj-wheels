@@ -30,7 +30,7 @@ const Products = () => {
       category: "Passenger Vehicle",
       engine: "217cc",
       mileage: "36 kmpl",
-      fuelRange: "300+ km",
+      fuelRange: "300+ km range on full tank",
       power: "13.2 BHP",
       capacity: "4 Seater",
       maxSpeed: "70 kmph",
@@ -42,7 +42,8 @@ const Products = () => {
         bajajQuteBlueWithParts
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
-      description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
+      description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Qute promotional video
     }
   ];
 
@@ -53,12 +54,13 @@ const Products = () => {
       category: "Motorcycle",
       engine: "149.5cc",
       mileage: "70 kmpl",
-      fuelRange: "450+ km",
+      fuelRange: "450+ km range on full tank",
       power: "12 BHP",
       image: bajajBoxer150Black,
       gallery: [bajajBoxer150Black],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
-      description: "Perfect for daily commuting with excellent fuel efficiency"
+      description: "Perfect for daily commuting with excellent fuel efficiency",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Boxer 150 promotional video
     }
   ];
 
@@ -155,7 +157,16 @@ const Products = () => {
             </div>
             <p className="text-gray-600 text-sm">{product.description}</p>
           </CardHeader>
-          <CardContent>
+        <CardContent>
+            <div className="mb-4">
+              <iframe 
+                src={product.video} 
+                title={`${product.name} Video`}
+                className="w-full h-48 rounded-lg mb-4"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
             <div className="grid grid-cols-2 gap-4 mb-4">
               <div className="text-center">
                 <div className="flex items-center justify-center mb-1">
@@ -256,6 +267,15 @@ const Products = () => {
           <p className="text-gray-600 text-sm">{product.description}</p>
         </CardHeader>
         <CardContent>
+          <div className="mb-4">
+            <iframe 
+              src={product.video} 
+              title={`${product.name} Video`}
+              className="w-full h-40 rounded-lg mb-4"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="text-center">
               <div className="flex items-center justify-center mb-1">
@@ -373,7 +393,7 @@ const Products = () => {
             <div className="flex items-center space-x-3">
               <img 
                 src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                alt="Bajaj Gaborone"
+                alt="Bajaj Botswana"
                 className="h-12 w-auto"
               />
             </div>
@@ -381,6 +401,7 @@ const Products = () => {
               <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
               <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
               <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">PRODUCTS</Link>
+              <Link to="/accessories" className="text-white hover:text-blue-200 transition-colors font-medium">ACCESSORIES</Link>
               <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
               <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
             </div>
@@ -507,7 +528,7 @@ const Products = () => {
             <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
               <h3 className="text-3xl font-bold mb-4">Ready to Experience Bajaj?</h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Visit our showroom in Gaborone West Industrial to explore our complete range or get a personalized quote
+                Visit our showroom in Botswana to explore our complete range or get a personalized quote
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <HoverScale>

@@ -33,7 +33,7 @@ const About = () => {
               <div className="flex items-center space-x-3">
                 <img 
                   src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                  alt="Bajaj Gaborone"
+                alt="Bajaj Botswana"
                   className="h-12 w-auto"
                 />
               </div>
@@ -41,6 +41,7 @@ const About = () => {
                 <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
                 <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">ABOUT</Link>
                 <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium">PRODUCTS</Link>
+                <Link to="/accessories" className="text-white hover:text-blue-200 transition-colors font-medium">ACCESSORIES</Link>
                 <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
                 <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
               </div>
@@ -63,18 +64,18 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                About Bajaj Auto Gaborone
+                About Bajaj Auto Botswana
               </Badge>
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
                 BRINGING{" "}
                 <span className="text-blue-200">
                   WORLD-CLASS MOBILITY
                 </span>{" "}
-                TO GABORONE
+                TO BOTSWANA
               </h1>
               <p className="text-xl text-blue-100 max-w-3xl mx-auto">
                 With over 75 years of innovation and excellence, Bajaj Auto is proud to introduce 
-                our reliable motorcycles and three-wheelers to the beautiful city of Gaborone.
+                our reliable motorcycles and three-wheelers to the beautiful nation of Botswana.
               </p>
             </div>
           </div>
@@ -85,17 +86,17 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-primary mb-6">OUR GABORONE JOURNEY</h2>
+                <h2 className="text-4xl font-bold text-primary mb-6">OUR BOTSWANA JOURNEY</h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Calendar className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-primary mb-2">LAUNCHED IN 2024</h3>
+                      <h3 className="text-xl font-semibold text-primary mb-2">SINCE 1948</h3>
                       <p className="text-gray-600">
                         We're excited to bring Bajaj's proven track record of reliable, 
-                        fuel-efficient vehicles to Gaborone's growing transportation market.
+                        fuel-efficient vehicles to Botswana's growing transportation market.
                       </p>
                     </div>
                   </div>
@@ -107,7 +108,7 @@ const About = () => {
                       <h3 className="text-xl font-semibold text-primary mb-2">STRATEGIC LOCATION</h3>
                       <p className="text-gray-600">
                         Located at Unit 5, Plot 22052 Kgomokasitwa RD, Gaborone West Industrial, 
-                        our showroom and service center are strategically positioned to serve customers across the city.
+                        our showroom and service center are strategically positioned to serve customers across Botswana.
                       </p>
                     </div>
                   </div>
@@ -119,7 +120,7 @@ const About = () => {
                       <h3 className="text-xl font-semibold text-primary mb-2">LOCAL EXPERTISE</h3>
                       <p className="text-gray-600">
                         Our team combines international Bajaj standards with local knowledge 
-                        to provide the best service experience for our Gaborone customers.
+                        to provide the best service experience for our Botswana customers.
                       </p>
                     </div>
                   </div>
@@ -134,7 +135,7 @@ const About = () => {
                     <CardTitle className="text-primary">GLOBAL PRESENCE</CardTitle>
                   </CardHeader>
                   <CardContent className="text-center">
-                    <p className="text-3xl font-bold text-primary mb-2">70+</p>
+                    <p className="text-3xl font-bold text-primary mb-2">+100</p>
                     <p className="text-blue-700">Countries Worldwide</p>
                   </CardContent>
                 </Card>
@@ -177,7 +178,7 @@ const About = () => {
                     Boasting a line-up of petrol, diesel, compressed natural gas (CNG) and EV (electric vehicles) in the offering, Bajaj is widely recognised as a global leader of ESG driven mobility solutions.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
-                    Bajaj is established across Asia, Africa & Latin America with a footprint of over 70 countries.
+                    Bajaj is established across Asia, Africa & Latin America with a footprint of over 100 countries.
                   </p>
                 </CardContent>
               </Card>
@@ -186,7 +187,7 @@ const About = () => {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-primary mb-4">The World's Favourite Indian</h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    With more than 18 million motorcycles sold in over 70 countries, the Bajaj brand is truly 'The World's Favourite Indian'.
+                    With more than 18 million motorcycles sold in over 100 countries, the Bajaj brand is truly 'The World's Favourite Indian'.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
                     From motorcycles to three-wheelers and now quadricycles, from Mumbai to Mexico City and Bogota to Bengaluru, there's a Bajaj for everyone.
@@ -222,7 +223,7 @@ const About = () => {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-primary mb-4">OUR MISSION & VISION</h2>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Driving Gaborone forward with reliable, sustainable mobility solutions
+                Driving Botswana forward with reliable, sustainable mobility solutions
               </p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -237,8 +238,8 @@ const About = () => {
                 <CardContent className="text-center pb-8">
                   <p className="text-gray-600 leading-relaxed">
                     To provide affordable, reliable, and fuel-efficient mobility solutions 
-                    that empower the people of Gaborone to achieve their aspirations and 
-                    contribute to the city's economic growth.
+                    that empower the people of Botswana to achieve their aspirations and 
+                    contribute to the nation's economic growth.
                   </p>
                 </CardContent>
               </Card>
@@ -253,7 +254,7 @@ const About = () => {
                 </CardHeader>
                 <CardContent className="text-center pb-8">
                   <p className="text-gray-600 leading-relaxed">
-                    To be the leading mobility brand in Gaborone, recognized for quality, 
+                    To be the leading mobility brand in Botswana, recognized for quality, 
                     innovation, and customer satisfaction, while supporting sustainable 
                     transportation for a better tomorrow.
                   </p>
@@ -315,7 +316,7 @@ const About = () => {
             <h2 className="text-4xl font-bold text-white mb-4">JOIN THE BAJAJ FAMILY</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
               Experience the difference that 75 years of automotive excellence can make. 
-              Visit us today and become part of the Bajaj Auto story in Gaborone.
+              Visit us today and become part of the Bajaj Auto story in Botswana.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
@@ -336,12 +337,12 @@ const About = () => {
                 <div className="flex items-center space-x-3 mb-6">
                   <img 
                     src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Gaborone"
+                    alt="Bajaj Botswana"
                     className="h-8 w-auto"
                   />
                 </div>
                 <p className="text-blue-100 mb-4">
-                  Bringing reliable mobility solutions to Gaborone with world-class motorcycles and three-wheelers.
+                  Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
                 </p>
               </div>
               <div>

@@ -28,29 +28,19 @@ const Services = () => {
       title: "Regular Maintenance",
       description: "Keep your Bajaj vehicle running smoothly with our comprehensive maintenance packages",
       icon: Wrench,
-      features: ["Oil Change", "Filter Replacement", "Brake Inspection", "Chain Lubrication"],
-      price: "From P 150"
-    },
-    {
-      title: "Emergency Repairs",
-      description: "Quick and reliable repair services for unexpected breakdowns",
-      icon: Shield,
-      features: ["Engine Diagnostics", "Electrical Repairs", "Brake Service", "Emergency Roadside"],
-      price: "Call for Quote"
+      features: ["Oil Change", "Filter Replacement", "Brake Inspection", "Chain Lubrication"]
     },
     {
       title: "Spare Parts",
       description: "Genuine Bajaj spare parts to ensure optimal performance and longevity",
       icon: Truck,
-      features: ["Genuine Parts Only", "Warranty Included", "Quick Delivery", "Expert Installation"],
-      price: "Market Leading Prices"
+      features: ["Genuine Parts Only", "Warranty Included", "Quick Delivery", "Expert Installation"]
     },
     {
       title: "Test Rides",
       description: "Experience our motorcycles before you buy with complimentary test rides",
       icon: Calendar,
-      features: ["All Models Available", "Professional Guidance", "Safety Equipment", "Flexible Timing"],
-      price: "Free"
+      features: ["All Models Available", "Professional Guidance", "Safety Equipment", "Flexible Timing"]
     }
   ];
 
@@ -73,7 +63,7 @@ const Services = () => {
               <div className="flex items-center space-x-3">
                 <img 
                   src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                  alt="Bajaj Gaborone"
+                  alt="Bajaj Botswana"
                   className="h-12 w-auto"
                 />
               </div>
@@ -81,6 +71,7 @@ const Services = () => {
                 <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
                 <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
                 <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium">PRODUCTS</Link>
+                <Link to="/accessories" className="text-white hover:text-blue-200 transition-colors font-medium">ACCESSORIES</Link>
                 <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">SERVICES</Link>
                 <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
               </div>
@@ -104,7 +95,7 @@ const Services = () => {
               <div className="text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
                 <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                  Comprehensive support and maintenance for your Bajaj vehicle in Gaborone
+                  Comprehensive support and maintenance for your Bajaj vehicle in Botswana
                 </p>
               </div>
             </div>
@@ -135,9 +126,6 @@ const Services = () => {
                         <div className="flex justify-between items-start">
                           <div>
                             <CardTitle className="text-xl text-gray-900">{service.title}</CardTitle>
-                            <CardDescription className="text-primary font-semibold text-lg">
-                              {service.price}
-                            </CardDescription>
                           </div>
                           <motion.div
                             whileHover={{ rotate: 5, scale: 1.1 }}
@@ -172,7 +160,7 @@ const Services = () => {
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center mb-4">
                   <Shield className="h-8 w-8 text-primary mr-3" />
-                  <h2 className="text-3xl font-bold text-gray-900">Why Choose Bajaj Gaborone Service?</h2>
+                  <h2 className="text-3xl font-bold text-gray-900">Why Choose Bajaj Botswana Service?</h2>
                 </div>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                   Experience the difference with our certified technicians, genuine parts, and commitment to customer satisfaction
@@ -215,10 +203,10 @@ const Services = () => {
                       <h3 className="text-2xl font-bold">Visit Our Service Center</h3>
                     </div>
                     <p className="text-blue-100 mb-4">
-                      Conveniently located in Gaborone for all your service needs
+                      Conveniently located in Botswana for all your service needs
                     </p>
                     <p className="text-blue-100">
-                      Central Business District, Gaborone, Botswana
+                      Gaborone West Industrial, Botswana
                     </p>
                   </div>
                 </FadeIn>

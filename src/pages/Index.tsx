@@ -31,7 +31,7 @@ const Index = () => {
             >
               <img 
                 src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                alt="Bajaj Gaborone"
+                alt="Bajaj Botswana"
                 className="h-12 w-auto"
               />
             </motion.div>
@@ -44,6 +44,7 @@ const Index = () => {
               <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium bg-white/20 px-3 py-1 rounded">HOME</Link>
               <Link to="/about" className="text-white hover:text-blue-200 transition-colors font-medium">ABOUT</Link>
               <Link to="/products" className="text-white hover:text-blue-200 transition-colors font-medium">PRODUCTS</Link>
+              <Link to="/accessories" className="text-white hover:text-blue-200 transition-colors font-medium">ACCESSORIES</Link>
               <Link to="/services" className="text-white hover:text-blue-200 transition-colors font-medium">SERVICES</Link>
               <Link to="/contact" className="text-white hover:text-blue-200 transition-colors font-medium">CONTACT US</Link>
             </motion.div>
@@ -82,12 +83,12 @@ const Index = () => {
               <div className="lg:col-span-8">
                 <FadeIn delay={0.2}>
                   <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                    🎉 Now Available in Gaborone
+                    🎉 Now Available in Botswana
                   </Badge>
                 </FadeIn>
                 <SlideIn direction="left" delay={0.4}>
                   <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                    BUILT FOR GABORONE.{" "}
+                    BUILT FOR BOTSWANA.{" "}
                     <span className="block text-blue-200">
                       READY FOR ANYTHING.
                     </span>
@@ -95,7 +96,7 @@ const Index = () => {
                 </SlideIn>
                 <FadeIn delay={0.6}>
                   <p className="text-xl text-blue-100 mb-8 max-w-2xl">
-                    Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Gaborone's roads.
+                    Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Botswana's roads.
                   </p>
                 </FadeIn>
                 <motion.div 
@@ -129,12 +130,12 @@ const Index = () => {
                 </motion.div>
               </div>
               <SlideIn direction="right" delay={0.5}>
-                <div className="lg:col-span-4 relative">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="lg:col-span-4 relative flex justify-end">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20 w-48">
                     <div className="text-white text-center">
-                      <Zap className="w-12 h-12 mx-auto mb-3 text-blue-200" />
-                      <h3 className="text-lg font-bold mb-2">Experience Our Range</h3>
-                      <p className="text-blue-100 text-sm">Motorcycles & Three-wheelers built for every journey</p>
+                      <Zap className="w-8 h-8 mx-auto mb-2 text-blue-200" />
+                      <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
+                      <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
                     </div>
                   </div>
                 </div>
@@ -149,13 +150,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-primary mb-4">WHY BAJAJ GABORONE?</h2>
+              <h2 className="text-4xl font-bold text-primary mb-4">WHY BAJAJ BOTSWANA?</h2>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               { icon: CheckCircle, title: "GLOBAL", subtitle: "QUALITY | GLOBAL FOCUS", desc: "Trusted worldwide for quality and reliability" },
-              { icon: Mountain, title: "BUILT FOR", subtitle: "GABORONE TERRAIN", desc: "Designed specifically for local conditions" },
+              { icon: Mountain, title: "BUILT FOR", subtitle: "BOTSWANA TERRAIN", desc: "Designed specifically for local conditions" },
               { icon: Zap, title: "UNBEATABLE", subtitle: "FUEL ECONOMY", desc: "Maximum efficiency for every kilometer" }
             ].map((item, index) => (
               <ScrollReveal key={index} delay={index * 0.2}>
@@ -301,9 +302,9 @@ const Index = () => {
               <ScrollReveal>
                 <div>
                   <h2 className="text-4xl font-bold text-primary mb-6">OUR DEALER NETWORK</h2>
-                  <h3 className="text-2xl font-bold text-primary mb-6">IN GABORONE</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-6">IN BOTSWANA</h3>
                   <p className="text-lg text-gray-600 mb-8">
-                    Visit our authorized Bajaj dealer in Gaborone for sales, service, and genuine spare parts.
+                    Visit our authorized Bajaj dealer in Botswana for sales, service, and genuine spare parts.
                   </p>
                   <HoverScale>
                     <Link to="/contact">
@@ -350,17 +351,17 @@ const Index = () => {
                 <div className="flex items-center space-x-3 mb-6">
                   <img 
                     src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Gaborone"
+                    alt="Bajaj Botswana"
                     className="h-8 w-auto"
                   />
                 </div>
                 <p className="text-blue-100 mb-4">
-                  Bringing reliable mobility solutions to Gaborone with world-class motorcycles and three-wheelers.
+                  Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
                 </p>
               </motion.div>
               {[
                 { title: "ABOUT US", links: [{ text: "Our Story", to: "/about" }, { text: "Commitment", to: "/about" }] },
-                { title: "CONTACT", links: [{ text: "Gaborone Office", to: "#" }, { text: "+267 73103 312", to: "#" }] },
+                { title: "CONTACT", links: [{ text: "Botswana Office", to: "#" }, { text: "+267 73103 312", to: "#" }] },
                 { title: "QUICK LINKS", links: [{ text: "Products", to: "/products" }, { text: "Services", to: "/services" }, { text: "Contact", to: "/contact" }] }
               ].map((section, index) => (
                 <motion.div

@@ -49,6 +49,7 @@ export const MobileNav = () => {
     { to: "/", label: "HOME", icon: Home },
     { to: "/about", label: "ABOUT", icon: Info },
     { to: "/products", label: "PRODUCTS", icon: Package },
+    { to: "/accessories", label: "ACCESSORIES", icon: Package },
     { to: "/services", label: "SERVICES", icon: Wrench },
     { to: "/contact", label: "CONTACT US", icon: Mail },
   ];
@@ -99,7 +100,7 @@ export const MobileNav = () => {
                 <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-primary to-blue-600">
                   <img 
                     src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Gaborone"
+                    alt="Bajaj Botswana"
                     className="h-10 w-auto"
                   />
                   <motion.div
