@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { HoverScale } from "@/components/animations/HoverScale";
 import { MobileNav } from "@/components/MobileNav";
 import { motion } from "framer-motion";
+import AnimatedHeroMessage from "@/components/animations/AnimatedHeroMessage";
 
 const Index = () => {
   return (
@@ -86,19 +87,8 @@ const Index = () => {
                     🎉 Now Available in Botswana
                   </Badge>
                 </FadeIn>
-                <SlideIn direction="left" delay={0.4}>
-                  <h2 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                    BUILT FOR BOTSWANA.{" "}
-                    <span className="block text-blue-200">
-                      READY FOR ANYTHING.
-                    </span>
-                  </h2>
-                </SlideIn>
-                <FadeIn delay={0.6}>
-                  <p className="text-xl text-blue-100 mb-8 max-w-2xl">
-                    Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Botswana's roads.
-                  </p>
-                </FadeIn>
+                
+                <AnimatedHeroMessage />
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -221,7 +211,7 @@ const Index = () => {
                   <div className="relative">
                     <div className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden">
                       <img 
-                        src="/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png" 
+                        src="/lovable-uploads/9bf38685-7a0a-4d29-a5de-dfccbaf8c1d0.png" 
                         alt="Bajaj Boxer 150"
                         className="w-full h-auto object-contain"
                       />
@@ -361,7 +351,7 @@ const Index = () => {
               </motion.div>
               {[
                 { title: "ABOUT US", links: [{ text: "Our Story", to: "/about" }, { text: "Commitment", to: "/about" }] },
-                { title: "CONTACT", links: [{ text: "Botswana Office", to: "#" }, { text: "+267 73103 312", to: "#" }] },
+                { title: "CONTACT", links: [{ text: "Botswana Office", to: "#" }, { text: "+267 73103 312", to: "#" }, { text: "+267 71886633", to: "#" }] },
                 { title: "QUICK LINKS", links: [{ text: "Products", to: "/products" }, { text: "Services", to: "/services" }, { text: "Contact", to: "/contact" }] }
               ].map((section, index) => (
                 <motion.div

@@ -37,7 +37,7 @@ const ProductDetail = () => {
     "bajaj-qute": {
       name: "Bajaj Qute Quadricycle",
       category: "Quadricycle",
-      price: "From P 85,000",
+      
       description: "Europe's first quadricycle designed for efficient urban transportation",
       images: [
         bajajaQuteYellow,
@@ -71,7 +71,7 @@ const ProductDetail = () => {
     "bajaj-boxer-150": {
       name: "Bajaj Boxer 150",
       category: "Motorcycle", 
-      price: "From P 15,000",
+      
       description: "Reliable motorcycle perfect for daily commuting",
       images: [bajajBoxer150Red, bajajBoxer150Black],
       keyFeatures: [

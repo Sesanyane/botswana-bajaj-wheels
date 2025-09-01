@@ -91,6 +91,21 @@ const Products = () => {
     }
   ];
 
+  const tukTuk = [
+    {
+      id: "bajaj-tuk-tuk",
+      name: "Bajaj RE Auto Rickshaw (Tuk Tuk)",
+      category: "Three Wheeler",
+      engine: "236cc",
+      mileage: "35-40 kmpl",
+      fuelRange: "300+ km range on full tank",
+      power: "8.1 BHP",
+      image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
+      features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
+      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity"
+    }
+  ];
+
   const spareParts = [
     {
       id: "engine-components",
