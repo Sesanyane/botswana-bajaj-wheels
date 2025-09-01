@@ -56,8 +56,13 @@ const Products = () => {
       mileage: "70 kmpl",
       fuelRange: "450+ km range on full tank",
       power: "12 BHP",
-      image: bajajBoxer150Black,
-      gallery: [bajajBoxer150Black],
+      image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
+      gallery: [
+        "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
+        "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150  
+        "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png"  // Another variant
+      ],
+      colors: ["Black", "Red", "Silver"],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
       description: "Perfect for daily commuting with excellent fuel efficiency",
       video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Boxer 150 promotional video
@@ -111,7 +116,7 @@ const Products = () => {
       id: "engine-components",
       name: "Engine Components",
       category: "Spare Parts",
-      image: engineComponents,
+      image: "/lovable-uploads/2cb64d5e-8870-4195-a654-0b1aca1da155.png", // Updated with better spare parts image
       features: ["Engine Oil", "Oil Filters", "Air Filters", "Spark Plugs"],
       description: "Genuine engine parts for optimal performance"
     },
@@ -119,7 +124,7 @@ const Products = () => {
       id: "electrical-components",
       name: "Electrical Components",
       category: "Spare Parts",
-      image: electricalComponents,
+      image: "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png", // Updated electrical components image
       features: ["Batteries", "Headlights", "Wiring Harnesses", "Alternators"],
       description: "Complete electrical system components"
     },
@@ -127,7 +132,7 @@ const Products = () => {
       id: "body-chassis",
       name: "Body & Chassis",
       category: "Spare Parts",
-      image: bodyChassisParts,
+      image: "/lovable-uploads/c28c0d80-1236-4847-bead-eb51a991fc0b.png", // Updated body chassis image
       features: ["Bumpers", "Mirrors", "Suspension Components", "Tires"],
       description: "Body and chassis parts for structural integrity"
     }
@@ -326,13 +331,34 @@ const Products = () => {
             </div>
           </div>
           
+          {/* Color Showcase for Motorcycles */}
+          {product.colors && (
+            <div className="mb-4">
+              <h4 className="text-sm font-semibold text-gray-700 mb-2">Available Colors:</h4>
+              <div className="flex gap-2">
+                {product.colors.map((color, index) => (
+                  <div key={color} className="flex items-center space-x-2">
+                    <div className={`w-4 h-4 rounded-full border border-gray-300 ${
+                      color.toLowerCase() === 'red' ? 'bg-red-500' :
+                      color.toLowerCase() === 'black' ? 'bg-black' :
+                      color.toLowerCase() === 'silver' ? 'bg-gray-300' :
+                      color.toLowerCase() === 'blue' ? 'bg-blue-500' :
+                      'bg-gray-400'
+                    }`}></div>
+                    <span className="text-xs text-gray-600">{color}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+          
           <div className="flex gap-2">
             <Link to="/contact" className="flex-1">
               <Button className="w-full bg-primary hover:bg-primary/90 text-white">
                 Get Quote
               </Button>
             </Link>
-            <Link to={`/product/${product.id}`} className="flex-1">
+            <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
               <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                 Learn More
               </Button>
@@ -486,6 +512,29 @@ const Products = () => {
             {motorcycles.map((product, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
                 <ProductCard product={product} />
+              </ScrollReveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Three Wheeler (Tuk Tuk) Section */}
+        <section className="mb-16">
+          <ScrollReveal>
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center mb-4">
+                <Truck className="h-8 w-8 text-primary mr-3" />
+                <h2 className="text-3xl font-bold text-gray-900">Three Wheeler (Tuk Tuk)</h2>
+              </div>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                🛺 Perfect commercial vehicle for passenger transport and last-mile connectivity
+              </p>
+            </div>
+          </ScrollReveal>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {tukTuk.map((product, index) => (
+              <ScrollReveal key={index} delay={index * 0.1}>
+                <ProductCard product={product} isThreeWheeler={true} />
               </ScrollReveal>
             ))}
           </div>

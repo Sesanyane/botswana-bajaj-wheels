@@ -6,9 +6,8 @@ const AnimatedHeroMessage = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => setIsVisible(true), 500); // Brief pause between cycles
-    }, 15000); // Show for 15 seconds, repeat every 15 seconds
+      setIsVisible(prev => !prev);
+    }, 15000); // Toggle every 15 seconds (show 15s, hide 15s)
 
     return () => clearInterval(interval);
   }, []);

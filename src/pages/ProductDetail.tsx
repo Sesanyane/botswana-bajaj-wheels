@@ -72,7 +72,11 @@ const ProductDetail = () => {
       category: "Motorcycle", 
       
       description: "Reliable motorcycle perfect for daily commuting",
-      images: [bajajBoxer150Red, bajajBoxer150Black],
+      images: [
+        "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
+        "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150
+        "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png"  // Another Boxer variant
+      ],
       keyFeatures: [
         "149.5cc Engine",
         "70 kmpl Fuel Efficiency",
@@ -219,7 +223,7 @@ const ProductDetail = () => {
                         <CardTitle>Available Colors</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="grid grid-cols-2 gap-4">
                           {product.colors.map((color, index) => (
                             <motion.div
                               key={color}
@@ -227,9 +231,19 @@ const ProductDetail = () => {
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1, duration: 0.3 }}
-                              whileHover={{ scale: 1.1 }}
+                              whileHover={{ scale: 1.05 }}
+                              className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
                             >
-                              <Badge variant="secondary">{color}</Badge>
+                              <div className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
+                                color.toLowerCase() === 'red' ? 'bg-red-500' :
+                                color.toLowerCase() === 'black' ? 'bg-black' :
+                                color.toLowerCase() === 'blue' ? 'bg-blue-500' :
+                                color.toLowerCase() === 'yellow' ? 'bg-yellow-400' :
+                                color.toLowerCase() === 'green' ? 'bg-green-500' :
+                                color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
+                                'bg-gray-400'
+                              }`}></div>
+                              <span className="text-sm font-medium">{color}</span>
                             </motion.div>
                           ))}
                         </div>
