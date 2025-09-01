@@ -65,8 +65,7 @@ const ProductDetail = () => {
         "Top Speed": "70 kmph",
         "Certification": "European WVTA"
       },
-      colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"],
-      warranty: "12 months comprehensive warranty"
+      colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"]
     },
     "bajaj-boxer-150": {
       name: "Bajaj Boxer 150",
@@ -91,8 +90,7 @@ const ProductDetail = () => {
         "Weight": "140 kg",
         "Wheels": "17\" Alloy with Tubeless Tires"
       },
-      colors: ["Red", "Black"],
-      warranty: "12 months warranty for 30,000 KMs"
+      colors: ["Red", "Black"]
     }
   };
 
@@ -182,7 +180,6 @@ const ProductDetail = () => {
                     <Badge className="mb-3">{product.category}</Badge>
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
                     <p className="text-xl text-gray-600 mb-4">{product.description}</p>
-                    <p className="text-3xl font-bold text-primary">{product.price}</p>
                   </div>
                 </FadeIn>
 
@@ -293,19 +290,6 @@ const ProductDetail = () => {
             </HoverScale>
           </ScrollReveal>
 
-          {/* Warranty Info */}
-          <ScrollReveal delay={0.8}>
-            <HoverScale scale={1.02}>
-              <Card className="mt-8">
-                <CardContent className="py-6">
-                  <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-2">Warranty Coverage</h3>
-                    <p className="text-gray-600">{product.warranty}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </HoverScale>
-          </ScrollReveal>
         </div>
       </div>
     </>
