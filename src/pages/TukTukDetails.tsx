@@ -13,8 +13,12 @@ import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import { MobileNav } from "@/components/MobileNav";
 
-// Import Tuk Tuk images
-import bajajTukTuk from "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png";
+// Import Qute images
+import bajajQuteInterior from "/lovable-uploads/4751daea-1071-496f-9ec5-e36092fc6e9f.png";
+import bajajQuteSeating from "/lovable-uploads/6681bb68-7bec-4e37-965a-b83f8bb5f63b.png";
+import bajajQuteStorage from "/lovable-uploads/25dd41d0-1687-42bc-a8cc-86b3529aed6a.png";
+import bajajQuteFeatures from "/lovable-uploads/fa7bb9a5-d403-4f3c-9a28-2b01771632ba.png";
+import bajajQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
 
 const TukTukDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,29 +32,31 @@ const TukTukDetails = () => {
   }, []);
 
   const tukTukData = {
-    name: "Bajaj RE Auto Rickshaw (Tuk Tuk)",
-    category: "Three Wheeler",
-    description: "Perfect commercial vehicle for passenger transport and last-mile connectivity",
-    images: [bajajTukTuk],
+    name: "Bajaj Qute Quadricycle",
+    category: "Quadricycle",
+    description: "Europe's first quadricycle designed for efficient urban transportation",
+    images: [bajajQuteYellow, bajajQuteInterior, bajajQuteSeating, bajajQuteStorage, bajajQuteFeatures],
     keyFeatures: [
-      "Compact Design",
-      "High Fuel Efficiency", 
-      "Low Maintenance",
-      "Comfortable Seating",
-      "Weather Protection",
-      "Easy Maneuverability"
+      "217cc DTS-i Engine",
+      "36 kmpl Fuel Efficiency", 
+      "4-Seater Capacity",
+      "191L Storage Space",
+      "70 kmph Max Speed",
+      "European WVTA Certified"
     ],
     specifications: {
-      "Engine": "236cc Single Cylinder",
-      "Power": "8.1 BHP @ 5500 rpm",
-      "Torque": "15.5 Nm @ 3500 rpm", 
-      "Fuel Tank": "8.5 Liters",
-      "Seating": "3+1 (Driver + 3 Passengers)",
-      "Payload": "400 kg",
-      "Fuel Efficiency": "35-40 kmpl",
-      "Range": "300+ km on full tank"
+      "Engine": "217cc Single Cylinder, Liquid Cooled",
+      "Power": "13.2 BHP @ 5500 rpm",
+      "Torque": "18.9 Nm @ 4000 rpm",
+      "Transmission": "5-Speed Manual",
+      "Fuel Tank": "8 Liters",
+      "Seating": "4 Passengers",
+      "Storage": "191L (850L with folded seats)",
+      "Weight": "399 kg",
+      "Top Speed": "70 kmph",
+      "Certification": "European WVTA"
     },
-    colors: ["Yellow", "Green", "Blue", "Red"],
+    colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"],
     benefits: [
       "Low operating costs",
       "Easy financing options",
@@ -267,10 +273,10 @@ const TukTukDetails = () => {
               {/* Benefits */}
               <ScrollReveal delay={0.8}>
                 <HoverScale scale={1.01}>
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="text-2xl">Why Choose Bajaj Tuk Tuk?</CardTitle>
-                    </CardHeader>
+                     <Card>
+                        <CardHeader>
+                          <CardTitle className="text-2xl">Why Choose Bajaj Qute?</CardTitle>
+                        </CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {tukTukData.benefits.map((benefit, index) => (

@@ -81,9 +81,9 @@ const Index = () => {
         
         {/* Experience Our Range - Top Left */}
         <div className="absolute top-8 left-8 z-20">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-xs">
             <div className="text-white text-center">
-              <Zap className="w-6 h-6 mx-auto mb-1 text-blue-200" />
+              <Zap className="w-6 h-6 mx-auto mb-2 text-blue-200" />
               <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
               <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
             </div>
@@ -91,22 +91,27 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-                <span className="block">BUILT FOR BOTSWANA.</span>
-                <span className="block text-blue-200">READY FOR ANYTHING.</span>
-              </h1>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-                Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Botswana's roads.
-              </p>
+          <div className="max-w-4xl mx-auto">
+            {/* Hero text positioned under the Experience Our Range box */}
+            <div className="pt-32 pb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-xs">
+                <div className="text-white">
+                  <h1 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
+                    <span className="block">BUILT FOR BOTSWANA.</span>
+                    <span className="block text-blue-200">READY FOR ANYTHING.</span>
+                  </h1>
+                  <p className="text-sm text-blue-100">
+                    Affordable, tough, and ready for your hustle.
+                  </p>
+                </div>
+              </div>
             </div>
             
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center max-w-4xl mx-auto"
             >
               <HoverScale>
                 <Link to="/products">
@@ -118,14 +123,14 @@ const Index = () => {
               </HoverScale>
               <HoverScale>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-semibold w-full sm:w-auto">
+                  <Button size="lg" className="bg-primary/80 text-white hover:bg-primary border-2 border-white/20 px-8 py-4 text-base font-semibold w-full sm:w-auto">
                     FIND A DEALER
                   </Button>
                 </Link>
               </HoverScale>
               <HoverScale>
                 <Link to="/contact">
-                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-semibold w-full sm:w-auto">
+                  <Button size="lg" className="bg-primary/80 text-white hover:bg-primary border-2 border-white/20 px-8 py-4 text-base font-semibold w-full sm:w-auto">
                     BOOK A TEST RIDE
                   </Button>
                 </Link>

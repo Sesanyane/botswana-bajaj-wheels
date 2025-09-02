@@ -116,7 +116,7 @@ const Products = () => {
       id: "engine-components",
       name: "Engine Components",
       category: "Spare Parts",
-      image: "/lovable-uploads/2cb64d5e-8870-4195-a654-0b1aca1da155.png", // Updated with better spare parts image
+      image: engineComponents,
       features: ["Engine Oil", "Oil Filters", "Air Filters", "Spark Plugs"],
       description: "Genuine engine parts for optimal performance"
     },
@@ -124,7 +124,7 @@ const Products = () => {
       id: "electrical-components",
       name: "Electrical Components",
       category: "Spare Parts",
-      image: "/lovable-uploads/88721d32-20fd-47e4-9130-d4424967607d.png", // Updated electrical components image
+      image: electricalComponents,
       features: ["Batteries", "Headlights", "Wiring Harnesses", "Alternators"],
       description: "Complete electrical system components"
     },
@@ -132,7 +132,7 @@ const Products = () => {
       id: "body-chassis",
       name: "Body & Chassis",
       category: "Spare Parts",
-      image: "/lovable-uploads/c28c0d80-1236-4847-bead-eb51a991fc0b.png", // Updated body chassis image
+      image: bodyChassisParts,
       features: ["Bumpers", "Mirrors", "Suspension Components", "Tires"],
       description: "Body and chassis parts for structural integrity"
     }
