@@ -105,7 +105,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-0">
             {/* Experience Our Range - Top Left */}
             <div className="flex justify-start mb-6">
               
@@ -113,7 +113,7 @@ const Index = () => {
             
             {/* Hero text positioned directly below the Experience Our Range box */}
             <div className="flex justify-start mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-xs">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-xs px-[2px] py-[10px]">
                 <div className="text-white">
                   <h1 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
                     <span className="block">BUILT FOR BOTSWANA.</span>
