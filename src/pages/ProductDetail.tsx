@@ -18,7 +18,7 @@ import bajajaQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880
 import bajajQuteRed from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
 import bajajQuteInterior from "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png";
 import bajajQuteBlue from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
-import bajajBoxer150Red from "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png";
+import bajajBoxer150Red from "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png";
 import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
 
 const ProductDetail = () => {

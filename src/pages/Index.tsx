@@ -11,8 +11,24 @@ import { HoverScale } from "@/components/animations/HoverScale";
 import { MobileNav } from "@/components/MobileNav";
 import { motion } from "framer-motion";
 import AnimatedHeroMessage from "@/components/animations/AnimatedHeroMessage";
+import { useState, useEffect } from "react";
 
 const Index = () => {
+  // Background slideshow images
+  const backgroundImages = [
+    "/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png", // Current hero image
+    "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png"  // Pulsar 150 promo
+  ];
+  
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 8000); // Change background every 8 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -71,29 +87,36 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden min-h-[80vh]">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-125 contrast-125 saturate-110"
-          style={{
-            backgroundImage: `url(/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png)`
-          }}
-        />
+        {/* Slideshow backgrounds */}
+        {backgroundImages.map((image, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-125 contrast-125 saturate-110"
+            style={{
+              backgroundImage: `url(${image})`
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentBgIndex ? 1 : 0 }}
+            transition={{ duration: 1.5 }}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
-        {/* Experience Our Range - Top Left */}
-        <div className="absolute top-8 left-8 z-20">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-xs">
-            <div className="text-white text-center">
-              <Zap className="w-6 h-6 mx-auto mb-2 text-blue-200" />
-              <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
-              <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
-            </div>
-          </div>
-        </div>
-
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            {/* Hero text positioned under the Experience Our Range box */}
-            <div className="pt-32 pb-8">
+            {/* Experience Our Range - Top Left */}
+            <div className="flex justify-start mb-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 max-w-xs">
+                <div className="text-white text-center">
+                  <Zap className="w-6 h-6 mx-auto mb-2 text-blue-200" />
+                  <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
+                  <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Hero text positioned directly below the Experience Our Range box */}
+            <div className="flex justify-start mb-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-xs">
                 <div className="text-white">
                   <h1 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">

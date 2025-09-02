@@ -11,7 +11,7 @@ import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
 // Import high-quality product images from uploads
-import bajajaQuteYellow from "/lovable-uploads/0f4346de-a105-4c8e-b211-46cd71850e5c.png";
+import bajajaQuteYellow from "/lovable-uploads/4077b8b6-f6fb-4324-a8a3-0e858215bc0f.png";
 import bajajQuteBlue from "/lovable-uploads/179b63a1-0171-4c6a-8999-54e0352a1b17.png";
 import bajajQuteBlueWithParts from "/lovable-uploads/d0f922d9-89a5-4c3e-84bd-23a9e693295b.png";
 import bajajBoxer150Black from "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png";
