@@ -78,59 +78,59 @@ const Index = () => {
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-8">
-                <FadeIn delay={0.2}>
-                  <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                    🎉 Now Available in Botswana
-                  </Badge>
-                </FadeIn>
-                
-                <AnimatedHeroMessage />
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-4"
-                >
-                  <HoverScale>
-                    <Link to="/products">
-                      <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
-                        <span className="mr-2">EXPLORE BOXER 150</span>
-                        <ChevronRight className="w-5 h-5" />
-                      </Button>
-                    </Link>
-                  </HoverScale>
-                  <HoverScale>
-                    <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
-                        FIND A DEALER
-                      </Button>
-                    </Link>
-                  </HoverScale>
-                  <HoverScale>
-                    <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
-                        BOOK A TEST RIDE
-                      </Button>
-                    </Link>
-                  </HoverScale>
-                </motion.div>
-              </div>
-              <SlideIn direction="right" delay={0.5}>
-                <div className="lg:col-span-4 relative flex justify-end">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20 w-48">
-                    <div className="text-white text-center">
-                      <Zap className="w-8 h-8 mx-auto mb-2 text-blue-200" />
-                      <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
-                      <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
-                    </div>
-                  </div>
-                </div>
-              </SlideIn>
+        
+        {/* Experience Our Range - Top Left */}
+        <div className="absolute top-8 left-8 z-20">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20">
+            <div className="text-white text-center">
+              <Zap className="w-6 h-6 mx-auto mb-1 text-blue-200" />
+              <h3 className="text-sm font-bold mb-1">Experience Our Range</h3>
+              <p className="text-blue-100 text-xs">Motorcycles & Three-wheelers built for every journey</p>
             </div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+                <span className="block">BUILT FOR BOTSWANA.</span>
+                <span className="block text-blue-200">READY FOR ANYTHING.</span>
+              </h1>
+              <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+                Affordable, tough, and ready for your hustle. Experience world-class motorcycles designed for Botswana's roads.
+              </p>
+            </div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <HoverScale>
+                <Link to="/products">
+                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-4 text-base font-semibold w-full sm:w-auto">
+                    <span className="mr-2">EXPLORE BOXER 150</span>
+                    <ChevronRight className="w-5 h-5" />
+                  </Button>
+                </Link>
+              </HoverScale>
+              <HoverScale>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-semibold w-full sm:w-auto">
+                    FIND A DEALER
+                  </Button>
+                </Link>
+              </HoverScale>
+              <HoverScale>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-base font-semibold w-full sm:w-auto">
+                    BOOK A TEST RIDE
+                  </Button>
+                </Link>
+              </HoverScale>
+            </motion.div>
           </div>
         </div>
       </section>
