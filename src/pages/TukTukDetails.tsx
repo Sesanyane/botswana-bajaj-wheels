@@ -14,11 +14,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MobileNav } from "@/components/MobileNav";
 
 // Import Qute images
-import bajajQuteInterior from "/lovable-uploads/4751daea-1071-496f-9ec5-e36092fc6e9f.png";
-import bajajQuteSeating from "/lovable-uploads/6681bb68-7bec-4e37-965a-b83f8bb5f63b.png";
-import bajajQuteStorage from "/lovable-uploads/25dd41d0-1687-42bc-a8cc-86b3529aed6a.png";
-import bajajQuteFeatures from "/lovable-uploads/fa7bb9a5-d403-4f3c-9a28-2b01771632ba.png";
-import bajajQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
+const bajajQuteInterior = "/lovable-uploads/4751daea-1071-496f-9ec5-e36092fc6e9f.png";
+const bajajQuteSeating = "/lovable-uploads/6681bb68-7bec-4e37-965a-b83f8bb5f63b.png";
+const bajajQuteStorage = "/lovable-uploads/25dd41d0-1687-42bc-a8cc-86b3529aed6a.png";
+const bajajQuteFeatures = "/lovable-uploads/fa7bb9a5-d403-4f3c-9a28-2b01771632ba.png";
+const bajajQuteYellow = "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
 
 const TukTukDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
