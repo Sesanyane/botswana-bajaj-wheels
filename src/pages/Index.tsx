@@ -108,7 +108,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedHeroMessage />
+          
         </div>
       </section>
 
