@@ -99,7 +99,7 @@ export const MobileNav = () => {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gradient-to-r from-primary to-blue-600">
                   <img 
-                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                    src="/lovable-uploads/bajaj-logo-optimized.webp" 
                     alt="Bajaj Botswana"
                     className="h-10 w-auto"
                   />

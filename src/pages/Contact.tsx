@@ -174,7 +174,7 @@ const Contact = () => {
               <div className="flex items-center space-x-3">
                 <Link to="/">
                   <img 
-                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                    src="/lovable-uploads/bajaj-logo-optimized.webp" 
                     alt="Bajaj Gaborone"
                     className="h-12 w-auto cursor-pointer"
                   />

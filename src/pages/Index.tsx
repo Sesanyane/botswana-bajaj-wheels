@@ -21,7 +21,7 @@ const Index = () => {
   // Responsive dealership images
   const dealershipImages = {
     mobile: "/lovable-uploads/41d126c9-06e1-43b8-9729-08110ff32757.png",
-    desktop: "/lovable-uploads/f6beb319-a80e-4944-a375-c9cbd8bbcb38.png"
+    desktop: "/lovable-uploads/dealership-desktop-optimized.webp"
   };
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
@@ -29,7 +29,7 @@ const Index = () => {
   const products = [
     {
       title: "BOXER 150",
-      image: "/lovable-uploads/a5be7751-ea17-488a-bfee-1d772998cc30.png",
+      image: "/lovable-uploads/boxer-promo-optimized.webp",
       subtitle: "The perfect companion for your daily journey",
       features: [
         { label: "150cc", desc: "Powerful performance" },
@@ -82,7 +82,7 @@ const Index = () => {
             delay: 0.2,
             duration: 0.5
           }} className="flex items-center space-x-3">
-              <img src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" alt="Bajaj Botswana" className="h-12 w-auto" />
+              <img src="/lovable-uploads/bajaj-logo-optimized.webp" alt="Bajaj Botswana" className="h-12 w-auto" />
             </motion.div>
             <motion.div initial={{
             opacity: 0,
@@ -449,7 +449,7 @@ const Index = () => {
               duration: 0.5
             }}>
                 <div className="flex items-center space-x-3 mb-6">
-                  <img src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" alt="Bajaj Botswana" className="h-8 w-auto" />
+                  <img src="/lovable-uploads/bajaj-logo-optimized.webp" alt="Bajaj Botswana" className="h-8 w-auto" />
                 </div>
                 <p className="text-blue-100 mb-4">
                   Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
