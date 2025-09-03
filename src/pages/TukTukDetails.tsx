@@ -85,11 +85,13 @@ const TukTukDetails = () => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <img 
-                    src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
-                    alt="Bajaj Botswana"
-                    className="h-12 w-auto"
-                  />
+                  <Link to="/">
+                    <img 
+                      src="/lovable-uploads/1aa16d4b-0dc9-49f4-b043-994bf0c03efd.png" 
+                      alt="Bajaj Botswana"
+                      className="h-12 w-auto cursor-pointer"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden md:flex items-center space-x-8">
                   <Link to="/" className="text-white hover:text-blue-200 transition-colors font-medium">HOME</Link>
