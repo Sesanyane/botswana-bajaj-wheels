@@ -59,13 +59,7 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentProductIndex(prev => (prev + 1) % products.length);
-    }, 6000); // Change product every 6 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  // Manual slideshow - no auto-advance
   return <div className="min-h-screen bg-background">
       {/* Navigation */}
       <motion.nav initial={{
@@ -245,17 +239,54 @@ const Index = () => {
                     </Link>
                   </HoverScale>
                   
-                  {/* Slideshow indicators */}
-                  <div className="flex space-x-2 mt-6">
-                    {products.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentProductIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${
-                          index === currentProductIndex ? 'bg-primary' : 'bg-gray-300'
-                        }`}
-                      />
-                    ))}
+                  {/* Manual slideshow controls */}
+                  <div className="flex items-center justify-between mt-8">
+                    <div className="flex space-x-3">
+                      {products.map((_, index) => (
+                        <motion.button
+                          key={index}
+                          onClick={() => setCurrentProductIndex(index)}
+                          whileHover={{ scale: 1.2 }}
+                          whileTap={{ scale: 0.9 }}
+                          className={`relative w-4 h-4 rounded-full transition-all duration-300 ${
+                            index === currentProductIndex 
+                              ? 'bg-primary shadow-lg' 
+                              : 'bg-gray-300 hover:bg-gray-400'
+                          }`}
+                        >
+                          {index === currentProductIndex && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="absolute inset-0 rounded-full bg-primary/30 animate-pulse"
+                            />
+                          )}
+                        </motion.button>
+                      ))}
+                    </div>
+                    
+                    {/* Next slide hint */}
+                    {currentProductIndex < products.length - 1 && (
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                        className="flex items-center text-sm text-gray-500"
+                      >
+                        <span className="mr-2">Next: {products[currentProductIndex + 1].title}</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </motion.div>
+                    )}
+                    
+                    {currentProductIndex === products.length - 1 && (
+                      <motion.div
+                        animate={{ x: [0, -5, 0] }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                        className="flex items-center text-sm text-gray-500"
+                      >
+                        <ChevronRight className="w-4 h-4 rotate-180 mr-2" />
+                        <span>Back to: {products[0].title}</span>
+                      </motion.div>
+                    )}
                   </div>
                 </div>
               </ScrollReveal>
