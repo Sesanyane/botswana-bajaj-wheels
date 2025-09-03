@@ -24,10 +24,45 @@ const Index = () => {
     desktop: "/lovable-uploads/f6beb319-a80e-4944-a375-c9cbd8bbcb38.png"
   };
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  
+  const products = [
+    {
+      title: "BOXER 150",
+      image: "/lovable-uploads/a5be7751-ea17-488a-bfee-1d772998cc30.png",
+      subtitle: "The perfect companion for your daily journey",
+      features: [
+        { label: "150cc", desc: "Powerful performance" },
+        { label: "RUGGED BUILD", desc: "Built to last" },
+        { label: "FUEL SAVER", desc: "Excellent economy" },
+        { label: "RELIABLE", desc: "Dependable transport" }
+      ]
+    },
+    {
+      title: "PULSAR 150",
+      image: "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png",
+      subtitle: "Coming Soon to Botswana",
+      features: [
+        { label: "150cc", desc: "Sport performance" },
+        { label: "SPORTY DESIGN", desc: "Modern styling" },
+        { label: "ADVANCED TECH", desc: "Digital features" },
+        { label: "COMING SOON", desc: "Available in Botswana" }
+      ]
+    }
+  ];
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBgIndex(prev => (prev + 1) % backgroundImages.length);
-    }, 10000); // Change background every 8 seconds
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProductIndex(prev => (prev + 1) % products.length);
+    }, 6000); // Change product every 6 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -166,62 +201,89 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Product - Boxer 150 */}
+      {/* Featured Products Slideshow */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <ScrollReveal>
                 <div>
-                  <h2 className="text-4xl font-bold text-primary mb-6">BOXER 150</h2>
-                  <ul className="space-y-4 mb-8">
-                    {[{
-                    label: "150cc",
-                    desc: "Powerful performance"
-                  }, {
-                    label: "RUGGED BUILD",
-                    desc: "Built to last"
-                  }, {
-                    label: "FUEL SAVER",
-                    desc: "Excellent economy"
-                  }, {
-                    label: "RELIABLE",
-                    desc: "Dependable transport"
-                  }].map((feature, index) => <motion.li key={index} initial={{
-                    opacity: 0,
-                    x: -20
-                  }} whileInView={{
-                    opacity: 1,
-                    x: 0
-                  }} viewport={{
-                    once: true
-                  }} transition={{
-                    delay: index * 0.1,
-                    duration: 0.5
-                  }} className="flex items-center text-lg">
+                  <motion.h2 
+                    key={products[currentProductIndex].title}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-4xl font-bold text-primary mb-6"
+                  >
+                    {products[currentProductIndex].title}
+                  </motion.h2>
+                  <motion.ul 
+                    key={`features-${currentProductIndex}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="space-y-4 mb-8"
+                  >
+                    {products[currentProductIndex].features.map((feature, index) => 
+                      <motion.li 
+                        key={index} 
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
+                        className="flex items-center text-lg"
+                      >
                         <CheckCircle className="w-6 h-6 text-primary mr-3" />
                         <span><strong>{feature.label}</strong> - {feature.desc}</span>
-                      </motion.li>)}
-                  </ul>
+                      </motion.li>
+                    )}
+                  </motion.ul>
                   <HoverScale>
                     <Link to="/products">
                       <Button className="bg-primary hover:bg-blue-700 text-white px-8 py-3">
-                        VIEW FULL SPECS
+                        {currentProductIndex === 0 ? "VIEW FULL SPECS" : "LEARN MORE"}
                       </Button>
                     </Link>
                   </HoverScale>
+                  
+                  {/* Slideshow indicators */}
+                  <div className="flex space-x-2 mt-6">
+                    {products.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentProductIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          index === currentProductIndex ? 'bg-primary' : 'bg-gray-300'
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               </ScrollReveal>
+              
               <ScrollReveal delay={0.3}>
                 <HoverScale scale={1.02}>
                   <div className="relative">
-                    <div className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden">
-                      <img src="/lovable-uploads/a5be7751-ea17-488a-bfee-1d772998cc30.png" alt="Bajaj Boxer 150" className="w-full h-auto object-contain" />
+                    <motion.div 
+                      key={currentProductIndex}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden"
+                    >
+                      <img 
+                        src={products[currentProductIndex].image} 
+                        alt={`Bajaj ${products[currentProductIndex].title}`} 
+                        className="w-full h-auto object-contain" 
+                      />
                       <div className="text-center mt-4">
-                        <h3 className="text-2xl font-bold text-primary mb-2">Boxer 150 HD</h3>
-                        <p className="text-gray-600">The perfect companion for your daily journey</p>
+                        <h3 className="text-2xl font-bold text-primary mb-2">
+                          {products[currentProductIndex].title}
+                        </h3>
+                        <p className="text-gray-600">
+                          {products[currentProductIndex].subtitle}
+                        </p>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </HoverScale>
               </ScrollReveal>
