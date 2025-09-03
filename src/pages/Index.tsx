@@ -97,22 +97,22 @@ const Index = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden min-h-[80vh]">
+      <section className="relative py-20 overflow-hidden min-h-screen">
         {/* Static responsive background */}
         <div className="absolute inset-0">
           <div 
-            className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            className="hidden md:block absolute inset-0 bg-contain bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
             style={{
               backgroundImage: `url(${dealershipImages.desktop})`,
-              backgroundSize: 'cover',
+              backgroundSize: 'contain',
               backgroundPosition: 'center center'
             }}
           />
           <div 
-            className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            className="md:hidden absolute inset-0 bg-contain bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
             style={{
               backgroundImage: `url(${dealershipImages.mobile})`,
-              backgroundSize: 'cover',
+              backgroundSize: 'contain',
               backgroundPosition: 'center center'
             }}
           />
