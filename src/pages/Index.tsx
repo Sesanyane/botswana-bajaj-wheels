@@ -105,61 +105,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-0">
-            {/* Experience Our Range - Top Left */}
-            <div className="flex justify-start mb-6">
-              
-            </div>
-            
-            {/* Hero text positioned directly below the Experience Our Range box */}
-            <div className="flex justify-start mb-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 max-w-xs px-[2px] py-[10px]">
-                <div className="text-white">
-                  <h1 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
-                    <span className="block">BUILT FOR BOTSWANA.</span>
-                    <span className="block text-blue-200">READY FOR ANYTHING.</span>
-                  </h1>
-                  <p className="text-sm text-blue-100">
-                    Affordable, tough, and ready for your hustle.
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            <motion.div initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            delay: 0.8,
-            duration: 0.5
-          }} className="flex flex-col sm:flex-row gap-4 justify-center max-w-4xl mx-auto">
-              <HoverScale>
-                <Link to="/products">
-                  <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-4 text-base font-semibold w-full sm:w-auto">
-                    <span className="mr-2">EXPLORE BOXER 150</span>
-                    <ChevronRight className="w-5 h-5" />
-                  </Button>
-                </Link>
-              </HoverScale>
-              <HoverScale>
-                <Link to="/contact">
-                  <Button size="lg" className="bg-primary/80 text-white hover:bg-primary border-2 border-white/20 px-8 py-4 text-base font-semibold w-full sm:w-auto">
-                    FIND A DEALER
-                  </Button>
-                </Link>
-              </HoverScale>
-              <HoverScale>
-                <Link to="/contact">
-                  <Button size="lg" className="bg-primary/80 text-white hover:bg-primary border-2 border-white/20 px-8 py-4 text-base font-semibold w-full sm:w-auto">
-                    BOOK A TEST RIDE
-                  </Button>
-                </Link>
-              </HoverScale>
-            </motion.div>
-          </div>
+          
         </div>
       </section>
 
