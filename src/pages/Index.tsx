@@ -27,7 +27,7 @@ const Index = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBgIndex(prev => (prev + 1) % backgroundImages.length);
-    }, 8000); // Change background every 8 seconds
+    }, 10000); // Change background every 8 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -38,7 +38,7 @@ const Index = () => {
     }} animate={{
       y: 0
     }} transition={{
-      duration: 0.6,
+      duration: 10,
       ease: "easeOut"
     }} className="sticky top-0 z-50 bg-primary backdrop-blur-sm">
         <div className="container mx-auto px-4 py-4">
