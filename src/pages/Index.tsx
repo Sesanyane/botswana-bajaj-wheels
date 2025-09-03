@@ -98,18 +98,25 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden min-h-[80vh]">
-        {/* Slideshow backgrounds */}
-        {backgroundImages.map((image, index) => <motion.div key={index} className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105" style={{
-        backgroundImage: `url(${image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center'
-      }} initial={{
-        opacity: 0
-      }} animate={{
-        opacity: index === currentBgIndex ? 1 : 0
-      }} transition={{
-        duration: 1.5
-      }} />)}
+        {/* Static responsive background */}
+        <div className="absolute inset-0">
+          <div 
+            className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            style={{
+              backgroundImage: `url(${dealershipImages.desktop})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center'
+            }}
+          />
+          <div 
+            className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            style={{
+              backgroundImage: `url(${dealershipImages.mobile})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center'
+            }}
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
         <div className="container mx-auto px-4 relative z-10">
