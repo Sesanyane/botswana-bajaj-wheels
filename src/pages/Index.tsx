@@ -12,13 +12,17 @@ import { motion } from "framer-motion";
 import AnimatedHeroMessage from "@/components/animations/AnimatedHeroMessage";
 import { useState, useEffect } from "react";
 const Index = () => {
-  // Background slideshow images
+  // Background slideshow images - responsive dealership + promotional images
   const backgroundImages = [
-    "/lovable-uploads/f6beb319-a80e-4944-a375-c9cbd8bbcb38.png", // Dealership desktop view
-    "/lovable-uploads/41d126c9-06e1-43b8-9729-08110ff32757.png", // Dealership mobile view
     "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png", // Pulsar 150 promo
     "/lovable-uploads/6057e6cf-2091-46ae-a296-7a89b7714a97.png"  // Boxer BM 150 promo
   ];
+  
+  // Responsive dealership images
+  const dealershipImages = {
+    mobile: "/lovable-uploads/41d126c9-06e1-43b8-9729-08110ff32757.png",
+    desktop: "/lovable-uploads/f6beb319-a80e-4944-a375-c9cbd8bbcb38.png"
+  };
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
