@@ -130,18 +130,18 @@ const Index = () => {
         {/* Static responsive background */}
         <div className="absolute inset-0">
           <div 
-            className="hidden md:block absolute inset-0 bg-contain bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
             style={{
               backgroundImage: `url(${dealershipImages.desktop})`,
-              backgroundSize: 'contain',
+              backgroundSize: 'cover',
               backgroundPosition: 'center center'
             }}
           />
           <div 
-            className="md:hidden absolute inset-0 bg-contain bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
+            className="md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105"
             style={{
               backgroundImage: `url(${dealershipImages.mobile})`,
-              backgroundSize: 'contain',
+              backgroundSize: 'cover',
               backgroundPosition: 'center center'
             }}
           />
