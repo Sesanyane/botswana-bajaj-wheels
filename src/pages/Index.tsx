@@ -14,7 +14,8 @@ import { useState, useEffect } from "react";
 const Index = () => {
   // Background slideshow images
   const backgroundImages = [
-    "/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png", // Original hero image
+    "/lovable-uploads/f6beb319-a80e-4944-a375-c9cbd8bbcb38.png", // Dealership desktop view
+    "/lovable-uploads/41d126c9-06e1-43b8-9729-08110ff32757.png", // Dealership mobile view
     "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png", // Pulsar 150 promo
     "/lovable-uploads/6057e6cf-2091-46ae-a296-7a89b7714a97.png"  // Boxer BM 150 promo
   ];
