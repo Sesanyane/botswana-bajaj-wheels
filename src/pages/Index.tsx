@@ -13,9 +13,10 @@ import AnimatedHeroMessage from "@/components/animations/AnimatedHeroMessage";
 import { useState, useEffect } from "react";
 const Index = () => {
   // Background slideshow images
-  const backgroundImages = ["/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png",
-  // Current hero image
-  "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png" // Pulsar 150 promo
+  const backgroundImages = [
+    "/lovable-uploads/ace6f99e-805a-4eae-baa2-9afd3bc62b2a.png", // Original hero image
+    "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png", // Pulsar 150 promo
+    "/lovable-uploads/6057e6cf-2091-46ae-a296-7a89b7714a97.png"  // Boxer BM 150 promo
   ];
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   useEffect(() => {
@@ -93,8 +94,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden min-h-[80vh]">
         {/* Slideshow backgrounds */}
-        {backgroundImages.map((image, index) => <motion.div key={index} className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-125 contrast-125 saturate-110" style={{
-        backgroundImage: `url(${image})`
+        {backgroundImages.map((image, index) => <motion.div key={index} className="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-110 contrast-110 saturate-105" style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center'
       }} initial={{
         opacity: 0
       }} animate={{
@@ -105,7 +108,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-primary/20" />
         
         <div className="container mx-auto px-4 relative z-10">
-          
+          <AnimatedHeroMessage />
         </div>
       </section>
 
