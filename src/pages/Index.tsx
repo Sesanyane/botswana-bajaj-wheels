@@ -209,7 +209,7 @@ const Index = () => {
                 <HoverScale scale={1.02}>
                   <div className="relative">
                     <div className="bg-white rounded-2xl p-8 shadow-xl border overflow-hidden">
-                      <img src="/lovable-uploads/9bf38685-7a0a-4d29-a5de-dfccbaf8c1d0.png" alt="Bajaj Boxer 150" className="w-full h-auto object-contain" />
+                      <img src="/lovable-uploads/a5be7751-ea17-488a-bfee-1d772998cc30.png" alt="Bajaj Boxer 150" className="w-full h-auto object-contain" />
                       <div className="text-center mt-4">
                         <h3 className="text-2xl font-bold text-primary mb-2">Boxer 150 HD</h3>
                         <p className="text-gray-600">The perfect companion for your daily journey</p>
