@@ -113,6 +113,87 @@ const ProductDetail = () => {
         "Wheels": "17\" Alloy with Tubeless Tires"
       },
       colors: ["Red Graphics", "Black Yellow", "Blue", "Red", "White"]
+    },
+    "bajaj-re4s": {
+      name: "Bajaj RE4S",
+      category: "Three Wheeler",
+      description: "The Bajaj RE4S or Bajaj Tuk Tuk is a compact and efficient three-wheeler with a powerful petrol engine, offering excellent performance and reliability for urban commuting. It is equipped with modern features and comfortable seating, making it a popular choice for both commercial and personal use.",
+      images: [
+        "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
+        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png"
+      ],
+      gallery: [
+        {
+          url: "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
+          title: "Interior Seating",
+          description: "Comfortable passenger seating with modern interior design"
+        },
+        {
+          url: "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png", 
+          title: "Side Mirror",
+          description: "Wide-angle side mirrors for enhanced safety and visibility"
+        },
+        {
+          url: "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png",
+          title: "Wheel & Suspension",
+          description: "Robust wheel design with reliable suspension system"
+        },
+        {
+          url: "/lovable-uploads/4977b2f0-435d-45e0-a6ad-1f2a63a96438.png",
+          title: "Fuel System",
+          description: "Efficient fuel tank and delivery system"
+        },
+        {
+          url: "/lovable-uploads/086898f1-e238-4fa1-b65a-cabdd2231024.png",
+          title: "Rear View Mirror",
+          description: "Clear rear visibility for safe maneuvering"
+        },
+        {
+          url: "/lovable-uploads/e7482b20-708f-4830-945d-ee0e7a0cfb80.png",
+          title: "Dashboard & Controls",
+          description: "Modern dashboard with MP3/Radio/USB entertainment system"
+        },
+        {
+          url: "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+          title: "Side Profile",
+          description: "Complete side view showcasing the RE4S design and build quality"
+        },
+        {
+          url: "/lovable-uploads/e8a3517e-cb0f-4c3a-838d-f00d9a84f31d.png",
+          title: "Engine Compartment",
+          description: "Powerful and reliable petrol engine for urban performance"
+        },
+        {
+          url: "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
+          title: "Rear Design",
+          description: "Sturdy rear construction with Twin Spark branding"
+        },
+        {
+          url: "/lovable-uploads/de6cca21-9eac-4d27-822f-f15d2fa6d8ca.png",
+          title: "Driver Controls",
+          description: "Intuitive driver controls and pedal system"
+        }
+      ],
+      keyFeatures: [
+        "199.5cc Petrol Engine",
+        "35 kmpl Fuel Efficiency", 
+        "4-Stroke Engine",
+        "Hydraulic Shock Absorbers",
+        "12V Electrical System",
+        "MP3/Radio/USB System"
+      ],
+      specifications: {
+        "Engine": "199.5cc Single Cylinder, Air Cooled",
+        "Power": "8.1 BHP @ 6500 rpm",
+        "Torque": "12.5 Nm @ 4500 rpm", 
+        "Transmission": "4-Speed Manual",
+        "Fuel Tank": "8.5 Liters",
+        "Seating": "Driver + 3 Passengers",
+        "Weight": "365 kg",
+        "Ground Clearance": "155 mm"
+      },
+      colors: ["Red"]
     }
   };
 
@@ -358,6 +439,54 @@ const ProductDetail = () => {
             </HoverScale>
           </ScrollReveal>
 
+
+          {/* Gallery Section - For Boxer 150 and RE4S */}
+          {(id === 'bajaj-boxer-150' || id === 'bajaj-re4s') && 'gallery' in product && (
+            <ScrollReveal delay={0.8}>
+              <Card className="mt-12">
+                <CardHeader>
+                  <CardTitle className="text-center">Detailed Gallery</CardTitle>
+                  <p className="text-center text-gray-600 mt-2">
+                    {id === 'bajaj-boxer-150' 
+                      ? "Explore every detail of the Bajaj Boxer BM 150"
+                      : "Explore every detail of the Bajaj RE4S Tuk Tuk"
+                    }
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {(product as any).gallery.map((item: any, index: number) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                        whileHover={{ y: -5 }}
+                        className="group"
+                      >
+                        <HoverScale scale={1.03}>
+                          <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="aspect-video bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+                              <img
+                                src={item.url}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            <div className="p-4">
+                              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                              <p className="text-sm text-gray-600">{item.description}</p>
+                            </div>
+                          </div>
+                        </HoverScale>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+          )}
 
         </div>
       </div>
