@@ -61,6 +61,21 @@ const QuteDetails = () => {
         url: "/lovable-uploads/20c1ca5e-7122-4051-bccf-49cdb385da87.png",
         title: "Black Variant",
         description: "Sleek black color for a premium look"
+      },
+      {
+        url: "/lovable-uploads/13323b91-f6d0-4a5b-a777-f136fca4dda6.png",
+        title: "Cargo Space",
+        description: "Spacious interior with room for shopping and storage"
+      },
+      {
+        url: "/lovable-uploads/814881ec-64ad-4782-82ae-25f023878a47.png",
+        title: "Interior Layout",
+        description: "Cutaway view showing comfortable seating arrangement"
+      },
+      {
+        url: "/lovable-uploads/9f40bfd9-523f-49ff-bad5-8bfac3d7a625.png",
+        title: "850L Storage",
+        description: "Impressive 850 litres of storage space for all your needs"
       }
     ],
     keyFeatures: [
