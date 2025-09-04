@@ -234,24 +234,6 @@ const TukTukDetails = () => {
                        <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
                      </motion.div>
                      
-                     {/* Color Selection Dots */}
-                     <div className="flex justify-center gap-3 py-4">
-                       {Object.entries(colorVariants).map(([color, variant]) => (
-                         <motion.button
-                           key={color}
-                           onClick={() => setSelectedColor(color)}
-                           className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
-                             selectedColor === color 
-                               ? 'ring-2 ring-primary ring-offset-2 border-white shadow-lg scale-110' 
-                               : 'border-gray-300 hover:scale-105'
-                           }`}
-                           style={{ backgroundColor: variant.colorCode }}
-                           whileHover={{ scale: selectedColor === color ? 1.1 : 1.05 }}
-                           whileTap={{ scale: 0.95 }}
-                           title={`${color} variant`}
-                         />
-                       ))}
-                     </div>
                      
                    </div>
                  </SlideIn>
@@ -298,38 +280,6 @@ const TukTukDetails = () => {
                       </HoverScale>
                     </ScrollReveal>
 
-                    {/* Available Colors */}
-                    <ScrollReveal delay={0.5}>
-                      <HoverScale scale={1.02}>
-                        <Card>
-                          <CardHeader>
-                            <CardTitle>Available Colors</CardTitle>
-                          </CardHeader>
-                           <CardContent>
-                             <div className="flex gap-3">
-                               {tukTukData.colors.map((color, index) => (
-                                 <motion.div
-                                   key={index}
-                                   initial={{ scale: 0 }}
-                                   whileInView={{ scale: 1 }}
-                                   viewport={{ once: true }}
-                                   transition={{ delay: index * 0.1, duration: 0.3 }}
-                                   className="text-center"
-                                 >
-                                   <div 
-                                     className={`w-8 h-8 rounded-full border-2 mb-1 ${
-                                       selectedColor === color ? 'border-primary ring-2 ring-primary/30' : 'border-gray-300'
-                                     }`}
-                                     style={{ backgroundColor: colorVariants[color]?.colorCode || '#6b7280' }}
-                                   />
-                                   <span className="text-xs text-gray-600">{color}</span>
-                                 </motion.div>
-                               ))}
-                             </div>
-                           </CardContent>
-                        </Card>
-                      </HoverScale>
-                    </ScrollReveal>
 
                     {/* Action Buttons */}
                     <ScrollReveal delay={0.6}>
