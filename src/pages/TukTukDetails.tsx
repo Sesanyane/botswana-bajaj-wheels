@@ -221,40 +221,41 @@ const TukTukDetails = () => {
           <div className="container mx-auto px-4 py-16">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                 {/* Product Images */}
-                 <SlideIn direction="left" delay={0.1}>
-                   <div className="space-y-4">
-                     {/* Main Slideshow with smooth transitions */}
-                     <motion.div
-                       key={selectedColor}
-                       initial={{ opacity: 0, scale: 0.95 }}
-                       animate={{ opacity: 1, scale: 1 }}
-                       transition={{ duration: 0.5, ease: "easeOut" }}
-                     >
-                       <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
-                     </motion.div>
-                      
-                       {/* Color Selection Dots */}
-                       <div className="flex justify-center gap-3 py-4">
+                  {/* Product Images - UPDATED VERSION */}
+                  <SlideIn direction="left" delay={0.1}>
+                    <div className="space-y-4">
+                      {/* Main Slideshow with smooth transitions */}
+                      <motion.div
+                        key={selectedColor}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                      >
+                        <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
+                      </motion.div>
+                       
+                       {/* Color Selection Dots - VISIBLE NOW */}
+                       <div className="flex justify-center gap-3 py-4 bg-blue-50 rounded-lg">
+                         <p className="text-sm text-gray-600 mr-4">Select Color:</p>
                          {Object.entries(colorVariants).map(([color, variant]) => (
                            <motion.button
                              key={color}
                              onClick={() => setSelectedColor(color)}
-                             className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
+                             className={`w-8 h-8 rounded-full border-4 transition-all duration-300 ${
                                selectedColor === color 
-                                 ? 'ring-2 ring-primary ring-offset-2 border-white shadow-lg scale-110' 
-                                 : 'border-gray-300 hover:scale-105'
+                                 ? 'ring-4 ring-primary ring-offset-2 border-white shadow-xl scale-125' 
+                                 : 'border-gray-400 hover:scale-110'
                              }`}
                              style={{ backgroundColor: variant.colorCode }}
-                             whileHover={{ scale: selectedColor === color ? 1.1 : 1.05 }}
+                             whileHover={{ scale: selectedColor === color ? 1.25 : 1.1 }}
                              whileTap={{ scale: 0.95 }}
                              title={`${color} variant`}
                            />
                          ))}
                        </div>
-                      
-                   </div>
-                 </SlideIn>
+                       
+                    </div>
+                  </SlideIn>
 
                 {/* Product Info */}
                 <SlideIn direction="right" delay={0.2}>
