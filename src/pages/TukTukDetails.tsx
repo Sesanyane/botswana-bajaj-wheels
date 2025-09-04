@@ -234,24 +234,24 @@ const TukTukDetails = () => {
                        <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
                      </motion.div>
                       
-                      {/* Color Selection Dots */}
-                      <div className="flex justify-center gap-3 py-4">
-                        {Object.entries(colorVariants).map(([color, variant]) => (
-                          <motion.button
-                            key={color}
-                            onClick={() => setSelectedColor(color)}
-                            className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
-                              selectedColor === color 
-                                ? 'ring-2 ring-primary ring-offset-2 border-white shadow-lg scale-110' 
-                                : 'border-gray-300 hover:scale-105'
-                            }`}
-                            style={{ backgroundColor: variant.colorCode }}
-                            whileHover={{ scale: selectedColor === color ? 1.1 : 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            title={`${color} variant`}
-                          />
-                        ))}
-                      </div>
+                       {/* Color Selection Dots */}
+                       <div className="flex justify-center gap-3 py-4">
+                         {Object.entries(colorVariants).map(([color, variant]) => (
+                           <motion.button
+                             key={color}
+                             onClick={() => setSelectedColor(color)}
+                             className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
+                               selectedColor === color 
+                                 ? 'ring-2 ring-primary ring-offset-2 border-white shadow-lg scale-110' 
+                                 : 'border-gray-300 hover:scale-105'
+                             }`}
+                             style={{ backgroundColor: variant.colorCode }}
+                             whileHover={{ scale: selectedColor === color ? 1.1 : 1.05 }}
+                             whileTap={{ scale: 0.95 }}
+                             title={`${color} variant`}
+                           />
+                         ))}
+                       </div>
                       
                    </div>
                  </SlideIn>
