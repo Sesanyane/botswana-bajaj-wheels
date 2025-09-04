@@ -57,7 +57,17 @@ const Products = () => {
       gallery: [
         "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
         "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150  
-        "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png"  // Another variant
+        "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png", // Another variant
+        "/lovable-uploads/bb26b42f-5bb6-4668-a990-07bc5c5dc7ff.png", // Engine detail
+        "/lovable-uploads/3d9ce1f3-2efb-48e3-bd5e-28accd8174e1.png", // Suspension detail
+        "/lovable-uploads/69bbfe64-d77d-43f2-8c2c-c09c14087f42.png", // Engine closeup
+        "/lovable-uploads/15a663e0-7552-4d25-97e2-69fcedf74784.png", // Fuel tank
+        "/lovable-uploads/3685ca1e-1fe8-4e41-94d0-b8897b07d65e.png", // Dashboard
+        "/lovable-uploads/2493b1d5-24af-423e-b251-3270b4323062.png", // Wheel detail
+        "/lovable-uploads/9d728dc6-acf8-4801-bc4b-7f295a311b9f.png", // Handlebar controls
+        "/lovable-uploads/36072f51-0ad0-4d19-a9fa-53fd4e561fc4.png", // Side view
+        "/lovable-uploads/258247d8-616f-460a-ae45-b85fa2377c08.png", // Street view
+        "/lovable-uploads/12485d64-b46b-4347-9f03-4c06cf5bc41c.png"  // With delivery box
       ],
       colors: ["Black", "Red", "Silver"],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],

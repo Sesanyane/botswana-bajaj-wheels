@@ -100,6 +100,56 @@ const ProductDetail = () => {
           url: "/lovable-uploads/54752007-219c-40bb-bef1-cb3f0c18a928.png",
           title: "Boxer BM 150",
           description: "Detailed view of the Boxer BM 150 showing the engine and stylish design"
+        },
+        {
+          url: "/lovable-uploads/bb26b42f-5bb6-4668-a990-07bc5c5dc7ff.png",
+          title: "Engine Detail",
+          description: "Close-up view of the BM 150 engine and suspension system"
+        },
+        {
+          url: "/lovable-uploads/3d9ce1f3-2efb-48e3-bd5e-28accd8174e1.png",
+          title: "Suspension System",
+          description: "Detailed view of the dual-coil rear suspension with red springs"
+        },
+        {
+          url: "/lovable-uploads/69bbfe64-d77d-43f2-8c2c-c09c14087f42.png",
+          title: "Engine Assembly",
+          description: "Complete view of the engine assembly and chassis design"
+        },
+        {
+          url: "/lovable-uploads/15a663e0-7552-4d25-97e2-69fcedf74784.png",
+          title: "Fuel Tank Design",
+          description: "Stylish fuel tank with Boxer branding and sporty graphics"
+        },
+        {
+          url: "/lovable-uploads/3685ca1e-1fe8-4e41-94d0-b8897b07d65e.png",
+          title: "Dashboard & Controls",
+          description: "Clear instrument cluster with speedometer and odometer"
+        },
+        {
+          url: "/lovable-uploads/2493b1d5-24af-423e-b251-3270b4323062.png",
+          title: "17\" Alloy Wheels",
+          description: "Stylish 17-inch alloy wheels with added mud-grip and raised mud-guard"
+        },
+        {
+          url: "/lovable-uploads/9d728dc6-acf8-4801-bc4b-7f295a311b9f.png",
+          title: "Handlebar Controls",
+          description: "Ergonomic handlebar setup with easy-to-reach controls"
+        },
+        {
+          url: "/lovable-uploads/36072f51-0ad0-4d19-a9fa-53fd4e561fc4.png",
+          title: "Side Profile",
+          description: "Complete side view showcasing the sporty design and robust build"
+        },
+        {
+          url: "/lovable-uploads/258247d8-616f-460a-ae45-b85fa2377c08.png",
+          title: "Street Ready",
+          description: "The Boxer BM 150 in its natural environment, ready for urban rides"
+        },
+        {
+          url: "/lovable-uploads/12485d64-b46b-4347-9f03-4c06cf5bc41c.png",
+          title: "Commercial Ready",
+          description: "Equipped with delivery box for commercial use and business applications"
         }
       ],
       keyFeatures: [
