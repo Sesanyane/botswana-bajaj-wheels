@@ -30,42 +30,37 @@ const QuteDetails = () => {
     category: "Quadricycle",
     description: "The Bajaj Qute is an ultra-modern quadricycle designed for urban mobility. With its efficient CNG engine and compact design, it offers an economical and eco-friendly transportation solution.",
     colorVariants: {
-      "Yellow": "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png",
-      "Red": "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png",
-      "Blue": "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png",
-      "Green": "/lovable-uploads/59e96b62-ccb0-40ad-bf73-dec1cd1773f5.png",
-      "Black": "/lovable-uploads/f988bdaa-eab5-48a8-9572-c9c855f68736.png"
+      "Yellow": "/lovable-uploads/d7cad81f-8437-4881-a9cb-7ee06201891a.png",
+      "Red": "/lovable-uploads/515d4474-db9c-4ce2-bcd7-c45adb1d75f0.png",
+      "Blue": "/lovable-uploads/ebb0ceb1-e23a-4d4c-add9-17c10e2418cb.png",
+      "Green": "/lovable-uploads/da1721c0-11d3-416b-81d1-40fbaf337b75.png",
+      "Black": "/lovable-uploads/20c1ca5e-7122-4051-bccf-49cdb385da87.png"
     },
     gallery: [
       {
-        url: "/lovable-uploads/4751daea-1071-496f-9ec5-e36092fc6e9f.png",
-        title: "Interior View",
-        description: "Spacious and comfortable interior with modern dashboard"
+        url: "/lovable-uploads/515d4474-db9c-4ce2-bcd7-c45adb1d75f0.png",
+        title: "Red Variant",
+        description: "Vibrant red color for a bold statement"
       },
       {
-        url: "/lovable-uploads/6681bb68-7bec-4e37-965a-b83f8bb5f63b.png",
-        title: "Seating Configuration",
-        description: "Comfortable seating for driver plus 3 passengers"
-      },
-      {
-        url: "/lovable-uploads/fa7bb9a5-d403-4f3c-9a28-2b01771632ba.png",
-        title: "Features & Controls",
-        description: "Modern features and easy-to-use controls"
-      },
-      {
-        url: "/lovable-uploads/4077b8b6-f6fb-4324-a8a3-0e858215bc0f.png",
-        title: "Yellow Variant",
-        description: "Bright yellow color option for better visibility"
-      },
-      {
-        url: "/lovable-uploads/179b63a1-0171-4c6a-8999-54e0352a1b17.png",
+        url: "/lovable-uploads/ebb0ceb1-e23a-4d4c-add9-17c10e2418cb.png",
         title: "Blue Variant",
         description: "Elegant blue color with modern styling"
       },
       {
-        url: "/lovable-uploads/d0f922d9-89a5-4c3e-84bd-23a9e693295b.png",
-        title: "Detailed View",
-        description: "Complete vehicle overview with all features visible"
+        url: "/lovable-uploads/da1721c0-11d3-416b-81d1-40fbaf337b75.png",
+        title: "Green Variant",
+        description: "Fresh green color for eco-conscious drivers"
+      },
+      {
+        url: "/lovable-uploads/d7cad81f-8437-4881-a9cb-7ee06201891a.png",
+        title: "Yellow Variant",
+        description: "Bright yellow color option for better visibility"
+      },
+      {
+        url: "/lovable-uploads/20c1ca5e-7122-4051-bccf-49cdb385da87.png",
+        title: "Black Variant",
+        description: "Sleek black color for a premium look"
       }
     ],
     keyFeatures: [
