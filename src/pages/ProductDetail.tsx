@@ -47,12 +47,12 @@ const ProductDetail = () => {
         bajajQuteBlue
       ],
       colorVariants: {
-        "Yellow": "/lovable-uploads/b4b1e4b1-83bf-43c2-9a30-98ea2e364a86.png",
-        "Red": "/lovable-uploads/44ba8261-58a1-42f1-9583-df00b94a2dee.png",
+        "Yellow": bajajaQuteYellow,
+        "Red": bajajQuteRed,
         "Green": "/lovable-uploads/59e96b62-ccb0-40ad-bf73-dec1cd1773f5.png",
         "Orange": "/lovable-uploads/9569cc90-fb47-43ce-8752-17eb27989767.png",
         "Black": "/lovable-uploads/f988bdaa-eab5-48a8-9572-c9c855f68736.png",
-        "Blue": "/lovable-uploads/8b0018de-cd00-48ea-b3a2-376819a7222b.png"
+        "Blue": bajajQuteBlue
       },
       keyFeatures: [
         "217cc DTS-i Engine",
