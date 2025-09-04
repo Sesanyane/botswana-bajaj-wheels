@@ -95,6 +95,33 @@ const ProductDetail = () => {
         "Red": "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
         "White": "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
       },
+      gallery: [
+        {
+          url: "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
+          title: "Red Graphics Variant",
+          description: "Bold red graphics design with distinctive styling"
+        },
+        {
+          url: "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
+          title: "Black Yellow Variant",
+          description: "Striking black and yellow color combination"
+        },
+        {
+          url: "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
+          title: "Blue Variant",
+          description: "Classic blue finish with modern appeal"
+        },
+        {
+          url: "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
+          title: "Red Variant",
+          description: "Clean red design for everyday commuting"
+        },
+        {
+          url: "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png",
+          title: "White Variant",
+          description: "Pure white finish with elegant design"
+        }
+      ],
       keyFeatures: [
         "149.5cc Engine",
         "70 kmpl Fuel Efficiency",
@@ -273,7 +300,7 @@ const ProductDetail = () => {
             {/* Product Images */}
             <SlideIn direction="left">
               <div>
-                {id === 'bajaj-qute' ? (
+                {(id === 'bajaj-qute' || id === 'bajaj-boxer-150') ? (
                   <div className="space-y-4">
                     <div className="relative">
                       <motion.img
