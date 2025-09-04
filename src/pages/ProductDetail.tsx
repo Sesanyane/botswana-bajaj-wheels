@@ -23,6 +23,7 @@ import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae
 
 const ProductDetail = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedColor, setSelectedColor] = useState("Yellow");
   const { id } = useParams();
 
   useEffect(() => {
@@ -45,6 +46,14 @@ const ProductDetail = () => {
         bajajQuteInterior,
         bajajQuteBlue
       ],
+      colorVariants: {
+        "Yellow": "/lovable-uploads/b4b1e4b1-83bf-43c2-9a30-98ea2e364a86.png",
+        "Red": "/lovable-uploads/44ba8261-58a1-42f1-9583-df00b94a2dee.png",
+        "Green": "/lovable-uploads/59e96b62-ccb0-40ad-bf73-dec1cd1773f5.png",
+        "Orange": "/lovable-uploads/9569cc90-fb47-43ce-8752-17eb27989767.png",
+        "Black": "/lovable-uploads/f988bdaa-eab5-48a8-9572-c9c855f68736.png",
+        "Blue": "/lovable-uploads/8b0018de-cd00-48ea-b3a2-376819a7222b.png"
+      },
       keyFeatures: [
         "217cc DTS-i Engine",
         "36 kmpl Fuel Efficiency", 
@@ -65,7 +74,7 @@ const ProductDetail = () => {
         "Top Speed": "70 kmph",
         "Certification": "European WVTA"
       },
-      colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"]
+      colors: ["Yellow", "Red", "Green", "Orange", "Black", "Blue"]
     },
     "bajaj-boxer-150": {
       name: "Bajaj Boxer 150",
@@ -221,7 +230,22 @@ const ProductDetail = () => {
             {/* Product Images */}
             <SlideIn direction="left">
               <div>
-                <ProductImageCarousel images={product.images} productName={product.name} />
+                {id === 'bajaj-qute' && 'colorVariants' in product ? (
+                  <div className="space-y-4">
+                    <div className="relative">
+                      <img
+                        src={(product as any).colorVariants[selectedColor]}
+                        alt={`${product.name} in ${selectedColor}`}
+                        className="w-full h-96 object-cover rounded-lg shadow-lg"
+                      />
+                      <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span className="text-white text-sm font-medium">{selectedColor}</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <ProductImageCarousel images={product.images} productName={product.name} />
+                )}
               </div>
             </SlideIn>
 
@@ -281,18 +305,37 @@ const ProductDetail = () => {
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1, duration: 0.3 }}
                               whileHover={{ scale: 1.05 }}
-                              className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
+                              onClick={() => id === 'bajaj-qute' ? setSelectedColor(color) : undefined}
+                              className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 ${
+                                id === 'bajaj-qute' 
+                                  ? `cursor-pointer ${selectedColor === color ? 'bg-primary/10 border-2 border-primary' : 'bg-gray-50 hover:bg-gray-100'}` 
+                                  : 'bg-gray-50'
+                              }`}
                             >
-                              <div className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
+                              <div className={`w-6 h-6 rounded-full border-2 ${
+                                selectedColor === color && id === 'bajaj-qute' ? 'border-primary' : 'border-gray-300'
+                              } ${
                                 color.toLowerCase() === 'red' ? 'bg-red-500' :
                                 color.toLowerCase() === 'black' ? 'bg-black' :
                                 color.toLowerCase() === 'blue' ? 'bg-blue-500' :
                                 color.toLowerCase() === 'yellow' ? 'bg-yellow-400' :
                                 color.toLowerCase() === 'green' ? 'bg-green-500' :
+                                color.toLowerCase() === 'orange' ? 'bg-orange-500' :
                                 color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
                                 'bg-gray-400'
                               }`}></div>
-                              <span className="text-sm font-medium">{color}</span>
+                              <span className={`text-sm font-medium ${
+                                selectedColor === color && id === 'bajaj-qute' ? 'text-primary' : 'text-gray-900'
+                              }`}>
+                                {color}
+                              </span>
+                              {selectedColor === color && id === 'bajaj-qute' && (
+                                <motion.div
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  className="ml-auto w-2 h-2 bg-primary rounded-full"
+                                />
+                              )}
                             </motion.div>
                           ))}
                         </div>
