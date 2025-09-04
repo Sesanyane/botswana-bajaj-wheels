@@ -97,6 +97,21 @@ const ProductDetail = () => {
       },
       gallery: [
         {
+          url: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
+          title: "Black Boxer 150",
+          description: "Classic black finish with modern appeal"
+        },
+        {
+          url: "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png",
+          title: "Red Boxer 150",
+          description: "Bold red color for everyday commuting"
+        },
+        {
+          url: "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png",
+          title: "Silver Boxer 150",
+          description: "Elegant silver variant with premium finish"
+        },
+        {
           url: "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
           title: "Red Graphics Variant",
           description: "Bold red graphics design with distinctive styling"
@@ -105,21 +120,6 @@ const ProductDetail = () => {
           url: "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
           title: "Black Yellow Variant",
           description: "Striking black and yellow color combination"
-        },
-        {
-          url: "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
-          title: "Blue Variant",
-          description: "Classic blue finish with modern appeal"
-        },
-        {
-          url: "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
-          title: "Red Variant",
-          description: "Clean red design for everyday commuting"
-        },
-        {
-          url: "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png",
-          title: "White Variant",
-          description: "Pure white finish with elegant design"
         }
       ],
       keyFeatures: [

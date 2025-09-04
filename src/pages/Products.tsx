@@ -148,9 +148,7 @@ const Products = () => {
             <img 
               src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
               alt={product.name}
-              className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
-                isQuadricycle ? 'h-64' : 'h-48'
-              }`}
+              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <Badge className="absolute top-3 left-3 bg-primary text-white">
               {product.category}

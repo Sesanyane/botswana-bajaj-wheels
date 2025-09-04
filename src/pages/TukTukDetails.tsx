@@ -32,31 +32,67 @@ const TukTukDetails = () => {
   }, []);
 
   const tukTukData = {
-    name: "Bajaj Qute Quadricycle",
-    category: "Quadricycle",
-    description: "Europe's first quadricycle designed for efficient urban transportation",
-    images: [bajajQuteYellow, bajajQuteInterior, bajajQuteSeating, bajajQuteStorage, bajajQuteFeatures],
+    name: "Bajaj RE4S Auto Rickshaw",
+    category: "Three Wheeler",
+    description: "The Bajaj RE4S or Bajaj Tuk Tuk is a compact and efficient three-wheeler with a powerful petrol engine, offering excellent performance and reliability for urban commuting.",
+    images: [
+      "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
+      "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+      "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
+      "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
+      "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
+    ],
+    gallery: [
+      {
+        url: "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
+        title: "Interior Seating",
+        description: "Comfortable passenger seating with modern interior design"
+      },
+      {
+        url: "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png", 
+        title: "Side Mirror",
+        description: "Wide-angle side mirrors for enhanced safety and visibility"
+      },
+      {
+        url: "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png",
+        title: "Wheel & Suspension",
+        description: "Robust wheel design with reliable suspension system"
+      },
+      {
+        url: "/lovable-uploads/4977b2f0-435d-45e0-a6ad-1f2a63a96438.png",
+        title: "Fuel System",
+        description: "Efficient fuel tank and delivery system"
+      },
+      {
+        url: "/lovable-uploads/086898f1-e238-4fa1-b65a-cabdd2231024.png",
+        title: "Rear View Mirror",
+        description: "Clear rear visibility for safe maneuvering"
+      },
+      {
+        url: "/lovable-uploads/e7482b20-708f-4830-945d-ee0e7a0cfb80.png",
+        title: "Dashboard & Controls",
+        description: "Modern dashboard with MP3/Radio/USB entertainment system"
+      }
+    ],
     keyFeatures: [
-      "217cc DTS-i Engine",
-      "36 kmpl Fuel Efficiency", 
-      "4-Seater Capacity",
-      "191L Storage Space",
-      "70 kmph Max Speed",
-      "European WVTA Certified"
+      "199.5cc Petrol Engine",
+      "35 kmpl Fuel Efficiency", 
+      "4-Stroke Engine",
+      "Hydraulic Shock Absorbers",
+      "12V Electrical System",
+      "MP3/Radio/USB System"
     ],
     specifications: {
-      "Engine": "217cc Single Cylinder, Liquid Cooled",
-      "Power": "13.2 BHP @ 5500 rpm",
-      "Torque": "18.9 Nm @ 4000 rpm",
-      "Transmission": "5-Speed Manual",
-      "Fuel Tank": "8 Liters",
-      "Seating": "4 Passengers",
-      "Storage": "191L (850L with folded seats)",
-      "Weight": "399 kg",
-      "Top Speed": "70 kmph",
-      "Certification": "European WVTA"
+      "Engine": "199.5cc Single Cylinder, Air Cooled",
+      "Power": "8.1 BHP @ 6500 rpm",
+      "Torque": "12.5 Nm @ 4500 rpm", 
+      "Transmission": "4-Speed Manual",
+      "Fuel Tank": "8.5 Liters",
+      "Seating": "Driver + 3 Passengers",
+      "Weight": "365 kg",
+      "Ground Clearance": "155 mm"
     },
-    colors: ["Yellow", "Red", "Green", "Black", "White", "Blue"],
+    colors: ["Red"],
     benefits: [
       "Low operating costs",
       "Easy financing options",
@@ -144,11 +180,43 @@ const TukTukDetails = () => {
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                 {/* Product Images */}
-                <SlideIn direction="left" delay={0.1}>
-                  <div className="space-y-4">
-                    <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
-                  </div>
-                </SlideIn>
+                 <SlideIn direction="left" delay={0.1}>
+                   <div className="space-y-4">
+                     <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
+                     
+                     {/* Gallery Section */}
+                     <div className="mt-12">
+                       <h3 className="text-2xl font-bold text-gray-900 mb-6">Gallery</h3>
+                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                         {tukTukData.gallery.map((item, index) => (
+                           <motion.div
+                             key={index}
+                             initial={{ opacity: 0, scale: 0.9 }}
+                             whileInView={{ opacity: 1, scale: 1 }}
+                             viewport={{ once: true }}
+                             transition={{ delay: index * 0.1, duration: 0.3 }}
+                             whileHover={{ scale: 1.05 }}
+                             className="group cursor-pointer"
+                           >
+                             <div className="relative overflow-hidden rounded-lg shadow-md">
+                               <img
+                                 src={item.url}
+                                 alt={item.title}
+                                 className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                               />
+                               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                 <div className="text-center text-white p-2">
+                                   <h4 className="font-semibold text-sm">{item.title}</h4>
+                                   <p className="text-xs mt-1">{item.description}</p>
+                                 </div>
+                               </div>
+                             </div>
+                           </motion.div>
+                         ))}
+                       </div>
+                     </div>
+                   </div>
+                 </SlideIn>
 
                 {/* Product Info */}
                 <SlideIn direction="right" delay={0.2}>
