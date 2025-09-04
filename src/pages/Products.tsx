@@ -23,11 +23,12 @@ import electricalComponents from "/lovable-uploads/73018cb6-25e8-46d5-b5c3-5aff6
 import bodyChassisParts from "/lovable-uploads/eb6732d3-23d4-4db0-83ae-eb7134b3787e.png";
 
 const Products = () => {
-  const quadricycles = [
+  // Combined vehicles array including all transportation options
+  const vehicles = [
     {
       id: "bajaj-qute",
       name: "Bajaj Qute Quadricycle",
-      category: "Passenger Vehicle",
+      category: "Quadricycle",
       engine: "217cc",
       mileage: "36 kmpl",
       fuelRange: "300+ km range on full tank",
@@ -44,10 +45,7 @@ const Products = () => {
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
       description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
       video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Qute promotional video
-    }
-  ];
-
-  const motorcycles = [
+    },
     {
       id: "bajaj-boxer-150",
       name: "Bajaj Boxer 150",
@@ -66,6 +64,19 @@ const Products = () => {
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
       description: "Perfect for daily commuting with excellent fuel efficiency",
       video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Boxer 150 promotional video
+    },
+    {
+      id: "bajaj-tuk-tuk",
+      name: "Bajaj RE Auto Rickshaw (Tuk Tuk)",
+      category: "Three Wheeler",
+      engine: "236cc",
+      mileage: "35-40 kmpl",
+      fuelRange: "300+ km range on full tank",
+      power: "8.1 BHP",
+      image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
+      features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
+      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity",
+      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Tuk Tuk promotional video
     }
   ];
 
@@ -96,21 +107,6 @@ const Products = () => {
     }
   ];
 
-  const tukTuk = [
-    {
-      id: "bajaj-tuk-tuk",
-      name: "Bajaj RE Auto Rickshaw (Tuk Tuk)",
-      category: "Three Wheeler",
-      engine: "236cc",
-      mileage: "35-40 kmpl",
-      fuelRange: "300+ km range on full tank",
-      power: "8.1 BHP",
-      image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
-      features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
-      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity"
-    }
-  ];
-
   const spareParts = [
     {
       id: "engine-components",
@@ -138,8 +134,15 @@ const Products = () => {
     }
   ];
 
-  const QuadricycleCard = ({ product }) => {
+  // Unified VehicleCard component to handle all vehicle types
+  const VehicleCard = ({ product }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
+    // Determine if this is a tuk tuk for routing
+    const isThreeWheeler = product.category === "Three Wheeler";
+    
+    // Determine grid layout based on vehicle type
+    const isQuadricycle = product.category === "Quadricycle";
     
     return (
       <HoverScale scale={1.03}>
@@ -148,7 +151,9 @@ const Products = () => {
             <img 
               src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
               alt={product.name}
-              className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+              className={`w-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+                isQuadricycle ? 'h-64' : 'h-48'
+              }`}
             />
             <Badge className="absolute top-3 left-3 bg-primary text-white">
               {product.category}
@@ -177,46 +182,74 @@ const Products = () => {
             </div>
             <p className="text-gray-600 text-sm">{product.description}</p>
           </CardHeader>
-        <CardContent>
+          <CardContent>
             <div className="mb-4">
               <iframe 
                 src={product.video} 
                 title={`${product.name} Video`}
-                className="w-full h-48 rounded-lg mb-4"
+                className={`w-full rounded-lg mb-4 ${isQuadricycle ? 'h-48' : 'h-40'}`}
                 frameBorder="0"
                 allowFullScreen
               />
             </div>
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-1">
-                  <Gauge className="h-4 w-4 text-primary mr-1" />
+            
+            {/* Adaptive grid based on vehicle type */}
+            {isQuadricycle ? (
+              <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Gauge className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Engine</p>
+                  <p className="text-sm font-semibold">{product.engine}</p>
                 </div>
-                <p className="text-xs text-gray-500">Engine</p>
-                <p className="text-sm font-semibold">{product.engine}</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-1">
-                  <Fuel className="h-4 w-4 text-primary mr-1" />
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Fuel className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Fuel Range</p>
+                  <p className="text-sm font-semibold">{product.fuelRange}</p>
                 </div>
-                <p className="text-xs text-gray-500">Fuel Range</p>
-                <p className="text-sm font-semibold">{product.fuelRange}</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-1">
-                  <Users className="h-4 w-4 text-primary mr-1" />
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Users className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Capacity</p>
+                  <p className="text-sm font-semibold">{product.capacity}</p>
                 </div>
-                <p className="text-xs text-gray-500">Capacity</p>
-                <p className="text-sm font-semibold">{product.capacity}</p>
-              </div>
-              <div className="text-center">
-                <div className="flex items-center justify-center mb-1">
-                  <Truck className="h-4 w-4 text-primary mr-1" />
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Truck className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Storage</p>
+                  <p className="text-sm font-semibold">{product.storage}</p>
                 </div>
-                <p className="text-xs text-gray-500">Storage</p>
-                <p className="text-sm font-semibold">{product.storage}</p>
               </div>
-            </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Gauge className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Engine</p>
+                  <p className="text-sm font-semibold">{product.engine}</p>
+                </div>
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Fuel className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Fuel Range</p>
+                  <p className="text-sm font-semibold">{product.fuelRange}</p>
+                </div>
+                <div className="text-center">
+                  <div className="flex items-center justify-center mb-1">
+                    <Truck className="h-4 w-4 text-primary mr-1" />
+                  </div>
+                  <p className="text-xs text-gray-500">Power</p>
+                  <p className="text-sm font-semibold">{product.power}</p>
+                </div>
+              </div>
+            )}
             
             <div className="mb-4">
               <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
@@ -229,142 +262,40 @@ const Products = () => {
               </div>
             </div>
             
+            {/* Color Showcase for vehicles with color options */}
+            {product.colors && (
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-gray-700 mb-2">Available Colors:</h4>
+                <div className="flex gap-2">
+                  {product.colors.map((color, index) => (
+                    <div key={color} className="flex items-center space-x-2">
+                      <div className={`w-4 h-4 rounded-full border border-gray-300 ${
+                        color.toLowerCase() === 'red' ? 'bg-red-500' :
+                        color.toLowerCase() === 'black' ? 'bg-black' :
+                        color.toLowerCase() === 'silver' ? 'bg-gray-300' :
+                        color.toLowerCase() === 'blue' ? 'bg-blue-500' :
+                        'bg-gray-400'
+                      }`}></div>
+                      <span className="text-xs text-gray-600">{color}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             <div className="flex gap-2">
               <Link to="/contact" className="flex-1">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white">
                   Get Quote
                 </Button>
               </Link>
-              <Link to={`/product/${product.id}`} className="flex-1">
+              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                   Learn More
                 </Button>
               </Link>
             </div>
           </CardContent>
-        </Card>
-      </HoverScale>
-    );
-  };
-
-  const ProductCard = ({ product, isThreeWheeler = false }) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    
-    return (
-      <HoverScale scale={1.03}>
-        <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-          <div className="relative overflow-hidden">
-            <img 
-              src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
-              alt={product.name}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <Badge className="absolute top-3 left-3 bg-primary text-white">
-              {product.category}
-            </Badge>
-            {product.gallery && (
-              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {product.gallery.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        <CardHeader>
-          <div className="flex justify-between items-start">
-            <div>
-              <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-            </div>
-          </div>
-          <p className="text-gray-600 text-sm">{product.description}</p>
-        </CardHeader>
-        <CardContent>
-          <div className="mb-4">
-            <iframe 
-              src={product.video} 
-              title={`${product.name} Video`}
-              className="w-full h-40 rounded-lg mb-4"
-              frameBorder="0"
-              allowFullScreen
-            />
-          </div>
-          <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-1">
-                <Gauge className="h-4 w-4 text-primary mr-1" />
-              </div>
-              <p className="text-xs text-gray-500">Engine</p>
-              <p className="text-sm font-semibold">{product.engine}</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-1">
-                <Fuel className="h-4 w-4 text-primary mr-1" />
-              </div>
-              <p className="text-xs text-gray-500">Fuel Range</p>
-              <p className="text-sm font-semibold">{product.fuelRange}</p>
-            </div>
-            <div className="text-center">
-              <div className="flex items-center justify-center mb-1">
-                <Truck className="h-4 w-4 text-primary mr-1" />
-              </div>
-              <p className="text-xs text-gray-500">Power</p>
-              <p className="text-sm font-semibold">{product.power}</p>
-            </div>
-          </div>
-          
-          <div className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-            <div className="flex flex-wrap gap-1">
-              {product.features.map((feature, index) => (
-                <Badge key={index} variant="secondary" className="text-xs">
-                  {feature}
-                </Badge>
-              ))}
-            </div>
-          </div>
-          
-          {/* Color Showcase for Motorcycles */}
-          {product.colors && (
-            <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Available Colors:</h4>
-              <div className="flex gap-2">
-                {product.colors.map((color, index) => (
-                  <div key={color} className="flex items-center space-x-2">
-                    <div className={`w-4 h-4 rounded-full border border-gray-300 ${
-                      color.toLowerCase() === 'red' ? 'bg-red-500' :
-                      color.toLowerCase() === 'black' ? 'bg-black' :
-                      color.toLowerCase() === 'silver' ? 'bg-gray-300' :
-                      color.toLowerCase() === 'blue' ? 'bg-blue-500' :
-                      'bg-gray-400'
-                    }`}></div>
-                    <span className="text-xs text-gray-600">{color}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          <div className="flex gap-2">
-            <Link to="/contact" className="flex-1">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                Get Quote
-              </Button>
-            </Link>
-            <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                Learn More
-              </Button>
-            </Link>
-          </div>
-        </CardContent>
         </Card>
       </HoverScale>
     );
@@ -465,7 +396,7 @@ const Products = () => {
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Products</h1>
               <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                🚗 Qute Quadricycle • 🏍️ Boxer 150 • 🛠️ Genuine Spare Parts • 🧤 Rider Gear
+                🚗 All Vehicles • 🛠️ Genuine Spare Parts • 🧤 Rider Gear
               </p>
             </div>
           </div>
@@ -473,70 +404,24 @@ const Products = () => {
       </SlideIn>
 
       <div className="container mx-auto px-4 py-12">
-        {/* Quadricycles Section */}
+        {/* Vehicles Section - All Transportation Options */}
         <section className="mb-16">
           <ScrollReveal>
             <div className="text-center mb-12">
               <div className="flex items-center justify-center mb-4">
                 <Car className="h-8 w-8 text-primary mr-3" />
-                <h2 className="text-3xl font-bold text-gray-900">Quadricycles</h2>
+                <h2 className="text-3xl font-bold text-gray-900">Our Vehicles</h2>
               </div>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                🚗 European certified quadricycle with advanced manufacturing quality and DTS-i technology
+                Complete range of Bajaj vehicles - from quadricycles to motorcycles and three-wheelers
               </p>
             </div>
           </ScrollReveal>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {quadricycles.map((product, index) => (
+            {vehicles.map((product, index) => (
               <ScrollReveal key={index} delay={index * 0.1}>
-                <QuadricycleCard product={product} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
-
-        {/* Motorcycles Section */}
-        <section className="mb-16">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-4">
-                <Bike className="h-8 w-8 text-primary mr-3" />
-                <h2 className="text-3xl font-bold text-gray-900">Motorcycles</h2>
-              </div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                🏍️ Reliable and fuel-efficient motorcycle perfect for daily commuting and commercial use
-              </p>
-            </div>
-          </ScrollReveal>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {motorcycles.map((product, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <ProductCard product={product} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
-
-        {/* Three Wheeler (Tuk Tuk) Section */}
-        <section className="mb-16">
-          <ScrollReveal>
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-4">
-                <Truck className="h-8 w-8 text-primary mr-3" />
-                <h2 className="text-3xl font-bold text-gray-900">Three Wheeler (Tuk Tuk)</h2>
-              </div>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                🛺 Perfect commercial vehicle for passenger transport and last-mile connectivity
-              </p>
-            </div>
-          </ScrollReveal>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tukTuk.map((product, index) => (
-              <ScrollReveal key={index} delay={index * 0.1}>
-                <ProductCard product={product} isThreeWheeler={true} />
+                <VehicleCard product={product} />
               </ScrollReveal>
             ))}
           </div>
