@@ -16,6 +16,7 @@ import { MobileNav } from "@/components/MobileNav";
 
 const TukTukDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedColor, setSelectedColor] = useState("Red");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,17 +26,44 @@ const TukTukDetails = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const colorVariants = {
+    "Red": {
+      images: [
+        "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
+        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
+        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
+        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
+      ],
+      colorCode: "#ef4444" // red-500
+    },
+    "Yellow": {
+      images: [
+        "/lovable-uploads/687f7cfe-56a2-401e-8da0-fd33342cd237.png",
+        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
+        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
+        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
+      ],
+      colorCode: "#eab308" // yellow-500
+    },
+    "Blue": {
+      images: [
+        "/lovable-uploads/5e7c58f2-74f4-46c0-82a2-4f88edb11219.png",
+        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
+        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
+        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
+        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
+      ],
+      colorCode: "#3b82f6" // blue-500
+    }
+  };
+
   const tukTukData = {
     name: "Bajaj RE4S Auto Rickshaw",
     category: "Three Wheeler",
     description: "The Bajaj RE4S or Bajaj Tuk Tuk is a compact and efficient three-wheeler with a powerful petrol engine, offering excellent performance and reliability for urban commuting.",
-    images: [
-      "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
-      "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
-      "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
-      "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
-      "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
-    ],
+    images: colorVariants[selectedColor].images,
     gallery: [
       {
         url: "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
@@ -86,7 +114,7 @@ const TukTukDetails = () => {
       "Weight": "365 kg",
       "Ground Clearance": "155 mm"
     },
-    colors: ["Red"],
+    colors: ["Red", "Yellow", "Blue"],
     benefits: [
       "Low operating costs",
       "Easy financing options",
@@ -173,10 +201,37 @@ const TukTukDetails = () => {
           <div className="container mx-auto px-4 py-16">
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-                {/* Product Images */}
+                 {/* Product Images */}
                  <SlideIn direction="left" delay={0.1}>
                    <div className="space-y-4">
-                     <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
+                     {/* Main Slideshow with smooth transitions */}
+                     <motion.div
+                       key={selectedColor}
+                       initial={{ opacity: 0, scale: 0.95 }}
+                       animate={{ opacity: 1, scale: 1 }}
+                       transition={{ duration: 0.5, ease: "easeOut" }}
+                     >
+                       <ProductImageCarousel images={tukTukData.images} productName={tukTukData.name} />
+                     </motion.div>
+                     
+                     {/* Color Selection Dots */}
+                     <div className="flex justify-center gap-3 py-4">
+                       {Object.entries(colorVariants).map(([color, variant]) => (
+                         <motion.button
+                           key={color}
+                           onClick={() => setSelectedColor(color)}
+                           className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
+                             selectedColor === color 
+                               ? 'ring-2 ring-primary ring-offset-2 border-white shadow-lg scale-110' 
+                               : 'border-gray-300 hover:scale-105'
+                           }`}
+                           style={{ backgroundColor: variant.colorCode }}
+                           whileHover={{ scale: selectedColor === color ? 1.1 : 1.05 }}
+                           whileTap={{ scale: 0.95 }}
+                           title={`${color} variant`}
+                         />
+                       ))}
+                     </div>
                      
                      {/* Gallery Section */}
                      <div className="mt-12">
@@ -261,23 +316,28 @@ const TukTukDetails = () => {
                           <CardHeader>
                             <CardTitle>Available Colors</CardTitle>
                           </CardHeader>
-                          <CardContent>
-                            <div className="flex gap-3">
-                              {tukTukData.colors.map((color, index) => (
-                                <motion.div
-                                  key={index}
-                                  initial={{ scale: 0 }}
-                                  whileInView={{ scale: 1 }}
-                                  viewport={{ once: true }}
-                                  transition={{ delay: index * 0.1, duration: 0.3 }}
-                                  className="text-center"
-                                >
-                                  <div className={`w-8 h-8 rounded-full border-2 border-gray-300 mb-1 bg-${color.toLowerCase()}-500`} />
-                                  <span className="text-xs text-gray-600">{color}</span>
-                                </motion.div>
-                              ))}
-                            </div>
-                          </CardContent>
+                           <CardContent>
+                             <div className="flex gap-3">
+                               {tukTukData.colors.map((color, index) => (
+                                 <motion.div
+                                   key={index}
+                                   initial={{ scale: 0 }}
+                                   whileInView={{ scale: 1 }}
+                                   viewport={{ once: true }}
+                                   transition={{ delay: index * 0.1, duration: 0.3 }}
+                                   className="text-center"
+                                 >
+                                   <div 
+                                     className={`w-8 h-8 rounded-full border-2 mb-1 ${
+                                       selectedColor === color ? 'border-primary ring-2 ring-primary/30' : 'border-gray-300'
+                                     }`}
+                                     style={{ backgroundColor: colorVariants[color]?.colorCode || '#6b7280' }}
+                                   />
+                                   <span className="text-xs text-gray-600">{color}</span>
+                                 </motion.div>
+                               ))}
+                             </div>
+                           </CardContent>
                         </Card>
                       </HoverScale>
                     </ScrollReveal>
