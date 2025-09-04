@@ -179,39 +179,14 @@ const QuteDetails = () => {
                 {/* Product Images */}
                 <SlideIn direction="left" delay={0.1}>
                   <div className="space-y-4">
-                    <ProductImageCarousel images={[getCurrentImage()]} productName={quteData.name} />
-                    
-                    {/* Gallery Section */}
-                    <div className="mt-12">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-6">Gallery</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {quteData.gallery.map((item, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.3 }}
-                            whileHover={{ scale: 1.05 }}
-                            className="group cursor-pointer"
-                          >
-                            <div className="relative overflow-hidden rounded-lg shadow-md">
-                              <img
-                                src={item.url}
-                                alt={item.title}
-                                className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
-                              />
-                              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="text-center text-white p-2">
-                                  <h4 className="font-semibold text-sm">{item.title}</h4>
-                                  <p className="text-xs mt-1">{item.description}</p>
-                                </div>
-                              </div>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
+                    <motion.div
+                      key={selectedColor}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                      <ProductImageCarousel images={[getCurrentImage()]} productName={`${quteData.name} - ${selectedColor}`} />
+                    </motion.div>
                   </div>
                 </SlideIn>
 
@@ -355,6 +330,47 @@ const QuteDetails = () => {
                           >
                             <span className="font-medium text-gray-700">{key}</span>
                             <span className="text-gray-900">{value}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </ScrollReveal>
+
+              {/* Gallery Section */}
+              <ScrollReveal delay={0.7}>
+                <HoverScale scale={1.01}>
+                  <Card className="mb-8">
+                    <CardHeader>
+                      <CardTitle className="text-2xl">Gallery</CardTitle>
+                      <CardDescription>Explore all available color variants</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                        {quteData.gallery.map((item, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1, duration: 0.3 }}
+                            whileHover={{ scale: 1.05 }}
+                            className="group cursor-pointer"
+                          >
+                            <div className="relative overflow-hidden rounded-lg shadow-md">
+                              <img
+                                src={item.url}
+                                alt={item.title}
+                                className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <div className="text-center text-white p-2">
+                                  <h4 className="font-semibold text-sm">{item.title}</h4>
+                                  <p className="text-xs mt-1">{item.description}</p>
+                                </div>
+                              </div>
+                            </div>
                           </motion.div>
                         ))}
                       </div>
