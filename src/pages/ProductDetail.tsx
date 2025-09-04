@@ -77,6 +77,53 @@ const ProductDetail = () => {
         "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150
         "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png"  // Another Boxer variant
       ],
+      gallery: [
+        {
+          url: "/lovable-uploads/459e2e25-eb9a-4aa0-b4fb-eb608c989609.png",
+          title: "Full Side View",
+          description: "Complete profile view showcasing the Boxer's sleek design"
+        },
+        {
+          url: "/lovable-uploads/ebf900c9-3f31-4c5b-a743-4ccc650a8f5b.png", 
+          title: "Road Ready",
+          description: "The Boxer BM 150 ready for the urban adventure"
+        },
+        {
+          url: "/lovable-uploads/ec37c532-47ca-4b4d-ab38-2c7c6126e200.png",
+          title: "Engine Detail",
+          description: "Close-up view of the robust 149.5cc engine and chassis"
+        },
+        {
+          url: "/lovable-uploads/818025e1-31ba-435d-a2cb-21ed55e9b4a9.png",
+          title: "Dashboard & Gauges", 
+          description: "Clear analog gauges for speed and fuel monitoring"
+        },
+        {
+          url: "/lovable-uploads/fc7060ed-d3b3-4f12-95c0-e5773d4b3a83.png",
+          title: "Control Switches",
+          description: "Intuitive handlebar controls for lights and indicators"
+        },
+        {
+          url: "/lovable-uploads/88484b57-7f48-4882-a5e9-8185a306f5dd.png",
+          title: "Brake System",
+          description: "Reliable braking system for safe riding"
+        },
+        {
+          url: "/lovable-uploads/8804ec99-3fd2-4716-ac2e-125fe63ebe58.png",
+          title: "Rear Profile",
+          description: "Rear view showing the BM 150 branding and design"
+        },
+        {
+          url: "/lovable-uploads/4ae0ee49-be8f-4ed5-9c22-93b81ca3bf70.png",
+          title: "Suspension System", 
+          description: "Orange-accented rear suspension for comfort"
+        },
+        {
+          url: "/lovable-uploads/8fbdcb92-b09a-4ca6-b583-ef641f999c5a.png",
+          title: "Engine Close-up",
+          description: "Detailed view of the air-cooled single cylinder engine"
+        }
+      ],
       keyFeatures: [
         "149.5cc Engine",
         "70 kmpl Fuel Efficiency",
@@ -305,6 +352,51 @@ const ProductDetail = () => {
               </Card>
             </HoverScale>
           </ScrollReveal>
+
+          {/* Gallery Section - Only for Boxer 150 */}
+          {id === 'bajaj-boxer-150' && 'gallery' in product && (
+            <ScrollReveal delay={0.8}>
+              <Card className="mt-12">
+                <CardHeader>
+                  <CardTitle className="text-center">Detailed Gallery</CardTitle>
+                  <p className="text-center text-gray-600 mt-2">
+                    Explore every detail of the Bajaj Boxer BM 150
+                  </p>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {(product as any).gallery.map((item: any, index: number) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1, duration: 0.3 }}
+                        whileHover={{ y: -5 }}
+                        className="group"
+                      >
+                        <HoverScale scale={1.03}>
+                          <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                            <div className="aspect-video bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+                              <img
+                                src={item.url}
+                                alt={item.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            </div>
+                            <div className="p-4">
+                              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
+                              <p className="text-sm text-gray-600">{item.description}</p>
+                            </div>
+                          </div>
+                        </HoverScale>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+          )}
 
         </div>
       </div>
