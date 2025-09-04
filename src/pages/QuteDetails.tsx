@@ -187,6 +187,31 @@ const QuteDetails = () => {
                     >
                       <ProductImageCarousel images={[getCurrentImage()]} productName={`${quteData.name} - ${selectedColor}`} />
                     </motion.div>
+                    
+                    {/* Color Dots */}
+                    <div className="flex justify-center gap-3 mt-4">
+                      {quteData.colors.map((color, index) => (
+                        <motion.button
+                          key={color}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1, duration: 0.3 }}
+                          onClick={() => setSelectedColor(color)}
+                          className={`w-4 h-4 rounded-full border-2 transition-all duration-300 hover:scale-125 ${
+                            selectedColor === color 
+                              ? 'border-primary ring-2 ring-primary/30 shadow-lg' 
+                              : 'border-gray-300 hover:border-gray-500'
+                          } ${
+                            color === 'Yellow' ? 'bg-yellow-400' :
+                            color === 'Red' ? 'bg-red-500' :
+                            color === 'Blue' ? 'bg-blue-500' :
+                            color === 'Green' ? 'bg-green-500' :
+                            color === 'Black' ? 'bg-gray-800' : 'bg-gray-400'
+                          }`}
+                          title={color}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </SlideIn>
 
@@ -232,59 +257,6 @@ const QuteDetails = () => {
                       </HoverScale>
                     </ScrollReveal>
 
-                    {/* Available Colors */}
-                    <ScrollReveal delay={0.5}>
-                      <HoverScale scale={1.02}>
-                        <Card>
-                          <CardHeader>
-                            <CardTitle>Available Colors</CardTitle>
-                          </CardHeader>
-                          <CardContent>
-                            <div className="space-y-3">
-                              {quteData.colors.map((color, index) => (
-                                <motion.button
-                                  key={color}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  whileInView={{ opacity: 1, x: 0 }}
-                                  viewport={{ once: true }}
-                                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                                  onClick={() => setSelectedColor(color)}
-                                  className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 w-full ${
-                                    selectedColor === color 
-                                      ? 'bg-primary/10 border-2 border-primary shadow-md' 
-                                      : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'
-                                  }`}
-                                >
-                                  <div className={`w-6 h-6 rounded-full border-2 transition-all duration-200 ${
-                                    selectedColor === color ? 'border-primary ring-2 ring-primary/20' : 'border-gray-300'
-                                  } ${
-                                    color === 'Yellow' ? 'bg-yellow-400' :
-                                    color === 'Red' ? 'bg-red-500' :
-                                    color === 'Blue' ? 'bg-blue-500' :
-                                    color === 'Green' ? 'bg-green-500' :
-                                    color === 'Black' ? 'bg-gray-800' : 'bg-gray-400'
-                                  }`} />
-                                  <span className={`text-sm font-medium transition-colors duration-200 ${
-                                    selectedColor === color ? 'text-primary' : 'text-gray-900'
-                                  }`}>
-                                    {color}
-                                  </span>
-                                  {selectedColor === color && (
-                                    <motion.div
-                                      initial={{ scale: 0 }}
-                                      animate={{ scale: 1 }}
-                                      className="ml-auto"
-                                    >
-                                      <CheckCircle className="w-5 h-5 text-primary" />
-                                    </motion.div>
-                                  )}
-                                </motion.button>
-                              ))}
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </HoverScale>
-                    </ScrollReveal>
 
                     {/* Action Buttons */}
                     <ScrollReveal delay={0.6}>

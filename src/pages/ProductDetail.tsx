@@ -301,6 +301,34 @@ const ProductDetail = () => {
                         <span className="text-white text-sm font-medium">{selectedColor}</span>
                       </motion.div>
                     </div>
+                    
+                    {/* Color Dots */}
+                    <div className="flex justify-center gap-3 mt-4">
+                      {product.colors.map((color, index) => (
+                        <motion.button
+                          key={color}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1, duration: 0.3 }}
+                          onClick={() => setSelectedColor(color)}
+                          className={`w-4 h-4 rounded-full border-2 transition-all duration-300 hover:scale-125 ${
+                            selectedColor === color 
+                              ? 'border-primary ring-2 ring-primary/30 shadow-lg' 
+                              : 'border-gray-300 hover:border-gray-500'
+                          } ${
+                            color.toLowerCase().includes('red') ? 'bg-red-500' :
+                            color.toLowerCase().includes('black') ? 'bg-black' :
+                            color.toLowerCase() === 'blue' ? 'bg-blue-500' :
+                            color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
+                            color.toLowerCase() === 'green' ? 'bg-green-500' :
+                            color.toLowerCase() === 'orange' ? 'bg-orange-500' :
+                            color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
+                            'bg-gray-400'
+                          }`}
+                          title={color}
+                        />
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <ProductImageCarousel images={(product as any).images} productName={(product as any).name} />
@@ -347,67 +375,6 @@ const ProductDetail = () => {
                   </HoverScale>
                 </ScrollReveal>
 
-                {/* Colors */}
-                <ScrollReveal delay={0.5}>
-                  <HoverScale scale={1.02}>
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Available Colors</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="grid grid-cols-2 gap-4">
-                          {product.colors.map((color, index) => (
-                            <motion.div
-                              key={color}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              whileInView={{ opacity: 1, scale: 1 }}
-                              viewport={{ once: true }}
-                              transition={{ delay: index * 0.1, duration: 0.3 }}
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                              onClick={() => {
-                                if (id === 'bajaj-qute' || id === 'bajaj-boxer-150') {
-                                  setSelectedColor(color);
-                                }
-                              }}
-                              className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 ${
-                                (id === 'bajaj-qute' || id === 'bajaj-boxer-150')
-                                  ? `cursor-pointer ${selectedColor === color ? 'bg-primary/10 border-2 border-primary shadow-md' : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'}` 
-                                  : 'bg-gray-50 border-2 border-transparent'
-                              }`}
-                            >
-                              <div className={`w-6 h-6 rounded-full border-2 transition-all duration-200 ${
-                                selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') ? 'border-primary ring-2 ring-primary/20' : 'border-gray-300'
-                              } ${
-                                color.toLowerCase().includes('red') ? 'bg-red-500' :
-                                color.toLowerCase().includes('black') ? 'bg-black' :
-                                color.toLowerCase() === 'blue' ? 'bg-blue-500' :
-                                color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
-                                color.toLowerCase() === 'green' ? 'bg-green-500' :
-                                color.toLowerCase() === 'orange' ? 'bg-orange-500' :
-                                color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
-                                'bg-gray-400'
-                              }`}></div>
-                              <span className={`text-sm font-medium transition-colors duration-200 ${
-                                selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') ? 'text-primary' : 'text-gray-900'
-                              }`}>
-                                {color}
-                              </span>
-                              {selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') && (
-                                <motion.div
-                                  initial={{ scale: 0, opacity: 0 }}
-                                  animate={{ scale: 1, opacity: 1 }}
-                                  transition={{ duration: 0.2 }}
-                                  className="ml-auto w-2 h-2 bg-primary rounded-full"
-                                />
-                              )}
-                            </motion.div>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </HoverScale>
-                </ScrollReveal>
 
                 {/* CTA Buttons */}
                 <ScrollReveal delay={0.6}>
