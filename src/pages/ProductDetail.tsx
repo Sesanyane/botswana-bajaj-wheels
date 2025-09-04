@@ -97,29 +97,29 @@ const ProductDetail = () => {
       },
       gallery: [
         {
-          url: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
-          title: "Black Boxer 150",
-          description: "Classic black finish with modern appeal"
+          url: "/lovable-uploads/5c6ac1e2-10fe-4f7e-8069-dd5cc326c6ee.png",
+          title: "Front View",
+          description: "Sleek front design with modern headlight and body graphics"
         },
         {
-          url: "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png",
-          title: "Red Boxer 150",
-          description: "Bold red color for everyday commuting"
+          url: "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png",
+          title: "Side Profile", 
+          description: "Dynamic side view showcasing the sporty design and graphics"
         },
         {
-          url: "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png",
-          title: "Silver Boxer 150",
-          description: "Elegant silver variant with premium finish"
+          url: "/lovable-uploads/8b0018de-cd00-48ea-b3a2-376819a7222b.png",
+          title: "Rear View",
+          description: "Stylish rear design with modern tail light assembly"
         },
         {
-          url: "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
-          title: "Red Graphics Variant",
-          description: "Bold red graphics design with distinctive styling"
+          url: "/lovable-uploads/a04abcf5-27ca-4a0e-921a-d05fc3b14c6b.png",
+          title: "Engine Close-up",
+          description: "149.5cc single cylinder air-cooled engine with excellent performance"
         },
         {
-          url: "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
-          title: "Black Yellow Variant",
-          description: "Striking black and yellow color combination"
+          url: "/lovable-uploads/6057e6cf-2091-46ae-a296-7a89b7714a97.png",
+          title: "Dashboard",
+          description: "Modern instrument cluster with digital display and indicators"
         }
       ],
       keyFeatures: [
