@@ -43,8 +43,7 @@ const Products = () => {
         bajajQuteBlueWithParts
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
-      description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Qute promotional video
+      description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
     },
     {
       id: "bajaj-boxer-150",
@@ -62,8 +61,7 @@ const Products = () => {
       ],
       colors: ["Black", "Red", "Silver"],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
-      description: "Perfect for daily commuting with excellent fuel efficiency",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Boxer 150 promotional video
+      description: "Perfect for daily commuting with excellent fuel efficiency"
     },
     {
       id: "bajaj-tuk-tuk",
@@ -75,8 +73,7 @@ const Products = () => {
       power: "8.1 BHP",
       image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
       features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
-      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity",
-      video: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Bajaj Tuk Tuk promotional video
+      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity"
     }
   ];
 
@@ -183,16 +180,6 @@ const Products = () => {
             <p className="text-gray-600 text-sm">{product.description}</p>
           </CardHeader>
           <CardContent>
-            <div className="mb-4">
-              <iframe 
-                src={product.video} 
-                title={`${product.name} Video`}
-                className={`w-full rounded-lg mb-4 ${isQuadricycle ? 'h-48' : 'h-40'}`}
-                frameBorder="0"
-                allowFullScreen
-              />
-            </div>
-            
             {/* Adaptive grid based on vehicle type */}
             {isQuadricycle ? (
               <div className="grid grid-cols-2 gap-4 mb-4">
