@@ -97,29 +97,9 @@ const ProductDetail = () => {
       },
       gallery: [
         {
-          url: "/lovable-uploads/5c6ac1e2-10fe-4f7e-8069-dd5cc326c6ee.png",
-          title: "Front View",
-          description: "Sleek front design with modern headlight and body graphics"
-        },
-        {
-          url: "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png",
-          title: "Side Profile", 
-          description: "Dynamic side view showcasing the sporty design and graphics"
-        },
-        {
-          url: "/lovable-uploads/8b0018de-cd00-48ea-b3a2-376819a7222b.png",
-          title: "Rear View",
-          description: "Stylish rear design with modern tail light assembly"
-        },
-        {
-          url: "/lovable-uploads/a04abcf5-27ca-4a0e-921a-d05fc3b14c6b.png",
-          title: "Engine Close-up",
-          description: "149.5cc single cylinder air-cooled engine with excellent performance"
-        },
-        {
-          url: "/lovable-uploads/6057e6cf-2091-46ae-a296-7a89b7714a97.png",
-          title: "Dashboard",
-          description: "Modern instrument cluster with digital display and indicators"
+          url: "/lovable-uploads/54752007-219c-40bb-bef1-cb3f0c18a928.png",
+          title: "Boxer BM 150",
+          description: "Detailed view of the Boxer BM 150 showing the engine and stylish design"
         }
       ],
       keyFeatures: [
