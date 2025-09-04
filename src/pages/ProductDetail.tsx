@@ -22,9 +22,9 @@ import bajajBoxer150Red from "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b
 import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
 
 const ProductDetail = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedColor, setSelectedColor] = useState("Yellow");
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "Red Graphics");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -82,57 +82,19 @@ const ProductDetail = () => {
       
       description: "Reliable motorcycle perfect for daily commuting",
       images: [
-        "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
-        "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150
-        "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png"  // Another Boxer variant
+        "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
+        "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
+        "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
+        "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
+        "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
       ],
-      gallery: [
-        {
-          url: "/lovable-uploads/459e2e25-eb9a-4aa0-b4fb-eb608c989609.png",
-          title: "Full Side View",
-          description: "Complete profile view showcasing the Boxer's sleek design"
-        },
-        {
-          url: "/lovable-uploads/ebf900c9-3f31-4c5b-a743-4ccc650a8f5b.png", 
-          title: "Road Ready",
-          description: "The Boxer BM 150 ready for the urban adventure"
-        },
-        {
-          url: "/lovable-uploads/ec37c532-47ca-4b4d-ab38-2c7c6126e200.png",
-          title: "Engine Detail",
-          description: "Close-up view of the robust 149.5cc engine and chassis"
-        },
-        {
-          url: "/lovable-uploads/818025e1-31ba-435d-a2cb-21ed55e9b4a9.png",
-          title: "Dashboard & Gauges", 
-          description: "Clear analog gauges for speed and fuel monitoring"
-        },
-        {
-          url: "/lovable-uploads/fc7060ed-d3b3-4f12-95c0-e5773d4b3a83.png",
-          title: "Control Switches",
-          description: "Intuitive handlebar controls for lights and indicators"
-        },
-        {
-          url: "/lovable-uploads/88484b57-7f48-4882-a5e9-8185a306f5dd.png",
-          title: "Brake System",
-          description: "Reliable braking system for safe riding"
-        },
-        {
-          url: "/lovable-uploads/8804ec99-3fd2-4716-ac2e-125fe63ebe58.png",
-          title: "Rear Profile",
-          description: "Rear view showing the BM 150 branding and design"
-        },
-        {
-          url: "/lovable-uploads/4ae0ee49-be8f-4ed5-9c22-93b81ca3bf70.png",
-          title: "Suspension System", 
-          description: "Orange-accented rear suspension for comfort"
-        },
-        {
-          url: "/lovable-uploads/8fbdcb92-b09a-4ca6-b583-ef641f999c5a.png",
-          title: "Engine Close-up",
-          description: "Detailed view of the air-cooled single cylinder engine"
-        }
-      ],
+      colorVariants: {
+        "Red Graphics": "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
+        "Black Yellow": "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
+        "Blue": "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
+        "Red": "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
+        "White": "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
+      },
       keyFeatures: [
         "149.5cc Engine",
         "70 kmpl Fuel Efficiency",
@@ -150,7 +112,7 @@ const ProductDetail = () => {
         "Weight": "140 kg",
         "Wheels": "17\" Alloy with Tubeless Tires"
       },
-      colors: ["Red", "Black"]
+      colors: ["Red Graphics", "Black Yellow", "Blue", "Red", "White"]
     }
   };
 
@@ -230,7 +192,7 @@ const ProductDetail = () => {
             {/* Product Images */}
             <SlideIn direction="left">
               <div>
-                {id === 'bajaj-qute' && 'colorVariants' in product ? (
+                {'colorVariants' in product ? (
                   <div className="space-y-4">
                     <div className="relative">
                       <img
@@ -244,7 +206,7 @@ const ProductDetail = () => {
                     </div>
                   </div>
                 ) : (
-                  <ProductImageCarousel images={product.images} productName={product.name} />
+                  <ProductImageCarousel images={(product as any).images} productName={(product as any).name} />
                 )}
               </div>
             </SlideIn>
@@ -305,31 +267,31 @@ const ProductDetail = () => {
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1, duration: 0.3 }}
                               whileHover={{ scale: 1.05 }}
-                              onClick={() => id === 'bajaj-qute' ? setSelectedColor(color) : undefined}
+                              onClick={() => 'colorVariants' in product ? setSelectedColor(color) : undefined}
                               className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 ${
-                                id === 'bajaj-qute' 
+                                'colorVariants' in product 
                                   ? `cursor-pointer ${selectedColor === color ? 'bg-primary/10 border-2 border-primary' : 'bg-gray-50 hover:bg-gray-100'}` 
                                   : 'bg-gray-50'
                               }`}
                             >
                               <div className={`w-6 h-6 rounded-full border-2 ${
-                                selectedColor === color && id === 'bajaj-qute' ? 'border-primary' : 'border-gray-300'
+                                selectedColor === color && 'colorVariants' in product ? 'border-primary' : 'border-gray-300'
                               } ${
-                                color.toLowerCase() === 'red' ? 'bg-red-500' :
-                                color.toLowerCase() === 'black' ? 'bg-black' :
+                                color.toLowerCase().includes('red') ? 'bg-red-500' :
+                                color.toLowerCase().includes('black') ? 'bg-black' :
                                 color.toLowerCase() === 'blue' ? 'bg-blue-500' :
-                                color.toLowerCase() === 'yellow' ? 'bg-yellow-400' :
+                                color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
                                 color.toLowerCase() === 'green' ? 'bg-green-500' :
                                 color.toLowerCase() === 'orange' ? 'bg-orange-500' :
                                 color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
                                 'bg-gray-400'
                               }`}></div>
                               <span className={`text-sm font-medium ${
-                                selectedColor === color && id === 'bajaj-qute' ? 'text-primary' : 'text-gray-900'
+                                selectedColor === color && 'colorVariants' in product ? 'text-primary' : 'text-gray-900'
                               }`}>
                                 {color}
                               </span>
-                              {selectedColor === color && id === 'bajaj-qute' && (
+                              {selectedColor === color && 'colorVariants' in product && (
                                 <motion.div
                                   initial={{ scale: 0 }}
                                   animate={{ scale: 1 }}
@@ -396,50 +358,6 @@ const ProductDetail = () => {
             </HoverScale>
           </ScrollReveal>
 
-          {/* Gallery Section - Only for Boxer 150 */}
-          {id === 'bajaj-boxer-150' && 'gallery' in product && (
-            <ScrollReveal delay={0.8}>
-              <Card className="mt-12">
-                <CardHeader>
-                  <CardTitle className="text-center">Detailed Gallery</CardTitle>
-                  <p className="text-center text-gray-600 mt-2">
-                    Explore every detail of the Bajaj Boxer BM 150
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {(product as any).gallery.map((item: any, index: number) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1, duration: 0.3 }}
-                        whileHover={{ y: -5 }}
-                        className="group"
-                      >
-                        <HoverScale scale={1.03}>
-                          <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                            <div className="aspect-video bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-                              <img
-                                src={item.url}
-                                alt={item.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                            <div className="p-4">
-                              <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
-                              <p className="text-sm text-gray-600">{item.description}</p>
-                            </div>
-                          </div>
-                        </HoverScale>
-                      </motion.div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </ScrollReveal>
-          )}
 
         </div>
       </div>
