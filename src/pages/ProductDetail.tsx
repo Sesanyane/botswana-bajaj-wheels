@@ -273,17 +273,26 @@ const ProductDetail = () => {
             {/* Product Images */}
             <SlideIn direction="left">
               <div>
-                {'colorVariants' in product ? (
+                {id === 'bajaj-qute' ? (
                   <div className="space-y-4">
                     <div className="relative">
-                      <img
+                      <motion.img
+                        key={selectedColor}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3 }}
                         src={(product as any).colorVariants[selectedColor]}
                         alt={`${product.name} in ${selectedColor}`}
                         className="w-full h-96 object-cover rounded-lg shadow-lg"
                       />
-                      <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1">
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="absolute top-4 right-4 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1"
+                      >
                         <span className="text-white text-sm font-medium">{selectedColor}</span>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 ) : (
@@ -348,15 +357,20 @@ const ProductDetail = () => {
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1, duration: 0.3 }}
                               whileHover={{ scale: 1.05 }}
-                              onClick={() => 'colorVariants' in product ? setSelectedColor(color) : undefined}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => {
+                                if (id === 'bajaj-qute' || id === 'bajaj-boxer-150') {
+                                  setSelectedColor(color);
+                                }
+                              }}
                               className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 ${
-                                'colorVariants' in product 
-                                  ? `cursor-pointer ${selectedColor === color ? 'bg-primary/10 border-2 border-primary' : 'bg-gray-50 hover:bg-gray-100'}` 
-                                  : 'bg-gray-50'
+                                (id === 'bajaj-qute' || id === 'bajaj-boxer-150')
+                                  ? `cursor-pointer ${selectedColor === color ? 'bg-primary/10 border-2 border-primary shadow-md' : 'bg-gray-50 hover:bg-gray-100 border-2 border-transparent'}` 
+                                  : 'bg-gray-50 border-2 border-transparent'
                               }`}
                             >
-                              <div className={`w-6 h-6 rounded-full border-2 ${
-                                selectedColor === color && 'colorVariants' in product ? 'border-primary' : 'border-gray-300'
+                              <div className={`w-6 h-6 rounded-full border-2 transition-all duration-200 ${
+                                selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') ? 'border-primary ring-2 ring-primary/20' : 'border-gray-300'
                               } ${
                                 color.toLowerCase().includes('red') ? 'bg-red-500' :
                                 color.toLowerCase().includes('black') ? 'bg-black' :
@@ -367,15 +381,16 @@ const ProductDetail = () => {
                                 color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
                                 'bg-gray-400'
                               }`}></div>
-                              <span className={`text-sm font-medium ${
-                                selectedColor === color && 'colorVariants' in product ? 'text-primary' : 'text-gray-900'
+                              <span className={`text-sm font-medium transition-colors duration-200 ${
+                                selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') ? 'text-primary' : 'text-gray-900'
                               }`}>
                                 {color}
                               </span>
-                              {selectedColor === color && 'colorVariants' in product && (
+                              {selectedColor === color && (id === 'bajaj-qute' || id === 'bajaj-boxer-150') && (
                                 <motion.div
-                                  initial={{ scale: 0 }}
-                                  animate={{ scale: 1 }}
+                                  initial={{ scale: 0, opacity: 0 }}
+                                  animate={{ scale: 1, opacity: 1 }}
+                                  transition={{ duration: 0.2 }}
                                   className="ml-auto w-2 h-2 bg-primary rounded-full"
                                 />
                               )}
