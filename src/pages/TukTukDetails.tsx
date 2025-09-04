@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Phone, ArrowLeft, Truck, Users, Fuel, Gauge, CheckCircle, Star } from "lucide-react";
+import { Phone, ArrowLeft, Truck, Users, Fuel, Gauge, CheckCircle, Star, Cog, Shield, Car } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { SlideIn } from "@/components/animations/SlideIn";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -97,17 +97,37 @@ const TukTukDetails = () => {
       }
     ],
     keyFeatures: [
-      "199.5cc Petrol Engine",
-      "35 kmpl Fuel Efficiency", 
-      "4-Stroke Engine",
+      "200cc DTS-i Engine Technology",
+      "7.0 kW Power Output", 
+      "17Nm Torque Performance",
+      "Reinforced Steel Chassis",
+      "Car-Type Comfort Seating",
+      "35 kmpl Fuel Efficiency",
       "Hydraulic Shock Absorbers",
       "12V Electrical System",
       "MP3/Radio/USB System"
     ],
+    advancedFeatures: [
+      {
+        title: "DTS-I Technology",
+        description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.0 kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
+        icon: "engine"
+      },
+      {
+        title: "Strong Chassis",
+        description: "A reinforced high-strength steel alloy chassis enhances the Re's structural rigidity, improving load-carrying ability and increasing life.",
+        icon: "shield"
+      },
+      {
+        title: "Car Type Seats", 
+        description: "New car-type seats of the RE offer maximum comfort to the driver as well as the passengers. Heavy cushioning with contours helps reduce fatigue for both.",
+        icon: "seat"
+      }
+    ],
     specifications: {
-      "Engine": "199.5cc Single Cylinder, Air Cooled",
-      "Power": "8.1 BHP @ 6500 rpm",
-      "Torque": "12.5 Nm @ 4500 rpm", 
+      "Engine": "200cc DTS-i Single Cylinder, Air Cooled",
+      "Power": "7.0 kW @ 6500 rpm",
+      "Torque": "17 Nm @ 4500 rpm", 
       "Transmission": "4-Speed Manual",
       "Fuel Tank": "8.5 Liters",
       "Seating": "Driver + 3 Passengers",
@@ -364,6 +384,40 @@ const TukTukDetails = () => {
                   </div>
                 </SlideIn>
               </div>
+
+              {/* Advanced Features Section */}
+              <ScrollReveal delay={0.65}>
+                <HoverScale scale={1.01}>
+                  <Card className="mb-8">
+                    <CardHeader>
+                      <CardTitle className="text-2xl">Advanced Features</CardTitle>
+                      <CardDescription>Premium technologies that set the RE4S apart</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {tukTukData.advancedFeatures.map((feature, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.2, duration: 0.6 }}
+                            className="text-center p-6 rounded-lg bg-gradient-to-br from-blue-50 to-white border border-blue-100"
+                          >
+                             <div className="w-16 h-16 mx-auto mb-4 bg-primary rounded-full flex items-center justify-center">
+                               {feature.icon === "engine" && <Cog className="w-8 h-8 text-white" />}
+                               {feature.icon === "shield" && <Shield className="w-8 h-8 text-white" />}
+                               {feature.icon === "seat" && <Car className="w-8 h-8 text-white" />}
+                             </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </ScrollReveal>
 
               {/* Complete Specifications */}
               <ScrollReveal delay={0.7}>
