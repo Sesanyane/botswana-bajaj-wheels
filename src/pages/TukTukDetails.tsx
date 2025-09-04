@@ -13,12 +13,6 @@ import ProductImageCarousel from "@/components/ProductImageCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import { MobileNav } from "@/components/MobileNav";
 
-// Import Qute images
-const bajajQuteInterior = "/lovable-uploads/4751daea-1071-496f-9ec5-e36092fc6e9f.png";
-const bajajQuteSeating = "/lovable-uploads/6681bb68-7bec-4e37-965a-b83f8bb5f63b.png";
-const bajajQuteStorage = "/lovable-uploads/25dd41d0-1687-42bc-a8cc-86b3529aed6a.png";
-const bajajQuteFeatures = "/lovable-uploads/fa7bb9a5-d403-4f3c-9a28-2b01771632ba.png";
-const bajajQuteYellow = "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
 
 const TukTukDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -345,7 +339,7 @@ const TukTukDetails = () => {
                 <HoverScale scale={1.01}>
                      <Card>
                         <CardHeader>
-                          <CardTitle className="text-2xl">Why Choose Bajaj Qute?</CardTitle>
+                          <CardTitle className="text-2xl">Why Choose RE4S Tuk Tuk?</CardTitle>
                         </CardHeader>
                     <CardContent>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
