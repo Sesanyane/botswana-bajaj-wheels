@@ -93,7 +93,7 @@ export const MobileNav = () => {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="fixed top-0 right-0 h-full w-80 bg-background border-l border-border z-50 shadow-2xl"
+              className="fixed top-0 right-0 h-full w-80 bg-white dark:bg-gray-900 border-l border-border z-50 shadow-2xl"
             >
               <div className="flex flex-col h-full">
                 {/* Header */}
