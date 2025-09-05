@@ -119,7 +119,7 @@ export const MobileNav = () => {
                 </div>
                 
                 {/* Navigation */}
-                <nav className="flex flex-col flex-1 p-6 space-y-2">
+                <nav className="flex flex-col flex-1 p-6 space-y-2 bg-white dark:bg-gray-900">
                   {menuItems.map((item, index) => (
                     <motion.div
                       key={item.to}
@@ -148,7 +148,7 @@ export const MobileNav = () => {
                 </nav>
                 
                 {/* Call to Action */}
-                <div className="p-6 border-t border-gray-100 bg-gray-50">
+                <div className="p-6 border-t border-gray-100 bg-gray-50 dark:bg-gray-800">
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
