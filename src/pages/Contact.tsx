@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Facebook, Send, Loader2, MessageCircle, Webhook } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Send, Loader2, MessageCircle, Webhook, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { MobileNav } from "@/components/MobileNav";
@@ -473,7 +473,7 @@ const Contact = () => {
           <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
             <h3 className="text-3xl font-bold mb-4">Need Immediate Assistance?</h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Call us, WhatsApp us, visit our showroom, or message us on Facebook for immediate help
+              Call us, WhatsApp us, or visit our showroom for immediate help
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -495,12 +495,19 @@ const Contact = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-primary"
+                className="bg-blue-600 text-white hover:bg-blue-700"
                 onClick={() => window.open('https://facebook.com/bajajgaborone', '_blank')}
               >
                 <Facebook className="w-4 h-4 mr-2" />
-                Message on Facebook
+                Facebook
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-blue-800 text-white hover:bg-blue-900"
+                onClick={() => window.open('https://linkedin.com/company/bajajgaborone', '_blank')}
+              >
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
               </Button>
             </div>
           </section>

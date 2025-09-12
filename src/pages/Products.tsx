@@ -31,7 +31,9 @@ const Products = () => {
       category: "Quadricycle",
       engine: "217cc",
       mileage: "36 kmpl",
-      fuelRange: "300+ km range on full tank",
+      fuelRange: "100km/3L",
+      fuelTank: "8L",
+      transmission: "5 Speed Manual Mesh",
       power: "13.2 BHP",
       capacity: "4 Seater",
       maxSpeed: "70 kmph",
@@ -51,7 +53,8 @@ const Products = () => {
       category: "Motorcycle",
       engine: "149.5cc",
       mileage: "70 kmpl",
-      fuelRange: "450+ km range on full tank",
+      fuelRange: "70KM/L",
+      fuelTank: "11L",
       power: "12 BHP",
       image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
       gallery: [
@@ -79,7 +82,8 @@ const Products = () => {
       category: "Three Wheeler",
       engine: "236cc",
       mileage: "35-40 kmpl",
-      fuelRange: "300+ km range on full tank",
+      fuelRange: "100km/3L",
+      fuelTank: "8L",
       power: "8.1 BHP",
       image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
       features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
@@ -284,9 +288,16 @@ const Products = () => {
                   Get Quote
                 </Button>
               </Link>
-              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
+              <Link to="/contact" className="flex-1">
+                <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-50">
+                  Brochure
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-2">
+              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="w-full block">
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn More
+                  Schedule Test Drive
                 </Button>
               </Link>
             </div>
@@ -329,18 +340,11 @@ const Products = () => {
             </div>
           </div>
           
-          <div className="flex gap-2">
-            <Link to="/contact" className="flex-1">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                Order Now
-              </Button>
-            </Link>
-            <Link to="/contact" className="flex-1">
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                Get Info
-              </Button>
-            </Link>
-          </div>
+          <Link to="/contact" className="w-full">
+            <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+              Enquire
+            </Button>
+          </Link>
         </CardContent>
       </Card>
     </HoverScale>
@@ -474,20 +478,13 @@ const Products = () => {
             <section className="mt-16 bg-primary rounded-2xl p-8 text-center text-white">
               <h3 className="text-3xl font-bold mb-4">Ready to Experience Bajaj?</h3>
               <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-                Visit our showroom in Botswana to explore our complete range or get a personalized quote
+                Visit our showroom in Gaborone to explore our complete range
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <HoverScale>
                   <Link to="/contact">
                     <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
-                      Schedule Test Ride
-                    </Button>
-                  </Link>
-                </HoverScale>
-                <HoverScale>
-                  <Link to="/contact">
-                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                      Contact Dealer
+                      Schedule Test Drive
                     </Button>
                   </Link>
                 </HoverScale>

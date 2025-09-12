@@ -66,14 +66,14 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                About Bajaj Auto Botswana
+                About Bajaj Gaborone
               </Badge>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                BRINGING{" "}
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 text-center">
+                <span className="font-extrabold">BRINGING{" "}
                 <span className="text-blue-200">
                   WORLD-CLASS MOBILITY
                 </span>{" "}
-                TO BOTSWANA
+                TO BOTSWANA</span>
               </h1>
               <p className="text-xl text-blue-100 max-w-3xl mx-auto">
                 With over 75 years of innovation and excellence, Bajaj Auto is proud to introduce 
@@ -88,7 +88,7 @@ const About = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-primary mb-6">OUR BOTSWANA JOURNEY</h2>
+                <h2 className="text-4xl font-bold text-primary mb-6">OUR JOURNEY</h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -317,16 +317,15 @@ const About = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold text-white mb-4">JOIN THE BAJAJ FAMILY</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Experience the difference that 75 years of automotive excellence can make. 
+              Experience the difference that 75+ years of automotive excellence can make. 
               Visit us today and become part of the Bajaj Auto story in Botswana.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
-                VISIT OUR SHOWROOM
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-3">
-                LEARN ABOUT PRODUCTS
-              </Button>
+            <div className="flex justify-center">
+              <Link to="/products">
+                <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 px-8 py-3">
+                  VISIT OUR SHOWROOM
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -334,7 +333,7 @@ const About = () => {
         {/* Footer */}
         <footer className="bg-primary text-white py-16">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <div className="flex items-center space-x-3 mb-6">
                   <img 
@@ -348,26 +347,11 @@ const About = () => {
                 </p>
               </div>
               <div>
-                <h4 className="text-lg font-semibold mb-4">ABOUT US</h4>
-                <ul className="space-y-2 text-blue-100">
-                  <li><Link to="/about" className="hover:text-white transition-colors">Our Story</Link></li>
-                  <li><Link to="/about" className="hover:text-white transition-colors">Commitment</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">CONTACT</h4>
+                <h4 className="text-lg font-semibold mb-4">LOCATION</h4>
                 <ul className="space-y-2 text-blue-100">
                   <li>Unit 5, Plot 22052 Kgomokasitwa RD</li>
                   <li>Gaborone West Industrial</li>
                   <li>+267 73103 312</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">QUICK LINKS</h4>
-                <ul className="space-y-2 text-blue-100">
-                  <li><Link to="/products" className="hover:text-white transition-colors">Products</Link></li>
-                  <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
-                  <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
                 </ul>
               </div>
             </div>

@@ -145,9 +145,6 @@ const Services = () => {
                             <li key={index} className="text-sm">{feature}</li>
                           ))}
                         </ul>
-                        <Button className="w-full mt-4 bg-primary hover:bg-primary/90 text-white">
-                          Learn More
-                        </Button>
                       </CardContent>
                     </Card>
                   </HoverScale>
@@ -240,18 +237,11 @@ const Services = () => {
                 <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
                   Schedule your service appointment today and let our experts take care of your Bajaj vehicle
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex justify-center">
                   <HoverScale>
                     <Link to="/contact">
                       <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-gray-100">
                         Book an Appointment
-                      </Button>
-                    </Link>
-                  </HoverScale>
-                  <HoverScale>
-                    <Link to="/contact">
-                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                        Contact Service
                       </Button>
                     </Link>
                   </HoverScale>
