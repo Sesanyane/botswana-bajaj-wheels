@@ -294,8 +294,13 @@ const Products = () => {
                 </Button>
               </Link>
             </div>
-            <div className="mt-2">
-              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="w-full block">
+            <div className="flex gap-2 mt-2">
+              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
+                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
+                  Learn More
+                </Button>
+              </Link>
+              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
                 <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
                   Schedule Test Drive
                 </Button>
