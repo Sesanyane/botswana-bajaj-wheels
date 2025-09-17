@@ -53,7 +53,7 @@ const Products = () => {
       category: "Motorcycle",
       engine: "149.5cc",
       mileage: "70 kmpl",
-      fuelRange: "70KM/L",
+      fuelRange: "70km/L",
       fuelTank: "11L",
       power: "12 BHP",
       image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",

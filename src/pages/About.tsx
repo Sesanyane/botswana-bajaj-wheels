@@ -65,9 +65,6 @@ const About = () => {
           <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <Badge variant="secondary" className="mb-6 bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                About Bajaj Gaborone
-              </Badge>
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 text-center">
                 <span className="font-extrabold">BRINGING{" "}
                 <span className="text-blue-200">
@@ -342,7 +339,7 @@ const About = () => {
                     className="h-8 w-auto"
                   />
                 </div>
-                <p className="text-blue-100 mb-4">
+                <p className="text-blue-100 mb-4 text-center font-bold">
                   Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.
                 </p>
               </div>

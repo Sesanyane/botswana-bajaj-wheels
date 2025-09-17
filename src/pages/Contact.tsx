@@ -424,7 +424,7 @@ const Contact = () => {
                       <Facebook className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Follow Us</h3>
+                      <h3 className="font-semibold text-gray-900">Facebook</h3>
                       <a 
                         href="https://facebook.com/bajajgaborone" 
                         target="_blank" 
@@ -432,6 +432,23 @@ const Contact = () => {
                         className="text-blue-600 hover:text-blue-800 transition-colors"
                       >
                         @bajajgaborone
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center">
+                      <Linkedin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900">LinkedIn</h3>
+                      <a 
+                        href="https://linkedin.com/company/bajajgaborone" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-700 hover:text-blue-900 transition-colors"
+                      >
+                        Bajaj Gaborone
                       </a>
                     </div>
                   </div>
