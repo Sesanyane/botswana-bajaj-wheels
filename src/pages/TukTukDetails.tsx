@@ -60,9 +60,9 @@ const TukTukDetails = () => {
   };
 
   const tukTukData = {
-    name: "Bajaj RE4S Auto Rickshaw",
+    name: "Bajaj RE4s Auto Rickshaw",
     category: "Three Wheeler",
-    description: "The Bajaj RE4S or Bajaj Tuk Tuk is a compact and efficient three-wheeler with a powerful petrol engine, offering excellent performance and reliability for urban commuting.",
+    description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.6kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
     images: colorVariants[selectedColor].images,
     gallery: [
       {
@@ -97,42 +97,43 @@ const TukTukDetails = () => {
       }
     ],
     keyFeatures: [
-      "200cc DTS-i Engine Technology",
-      "7.0 kW Power Output", 
-      "17Nm Torque Performance",
-      "Reinforced Steel Chassis",
-      "Car-Type Comfort Seating",
-      "35 kmpl Fuel Efficiency",
-      "Hydraulic Shock Absorbers",
-      "12V Electrical System",
-      "MP3/Radio/USB System"
+      "198.88cc DTS-i Engine Technology",
+      "7.6 kW Power Output", 
+      "17 Nm Torque Performance",
+      "4 Forward + 1 Reverse Transmission",
+      "Wet Multi-Disc Clutch",
+      "Car Type Seats",
+      "Ergonomically Designed Cabin",
+      "65 kmph Max Speed",
+      "100 km / 3L Fuel Efficiency"
     ],
     advancedFeatures: [
       {
         title: "DTS-I Technology",
-        description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.0 kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
+        description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.6kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
         icon: "engine"
       },
       {
         title: "Strong Chassis",
-        description: "A reinforced high-strength steel alloy chassis enhances the Re's structural rigidity, improving load-carrying ability and increasing life.",
+        description: "A reinforced high-strength steel alloy chassis enhances the RE's structural rigidity to improve load carrying ability and increase life.",
         icon: "shield"
       },
       {
         title: "Car Type Seats", 
-        description: "New car-type seats of the RE offer maximum comfort to the driver as well as the passengers. Heavy cushioning with contours helps reduce fatigue for both.",
+        description: "New car type seats of the RE offer maximum comfort to driver as well as the passengers. Heavy cushioning with contours helps reduce fatigue for both.",
         icon: "seat"
       }
     ],
     specifications: {
-      "Engine": "200cc DTS-i Single Cylinder, Air Cooled",
-      "Power": "7.0 kW @ 6500 rpm",
-      "Torque": "17 Nm @ 4500 rpm", 
-      "Transmission": "4-Speed Manual",
-      "Fuel Tank": "8.5 Liters",
-      "Seating": "Driver + 3 Passengers",
-      "Weight": "365 kg",
-      "Ground Clearance": "155 mm"
+      "Engine": "198.88cc Four stroke, Forced cooled SI",
+      "Power": "7.6 kW @ 5000 rpm",
+      "Torque": "17.0 Nm @ 3500 rpm", 
+      "Transmission": "4 forward & 1 reverse",
+      "Clutch": "Wet Multi-Disc clutch",
+      "Fuel Tank": "8 Liters",
+      "Max Speed": "65 kmph",
+      "Kerb Weight": "348 kg",
+      "Mileage": "100 km / 3L"
     },
     colors: ["Red", "Yellow", "Blue"],
     benefits: [
