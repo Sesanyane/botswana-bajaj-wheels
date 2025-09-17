@@ -184,7 +184,7 @@ const Products = () => {
             <img 
               src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
               alt={product.name}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              className="w-full h-48 object-contain bg-white group-hover:scale-105 transition-transform duration-300"
             />
             <Badge className="absolute top-3 left-3 bg-primary text-white">
               {product.category}
@@ -256,7 +256,7 @@ const Products = () => {
           <img 
             src={product.image} 
             alt={product.name}
-            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-48 object-contain bg-gray-50 group-hover:scale-105 transition-transform duration-300"
           />
           <Badge className="absolute top-3 left-3 bg-secondary text-primary">
             {product.category}
