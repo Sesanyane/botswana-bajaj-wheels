@@ -11,10 +11,11 @@ import { HoverScale } from "@/components/animations/HoverScale";
 import { motion } from "framer-motion";
 
 // Import high-quality product images from uploads
-import bajajaQuteYellow from "/lovable-uploads/4077b8b6-f6fb-4324-a8a3-0e858215bc0f.png";
+import bajajaQuteYellow from "/lovable-uploads/qute-yellow.png";
 import bajajQuteBlue from "/lovable-uploads/179b63a1-0171-4c6a-8999-54e0352a1b17.png";
 import bajajQuteBlueWithParts from "/lovable-uploads/d0f922d9-89a5-4c3e-84bd-23a9e693295b.png";
-import bajajBoxer150Black from "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png";
+import bajajBoxer150Red from "/lovable-uploads/boxer-150-red.png";
+import bajajTukTukBlue from "/lovable-uploads/tuk-tuk-blue.png";
 import motorcycleHelmets from "/lovable-uploads/d6fda7d5-9fb4-4478-97e4-442fb77efb31.png";
 import ridingJackets from "/lovable-uploads/e3323c21-df89-47ef-a6ca-1f2957253817.png";
 import ridingGlovesGear from "/lovable-uploads/5063b4d3-be53-4fdf-92f3-fec884781202.png";
@@ -61,10 +62,10 @@ const Products = () => {
       power: "12 PS @ 7500 rpm",
       torque: "12.55 Nm @ 5000 rpm",
       kerbWeight: "125 kg",
-      image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
+      image: bajajBoxer150Red,
       gallery: [
-        "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
-        "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150  
+        bajajBoxer150Red,
+        "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Alternative Red Boxer 150
         "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png", // Another variant
         "/lovable-uploads/bb26b42f-5bb6-4668-a990-07bc5c5dc7ff.png", // Engine detail
         "/lovable-uploads/3d9ce1f3-2efb-48e3-bd5e-28accd8174e1.png", // Suspension detail
@@ -94,7 +95,7 @@ const Products = () => {
       torque: "17.0 Nm @ 3500 rpm",
       maxSpeed: "65 kmph",
       kerbWeight: "348 kg",
-      image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
+      image: bajajTukTukBlue,
       colors: ["Yellow", "Green", "White", "Black", "Blue", "Red"],
       features: ["DTS-i Technology", "Strong Chassis", "Car Type Seats", "Ergonomically Designed Cabin", "4 Forward + 1 Reverse", "Wet Multi-Disc Clutch"],
       description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.6kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
