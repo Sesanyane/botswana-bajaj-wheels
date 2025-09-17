@@ -156,15 +156,12 @@ const Products = () => {
     }
   ];
 
-  // Unified VehicleCard component to handle all vehicle types
+  // Simplified VehicleCard component with reduced clutter
   const VehicleCard = ({ product }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     
     // Determine if this is a tuk tuk for routing
     const isThreeWheeler = product.category === "Three Wheeler";
-    
-    // Determine grid layout based on vehicle type
-    const isQuadricycle = product.category === "Quadricycle";
     
     // Download brochure handler
     const handleBrochureDownload = () => {
@@ -207,133 +204,43 @@ const Products = () => {
               </div>
             )}
           </div>
-          <CardHeader>
-            <div className="flex justify-between items-start">
-              <div>
-                <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
-              </div>
-            </div>
-            <p className="text-gray-600 text-sm">{product.description}</p>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
+            <p className="text-gray-600 text-sm leading-relaxed">{product.description}</p>
           </CardHeader>
           <CardContent>
-            {/* Adaptive grid based on vehicle type */}
-            {isQuadricycle ? (
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Gauge className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Engine</p>
-                  <p className="text-sm font-semibold">{product.engine}</p>
+            {/* Key specs - only 2 most important */}
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Gauge className="h-4 w-4 text-primary" />
                 </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Fuel className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Fuel Range</p>
-                  <p className="text-sm font-semibold">{product.fuelRange}</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Users className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Capacity</p>
-                  <p className="text-sm font-semibold">{product.capacity}</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Truck className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Storage</p>
-                  <p className="text-sm font-semibold">{product.storage}</p>
-                </div>
+                <p className="text-xs text-gray-500">Engine</p>
+                <p className="text-sm font-semibold">{product.engine}</p>
               </div>
-            ) : (
-              <div className="grid grid-cols-3 gap-4 mb-4">
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Gauge className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Engine</p>
-                  <p className="text-sm font-semibold">{product.engine}</p>
+              <div className="text-center">
+                <div className="flex items-center justify-center mb-1">
+                  <Fuel className="h-4 w-4 text-primary" />
                 </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Fuel className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Fuel Range</p>
-                  <p className="text-sm font-semibold">{product.fuelRange}</p>
-                </div>
-                <div className="text-center">
-                  <div className="flex items-center justify-center mb-1">
-                    <Truck className="h-4 w-4 text-primary mr-1" />
-                  </div>
-                  <p className="text-xs text-gray-500">Power</p>
-                  <p className="text-sm font-semibold">{product.power}</p>
-                </div>
-              </div>
-            )}
-            
-            <div className="mb-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">Key Features:</h4>
-              <div className="flex flex-wrap gap-1">
-                {product.features.map((feature, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs">
-                    {feature}
-                  </Badge>
-                ))}
+                <p className="text-xs text-gray-500">Fuel Efficiency</p>
+                <p className="text-sm font-semibold">{product.mileage}</p>
               </div>
             </div>
             
-            {/* Color Showcase for vehicles with color options */}
-            {product.colors && (
-              <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-700 mb-2">Available Colors:</h4>
-                <div className="flex gap-2">
-                   {product.colors.map((color, index) => (
-                     <div key={color} className="flex items-center space-x-2">
-                       <div className={`w-4 h-4 rounded-full border border-gray-300 ${
-                         color.toLowerCase().includes('red') ? 'bg-red-500' :
-                         color.toLowerCase().includes('black') || color.toLowerCase().includes('ebony') ? 'bg-black' :
-                         color.toLowerCase().includes('white') || color.toLowerCase().includes('arctic') ? 'bg-gray-100 border-gray-400' :
-                         color.toLowerCase().includes('blue') ? 'bg-blue-500' :
-                         color.toLowerCase().includes('green') ? 'bg-green-500' :
-                         color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
-                         'bg-gray-400'
-                       }`}></div>
-                       <span className="text-xs text-gray-600">{color}</span>
-                     </div>
-                   ))}
-                </div>
-              </div>
-            )}
-            
+            {/* Main action buttons */}
             <div className="flex gap-2">
-              <Link to="/contact" className="flex-1">
+              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                  Get Quote
+                  View Details
                 </Button>
               </Link>
               <Button 
                 onClick={handleBrochureDownload}
                 variant="outline" 
-                className="flex-1 w-full border-green-600 text-green-600 hover:bg-green-50"
+                className="px-3 border-primary text-primary hover:bg-primary hover:text-white"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Brochure
+                <Download className="w-4 h-4" />
               </Button>
-            </div>
-            <div className="flex gap-2 mt-2">
-              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                  Learn More
-                </Button>
-              </Link>
-              <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
-                <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-white">
-                  Schedule Test Drive
-                </Button>
-              </Link>
             </div>
           </CardContent>
         </Card>
