@@ -84,9 +84,9 @@ const Products = () => {
     },
     {
       id: "bajaj-tuk-tuk",
-      name: "Bajaj RE4s Auto Rickshaw (Tuk Tuk)",
+      name: "Bajaj RE4s Auto Rickshaw",
       category: "Three Wheeler",
-      engine: "200cc",
+      engine: "198.88cc",
       mileage: "100km/3L",
       fuelRange: "100km/3L",
       fuelTank: "8L",
@@ -96,8 +96,8 @@ const Products = () => {
       kerbWeight: "348 kg",
       image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
       colors: ["Yellow", "Green", "White", "Black", "Blue", "Red"],
-      features: ["DTS-i Technology", "Strong Chassis", "Car Type Seats", "Ergonomic Cabin", "Weather Protection"],
-      description: "Perfect commercial vehicle for passenger transport with powerful DTS-i engine and reinforced chassis",
+      features: ["DTS-i Technology", "Strong Chassis", "Car Type Seats", "Ergonomically Designed Cabin", "4 Forward + 1 Reverse", "Wet Multi-Disc Clutch"],
+      description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.6kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",
       brochureUrl: "/brochures/Bajaj_RE4sBrochure.pdf"
     }
   ];
