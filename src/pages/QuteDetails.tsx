@@ -30,11 +30,10 @@ const QuteDetails = () => {
     category: "Quadricycle",
     description: "Qute is an eco-friendly, fuel efficient and economically competitive vehicle for first and last mile transportation. What's more, it's a safe and affordable mode of transport for the commuter and provides employment for drivers and fleet owners.",
     colorVariants: {
-      "Yellow": "/lovable-uploads/d7cad81f-8437-4881-a9cb-7ee06201891a.png",
-      "Red": "/lovable-uploads/515d4474-db9c-4ce2-bcd7-c45adb1d75f0.png",
-      "Blue": "/lovable-uploads/ebb0ceb1-e23a-4d4c-add9-17c10e2418cb.png",
-      "Green": "/lovable-uploads/da1721c0-11d3-416b-81d1-40fbaf337b75.png",
-      "Black": "/lovable-uploads/20c1ca5e-7122-4051-bccf-49cdb385da87.png"
+      "Yellow": "src/assets/qute-yellow-brochure.jpg",
+      "Green": "src/assets/qute-green-brochure.jpg", 
+      "Red": "src/assets/qute-red-brochure.jpg",
+      "Blue": "src/assets/qute-blue-brochure.jpg"
     },
     gallery: [
       {

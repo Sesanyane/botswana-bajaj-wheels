@@ -27,35 +27,29 @@ const TukTukDetails = () => {
   }, []);
 
   const colorVariants = {
-    "Red": {
-      images: [
-        "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
-        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
-        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
-        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
-        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
-      ],
-      colorCode: "#ef4444" // red-500
-    },
     "Yellow": {
-      images: [
-        "/lovable-uploads/687f7cfe-56a2-401e-8da0-fd33342cd237.png",
-        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
-        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
-        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
-        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
-      ],
+      images: ["src/assets/re4s-colors-brochure.jpg"],
       colorCode: "#eab308" // yellow-500
     },
+    "Green": {
+      images: ["src/assets/re4s-colors-brochure.jpg"],
+      colorCode: "#22c55e" // green-500
+    },
+    "White": {
+      images: ["src/assets/re4s-colors-brochure.jpg"],
+      colorCode: "#ffffff" // white
+    },
+    "Black": {
+      images: ["src/assets/re4s-colors-brochure.jpg"],
+      colorCode: "#000000" // black
+    },
     "Blue": {
-      images: [
-        "/lovable-uploads/5e7c58f2-74f4-46c0-82a2-4f88edb11219.png",
-        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
-        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png",
-        "/lovable-uploads/cc8669b5-f9fc-47c9-8d80-9d5d58e7dbdc.png",
-        "/lovable-uploads/2d2c0b4a-d231-4946-af9c-f12ed989862a.png"
-      ],
+      images: ["src/assets/re4s-colors-brochure.jpg"],
       colorCode: "#3b82f6" // blue-500
+    },
+    "Red": {
+      images: ["src/assets/re4s-colors-brochure.jpg"],
+      colorCode: "#ef4444" // red-500
     }
   };
 

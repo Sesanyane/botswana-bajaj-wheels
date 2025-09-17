@@ -40,11 +40,13 @@ const Products = () => {
       maxSpeed: "70 kmph",
       storage: "191L (850L folded)",
       kerbWeight: "399 kg",
-      image: bajajaQuteYellow,
+      image: "src/assets/qute-main-brochure.jpg",
       gallery: [
-        bajajaQuteYellow,
-        bajajQuteBlue,
-        bajajQuteBlueWithParts
+        "src/assets/qute-main-brochure.jpg",
+        "src/assets/qute-yellow-brochure.jpg",
+        "src/assets/qute-green-brochure.jpg",
+        "src/assets/qute-red-brochure.jpg",
+        "src/assets/qute-blue-brochure.jpg"
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "European Standards", "Liquid Cooled Engine"],
       description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
@@ -61,7 +63,7 @@ const Products = () => {
       power: "12 PS @ 7500 rpm",
       torque: "12.55 Nm @ 5000 rpm",
       kerbWeight: "125 kg",
-      image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
+      image: "src/assets/boxer-150-colors-brochure.jpg",
       gallery: [
         "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
         "/lovable-uploads/adcc6458-be1d-4f86-aa77-44463abb9c47.png", // Red Boxer 150  
@@ -77,7 +79,7 @@ const Products = () => {
         "/lovable-uploads/258247d8-616f-460a-ae45-b85fa2377c08.png", // Street view
         "/lovable-uploads/12485d64-b46b-4347-9f03-4c06cf5bc41c.png"  // With delivery box
       ],
-      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black"],
+      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black", "Ebony Black Gray", "Ebony Black Red"],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology", "5 Speed Gearbox"],
       description: "Perfect for daily commuting with excellent fuel efficiency and 4-stroke air-cooled engine",
       brochureUrl: "/brochures/Boxer_150_Brochure.pdf"
@@ -94,7 +96,7 @@ const Products = () => {
       torque: "17.0 Nm @ 3500 rpm",
       maxSpeed: "65 kmph",
       kerbWeight: "348 kg",
-      image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
+      image: "src/assets/re4s-colors-brochure.jpg",
       colors: ["Yellow", "Green", "White", "Black", "Blue", "Red"],
       features: ["DTS-i Technology", "Strong Chassis", "Car Type Seats", "Ergonomically Designed Cabin", "4 Forward + 1 Reverse", "Wet Multi-Disc Clutch"],
       description: "Powered by the 200cc DTS-i engine, the RE is powerful in performance with 7.6kW power and 17Nm torque, making it unmatched in its ability to carry passengers and loads.",

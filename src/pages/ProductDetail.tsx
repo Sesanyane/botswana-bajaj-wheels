@@ -13,18 +13,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MobileNav } from "@/components/MobileNav";
 import { ScooterLoader } from "@/components/animations/ScooterLoader";
 
-// Import high-quality product images from uploads
-import bajajaQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880948.png";
-import bajajQuteRed from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
-import bajajQuteInterior from "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png";
-import bajajQuteBlue from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
-import bajajBoxer150Red from "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png";
-import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
+// Import high-quality brochure images
+import quteMainBrochure from "../assets/qute-main-brochure.jpg";
+import quteYellowBrochure from "../assets/qute-yellow-brochure.jpg";
+import quteGreenBrochure from "../assets/qute-green-brochure.jpg";
+import quteRedBrochure from "../assets/qute-red-brochure.jpg";
+import quteBlueBrochure from "../assets/qute-blue-brochure.jpg";
+import boxer150ColorsBrochure from "../assets/boxer-150-colors-brochure.jpg";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "Red Graphics");
+  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : id === 'bajaj-boxer-150' ? "Cocktail Wine Red" : "Yellow");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -41,18 +41,17 @@ const ProductDetail = () => {
       
       description: "Europe's first quadricycle designed for efficient urban transportation",
       images: [
-        bajajaQuteYellow,
-        bajajQuteRed,
-        bajajQuteInterior,
-        bajajQuteBlue
+        quteMainBrochure,
+        quteYellowBrochure,
+        quteGreenBrochure,
+        quteRedBrochure,
+        quteBlueBrochure
       ],
       colorVariants: {
-        "Yellow": bajajaQuteYellow,
-        "Red": bajajQuteRed,
-        "Green": "/lovable-uploads/59e96b62-ccb0-40ad-bf73-dec1cd1773f5.png",
-        "Orange": "/lovable-uploads/9569cc90-fb47-43ce-8752-17eb27989767.png",
-        "Black": "/lovable-uploads/f988bdaa-eab5-48a8-9572-c9c855f68736.png",
-        "Blue": bajajQuteBlue
+        "Yellow": quteYellowBrochure,
+        "Green": quteGreenBrochure,
+        "Red": quteRedBrochure,
+        "Blue": quteBlueBrochure
       },
       keyFeatures: [
         "217cc DTS-i Engine",
@@ -77,7 +76,7 @@ const ProductDetail = () => {
         "Turning Radius": "3.5 m",
         "Fuel Efficiency": "36 kmpl"
       },
-      colors: ["Yellow", "Red", "Green", "Orange", "Black", "Blue"]
+      colors: ["Yellow", "Green", "Red", "Blue"]
     },
     "bajaj-boxer-150": {
       name: "Bajaj Boxer 150",
@@ -85,18 +84,14 @@ const ProductDetail = () => {
       
       description: "Reliable motorcycle perfect for daily commuting",
       images: [
-        "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
-        "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
-        "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
-        "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
-        "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
+        boxer150ColorsBrochure
       ],
       colorVariants: {
-        "Red Graphics": "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
-        "Black Yellow": "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
-        "Blue": "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
-        "Red": "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
-        "White": "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
+        "Cocktail Wine Red": boxer150ColorsBrochure,
+        "Arctic White": boxer150ColorsBrochure,
+        "Ebony Black": boxer150ColorsBrochure,
+        "Ebony Black Gray": boxer150ColorsBrochure,
+        "Ebony Black Red": boxer150ColorsBrochure
       },
       gallery: [
         {
@@ -184,9 +179,7 @@ const ProductDetail = () => {
       category: "Three Wheeler",
       description: "The Bajaj RE4S or Bajaj Tuk Tuk is a compact and efficient three-wheeler with a powerful petrol engine, offering excellent performance and reliability for urban commuting. It is equipped with modern features and comfortable seating, making it a popular choice for both commercial and personal use.",
       images: [
-        "/lovable-uploads/e5b3b2ad-da74-4f80-9967-4acc603ce3cb.png",
-        "/lovable-uploads/170b89df-f9d6-47f9-9340-dfd038b078d4.png",
-        "/lovable-uploads/13b01f22-5d0c-4332-9264-78cbdcbd676c.png"
+        "/src/assets/re4s-colors-brochure.jpg"
       ],
       gallery: [
         {
@@ -258,7 +251,7 @@ const ProductDetail = () => {
         "Weight": "365 kg",
         "Ground Clearance": "155 mm"
       },
-      colors: ["Red"]
+      colors: ["Yellow", "Green", "White", "Black", "Blue", "Red"]
     }
   };
 
