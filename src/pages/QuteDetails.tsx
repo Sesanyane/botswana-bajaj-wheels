@@ -144,6 +144,9 @@ const QuteDetails = () => {
                       src="/lovable-uploads/bajaj-logo-optimized.webp" 
                       alt="Bajaj Botswana"
                       className="h-12 w-auto cursor-pointer"
+                      width="120" 
+                      height="48"
+                      loading="lazy"
                     />
                   </Link>
                 </div>
@@ -418,6 +421,9 @@ const QuteDetails = () => {
                         src="/lovable-uploads/bajaj-logo-optimized.webp" 
                         alt="Bajaj Botswana"
                         className="h-12 w-auto"
+                        width="120" 
+                        height="48"
+                        loading="lazy"
                       />
                     </div>
                     <p className="text-blue-100 text-sm leading-relaxed">

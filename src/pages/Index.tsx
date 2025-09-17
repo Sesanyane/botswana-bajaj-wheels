@@ -82,7 +82,14 @@ const Index = () => {
             delay: 0.2,
             duration: 0.5
           }} className="flex items-center space-x-3">
-              <img src="/lovable-uploads/bajaj-logo-optimized.webp" alt="Bajaj Botswana" className="h-12 w-auto" />
+              <img 
+                src="/lovable-uploads/bajaj-logo-optimized.webp" 
+                alt="Bajaj Botswana" 
+                className="h-12 w-auto" 
+                width="120" 
+                height="48"
+                loading="eager"
+              />
             </motion.div>
             <motion.div initial={{
             opacity: 0,
@@ -305,6 +312,9 @@ const Index = () => {
                         src={products[currentProductIndex].image} 
                         alt={`Bajaj ${products[currentProductIndex].title}`} 
                         className="w-full h-auto object-contain" 
+                        width="486"
+                        height="729"
+                        loading={currentProductIndex === 0 ? "eager" : "lazy"}
                       />
                       <div className="text-center mt-4">
                         <h3 className="text-2xl font-bold text-primary mb-2">
@@ -449,7 +459,14 @@ const Index = () => {
               duration: 0.5
             }}>
                 <div className="flex items-center space-x-3 mb-6">
-                  <img src="/lovable-uploads/bajaj-logo-optimized.webp" alt="Bajaj Botswana" className="h-8 w-auto" />
+                  <img 
+                    src="/lovable-uploads/bajaj-logo-optimized.webp" 
+                    alt="Bajaj Botswana" 
+                    className="h-8 w-auto" 
+                    width="89" 
+                    height="32"
+                    loading="lazy"
+                  />
                 </div>
                 <p className="text-blue-100 mb-4">
                   Bringing reliable mobility solutions to Botswana with world-class motorcycles and three-wheelers.

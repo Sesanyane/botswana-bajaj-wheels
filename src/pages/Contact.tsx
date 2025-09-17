@@ -173,10 +173,13 @@ const Contact = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <Link to="/">
-                  <img 
-                    src="/lovable-uploads/bajaj-logo-optimized.webp" 
-                    alt="Bajaj Gaborone"
-                    className="h-12 w-auto cursor-pointer"
+                <img 
+                  src="/lovable-uploads/bajaj-logo-optimized.webp" 
+                  alt="Bajaj Gaborone"
+                  className="h-12 w-auto cursor-pointer"
+                  width="120" 
+                  height="48"
+                  loading="lazy"
                   />
                 </Link>
               </div>

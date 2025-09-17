@@ -102,6 +102,9 @@ export const MobileNav = () => {
                     src="/lovable-uploads/bajaj-logo-optimized.webp" 
                     alt="Bajaj Botswana"
                     className="h-10 w-auto"
+                    width="111" 
+                    height="40"
+                    loading="lazy"
                   />
                   <motion.div
                     whileHover={{ scale: 1.1 }}

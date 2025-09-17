@@ -306,6 +306,9 @@ const ProductDetail = () => {
                     src="/lovable-uploads/bajaj-logo-optimized.webp" 
                     alt="Bajaj Gaborone"
                     className="h-12 w-auto cursor-pointer"
+                    width="120" 
+                    height="48"
+                    loading="lazy"
                   />
                 </Link>
               </div>
