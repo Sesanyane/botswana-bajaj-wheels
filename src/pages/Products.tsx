@@ -159,8 +159,6 @@ const Products = () => {
 
   // Simplified VehicleCard component with reduced clutter
   const VehicleCard = ({ product }) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    
     // Determine if this is a tuk tuk for routing
     const isThreeWheeler = product.category === "Three Wheeler";
     
@@ -182,28 +180,13 @@ const Products = () => {
         <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
           <div className="relative overflow-hidden">
             <img 
-              src={product.gallery ? product.gallery[currentImageIndex] : product.image} 
+              src={product.image} 
               alt={product.name}
               className="w-full h-48 object-contain bg-white group-hover:scale-105 transition-transform duration-300"
             />
             <Badge className="absolute top-3 left-3 bg-primary text-white">
               {product.category}
             </Badge>
-            {product.gallery && (
-              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {product.gallery.map((_, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-colors ${
-                      index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
-            )}
           </div>
           <CardHeader className="pb-4">
             <CardTitle className="text-xl text-gray-900">{product.name}</CardTitle>
