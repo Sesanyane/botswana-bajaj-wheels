@@ -375,6 +375,33 @@ const QuteDetails = () => {
                 </HoverScale>
               </ScrollReveal>
 
+              {/* Video Section */}
+              <ScrollReveal delay={0.75}>
+                <HoverScale scale={1.01}>
+                  <Card className="mb-8">
+                    <CardHeader>
+                      <CardTitle className="text-2xl">Bajaj Qute in Action</CardTitle>
+                      <CardDescription>Watch the Qute showcase video to see its features and performance</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src="https://www.youtube.com/embed/LgA70OXahkg"
+                          title="Bajaj Qute Showcase Video"
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                          className="w-full h-full"
+                        ></iframe>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </HoverScale>
+              </ScrollReveal>
+
               {/* Benefits */}
               <ScrollReveal delay={0.8}>
                 <HoverScale scale={1.01}>
