@@ -18,13 +18,18 @@ import bajajaQuteYellow from "/lovable-uploads/5b1e45f2-144c-4cb1-ad0e-3e7999880
 import bajajQuteRed from "/lovable-uploads/6d6abcda-200e-437d-9950-04dee7349156.png";
 import bajajQuteInterior from "/lovable-uploads/aa464419-9ba3-4545-95f5-b14942351b60.png";
 import bajajQuteBlue from "/lovable-uploads/dc01e482-351e-479d-8992-77c742b4fc49.png";
-import bajajBoxer150Red from "/lovable-uploads/2b1cdeb6-544d-4dd4-af0a-fb15cfb7b4a7.png";
-import bajajBoxer150Black from "/lovable-uploads/bd6f35ea-7612-482b-9d15-7b116ae04cd1.png";
+
+// Import new Boxer 150 color variants
+import boxer150White from "@/assets/boxer-150-white.png";
+import boxer150RedGraphics from "@/assets/boxer-150-red-graphics.png";
+import boxer150BlackYellow from "@/assets/boxer-150-black-yellow.png";
+import boxer150Blue from "@/assets/boxer-150-blue.png";
+import boxer150BlackRed from "@/assets/boxer-150-black-red.png";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "Red Graphics");
+  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "White");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,11 +97,11 @@ const ProductDetail = () => {
         "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
       ],
       colorVariants: {
-        "Red Graphics": "/lovable-uploads/27be35c3-a415-472c-a799-9106a96853f1.png",
-        "Black Yellow": "/lovable-uploads/78f73a7f-9ed0-43a3-ab86-25fa5bf8e082.png",
-        "Blue": "/lovable-uploads/3512316a-b32b-4050-a234-481f204277d3.png",
-        "Red": "/lovable-uploads/e3a1931d-1bc5-4d5b-86db-68053cf5c48c.png",
-        "White": "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
+        "White": boxer150White,
+        "Red Graphics": boxer150RedGraphics,
+        "Black Yellow": boxer150BlackYellow,
+        "Blue": boxer150Blue,
+        "Black Red": boxer150BlackRed
       },
       gallery: [
         {
@@ -177,7 +182,7 @@ const ProductDetail = () => {
         "Brakes": "130mm Drum Front & Rear",
         "Warranty": "5 Years / 100,000 KMs"
       },
-      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black", "Ebony Black Gray", "Ebony Black Red"]
+      colors: ["White", "Red Graphics", "Black Yellow", "Blue", "Black Red"]
     },
     "bajaj-re4s": {
       name: "Bajaj RE4S",
