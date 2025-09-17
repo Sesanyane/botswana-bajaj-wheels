@@ -86,7 +86,7 @@ const Products = () => {
       id: "bajaj-tuk-tuk",
       name: "Bajaj RE4s Auto Rickshaw (Tuk Tuk)",
       category: "Three Wheeler",
-      engine: "198.88cc",
+      engine: "200cc",
       mileage: "100km/3L",
       fuelRange: "100km/3L",
       fuelTank: "8L",
