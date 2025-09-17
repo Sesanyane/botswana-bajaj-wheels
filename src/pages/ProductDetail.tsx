@@ -29,7 +29,7 @@ import boxer150BlackRed from "@/assets/boxer-150-black-red.png";
 const ProductDetail = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "White");
+  const [selectedColor, setSelectedColor] = useState(id === 'bajaj-qute' ? "Yellow" : "Cocktail Wine Red");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -97,11 +97,11 @@ const ProductDetail = () => {
         "/lovable-uploads/42209c07-fdb2-42e7-8c78-b825ad9faa15.png"
       ],
       colorVariants: {
-        "White": boxer150White,
-        "Red Graphics": boxer150RedGraphics,
-        "Black Yellow": boxer150BlackYellow,
-        "Blue": boxer150Blue,
-        "Black Red": boxer150BlackRed
+        "Cocktail Wine Red": boxer150RedGraphics,
+        "Arctic White": boxer150White,
+        "Ebony Black": boxer150BlackYellow,
+        "Ebony Black Gray": boxer150Blue,
+        "Ebony Black Red": boxer150BlackRed
       },
       gallery: [
         {
@@ -182,7 +182,7 @@ const ProductDetail = () => {
         "Brakes": "130mm Drum Front & Rear",
         "Warranty": "5 Years / 100,000 KMs"
       },
-      colors: ["White", "Red Graphics", "Black Yellow", "Blue", "Black Red"]
+      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black", "Ebony Black Gray", "Ebony Black Red"]
     },
     "bajaj-re4s": {
       name: "Bajaj RE4S",
@@ -382,13 +382,14 @@ const ProductDetail = () => {
                               ? 'border-primary ring-2 ring-primary/30 shadow-lg' 
                               : 'border-gray-300 hover:border-gray-500'
                           } ${
-                            color.toLowerCase().includes('red') ? 'bg-red-500' :
-                            color.toLowerCase().includes('black') ? 'bg-black' :
+                            color.toLowerCase().includes('red') || color.toLowerCase().includes('wine') ? 'bg-red-500' :
+                            color.toLowerCase().includes('black') || color.toLowerCase().includes('ebony') ? 'bg-black' :
+                            color.toLowerCase().includes('white') || color.toLowerCase().includes('arctic') ? 'bg-white border-gray-400' :
                             color.toLowerCase() === 'blue' ? 'bg-blue-500' :
                             color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
                             color.toLowerCase() === 'green' ? 'bg-green-500' :
                             color.toLowerCase() === 'orange' ? 'bg-orange-500' :
-                            color.toLowerCase() === 'white' ? 'bg-white border-gray-400' :
+                            color.toLowerCase().includes('gray') ? 'bg-gray-600' :
                             'bg-gray-400'
                           }`}
                           title={color}
