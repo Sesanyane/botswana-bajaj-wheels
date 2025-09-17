@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bike, Truck, Fuel, Gauge, Users, Phone, Car, Package, Wrench } from "lucide-react";
+import { Bike, Truck, Fuel, Gauge, Users, Phone, Car, Package, Wrench, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { SlideIn } from "@/components/animations/SlideIn";
@@ -45,7 +45,8 @@ const Products = () => {
         bajajQuteBlueWithParts
       ],
       features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
-      description: "First and last mile transportation solution with European certification and advanced manufacturing quality"
+      description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
+      brochureUrl: "/brochures/bajaj-qute-brochure.pdf"
     },
     {
       id: "bajaj-boxer-150",
@@ -74,7 +75,8 @@ const Products = () => {
       ],
       colors: ["Black", "Red", "Silver"],
       features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
-      description: "Perfect for daily commuting with excellent fuel efficiency"
+      description: "Perfect for daily commuting with excellent fuel efficiency",
+      brochureUrl: "/brochures/Boxer_150_Brochure.pdf"
     },
     {
       id: "bajaj-tuk-tuk",
@@ -87,7 +89,8 @@ const Products = () => {
       power: "8.1 BHP",
       image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
       features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
-      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity"
+      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity",
+      brochureUrl: "/brochures/Bajaj_RE4sBrochure.pdf"
     }
   ];
 
@@ -154,6 +157,19 @@ const Products = () => {
     
     // Determine grid layout based on vehicle type
     const isQuadricycle = product.category === "Quadricycle";
+    
+    // Download brochure handler
+    const handleBrochureDownload = () => {
+      if (product.brochureUrl) {
+        const link = document.createElement('a');
+        link.href = product.brochureUrl;
+        link.download = `${product.name.replace(/\s+/g, '_')}_Brochure.pdf`;
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    };
     
     return (
       <HoverScale scale={1.03}>
@@ -288,11 +304,14 @@ const Products = () => {
                   Get Quote
                 </Button>
               </Link>
-              <Link to="/contact" className="flex-1">
-                <Button variant="outline" className="w-full border-green-600 text-green-600 hover:bg-green-50">
-                  Brochure
-                </Button>
-              </Link>
+              <Button 
+                onClick={handleBrochureDownload}
+                variant="outline" 
+                className="flex-1 w-full border-green-600 text-green-600 hover:bg-green-50"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Brochure
+              </Button>
             </div>
             <div className="flex gap-2 mt-2">
               <Link to={isThreeWheeler ? "/tuk-tuk-details" : `/product/${product.id}`} className="flex-1">
