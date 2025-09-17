@@ -28,7 +28,7 @@ const QuteDetails = () => {
   const quteData = {
     name: "Bajaj Qute Quadricycle",
     category: "Quadricycle",
-    description: "The Bajaj Qute is an ultra-modern quadricycle designed for urban mobility. With its efficient CNG engine and compact design, it offers an economical and eco-friendly transportation solution.",
+    description: "Qute is an eco-friendly, fuel efficient and economically competitive vehicle for first and last mile transportation. What's more, it's a safe and affordable mode of transport for the commuter and provides employment for drivers and fleet owners.",
     colorVariants: {
       "Yellow": "/lovable-uploads/d7cad81f-8437-4881-a9cb-7ee06201891a.png",
       "Red": "/lovable-uploads/515d4474-db9c-4ce2-bcd7-c45adb1d75f0.png",
@@ -79,35 +79,41 @@ const QuteDetails = () => {
       }
     ],
     keyFeatures: [
-      "216.6cc CNG Engine",
-      "35 km/kg Fuel Efficiency",
-      "4-Stroke Single Cylinder",
-      "191L Storage Space",
-      "Hydraulic Shock Absorbers",
-      "12V Electrical System"
+      "217cc DTS-i Engine",
+      "13.46 PS Power Output",
+      "19.6 Nm Torque",
+      "5 Forward + 1 Reverse",
+      "70 kmph Max Speed",
+      "191L Storage (850L folded)",
+      "36 kmpl Fuel Efficiency",
+      "European WVTA Certified",
+      "Monocoque Body"
     ],
     specifications: {
-      "Engine": "216.6cc Single Cylinder, Liquid Cooled",
-      "Power": "8.1 BHP @ 5500 rpm",
-      "Torque": "18.9 Nm @ 4000 rpm",
-      "Transmission": "5-Speed Manual",
-      "Fuel Type": "CNG",
-      "Fuel Tank": "37 Liters (CNG)",
-      "Seating": "Driver + 3 Passengers",
-      "Kerb Weight": "400 kg",
+      "Engine": "217cc Petrol",
+      "Power": "13.46 PS",
+      "Torque": "19.6 Nm",
+      "Transmission": "5 Forward + 1 Reverse",
+      "Max Speed": "70 kmph",
+      "Kerb Weight": "399 kg",
+      "Seating": "Driver + 3",
+      "Storage": "191L (850L folded)",
       "Ground Clearance": "180 mm",
-      "Storage": "191 Liters"
+      "Turning Radius": "3.5 m",
+      "Fuel Efficiency": "36 kmpl"
     },
     colors: ["Yellow", "Red", "Blue", "Green", "Black"],
     benefits: [
-      "Ultra-low running costs with CNG",
-      "Zero road tax in most states",
+      "Ultra-low running costs",
+      "Eco-friendly 66gms/km CO2",
       "Compact size for city driving",
-      "Weather protection",
-      "Easy parking",
+      "Monocoque body safety",
+      "Easy parking (3.5m turning radius)",
       "Low maintenance costs",
-      "Eco-friendly emission levels",
-      "Commercial vehicle benefits"
+      "European WVTA certified",
+      "Commercial vehicle benefits",
+      "Impact-resistant doors",
+      "Front and rear seat-belts"
     ]
   };
 

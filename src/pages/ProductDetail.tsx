@@ -56,23 +56,26 @@ const ProductDetail = () => {
       },
       keyFeatures: [
         "217cc DTS-i Engine",
-        "36 kmpl Fuel Efficiency", 
-        "4-Seater Capacity",
-        "191L Storage Space",
+        "13.46 PS Power Output",
+        "19.6 Nm Torque", 
+        "5 Forward + 1 Reverse",
         "70 kmph Max Speed",
+        "191L Storage (850L folded)",
+        "36 kmpl Fuel Efficiency",
         "European WVTA Certified"
       ],
       specifications: {
-        "Engine": "217cc Single Cylinder, Liquid Cooled",
-        "Power": "13.2 BHP @ 5500 rpm",
-        "Torque": "18.9 Nm @ 4000 rpm",
-        "Transmission": "5-Speed Manual",
-        "Fuel Tank": "8 Liters",
-        "Seating": "4 Passengers",
-        "Storage": "191L (850L with folded seats)",
-        "Weight": "399 kg",
-        "Top Speed": "70 kmph",
-        "Certification": "European WVTA"
+        "Engine": "217cc Petrol",
+        "Power": "13.46 PS",
+        "Torque": "19.6 Nm",
+        "Transmission": "5 Forward + 1 Reverse",
+        "Max Speed": "70 kmph",
+        "Kerb Weight": "399 kg",
+        "Seating": "Driver + 3",
+        "Storage": "191L (850L folded)",
+        "Ground Clearance": "180 mm",
+        "Turning Radius": "3.5 m",
+        "Fuel Efficiency": "36 kmpl"
       },
       colors: ["Yellow", "Red", "Green", "Orange", "Black", "Blue"]
     },
@@ -153,23 +156,28 @@ const ProductDetail = () => {
         }
       ],
       keyFeatures: [
-        "149.5cc Engine",
-        "70 kmpl Fuel Efficiency",
-        "5-Speed Transmission", 
-        "Telescopic Front Fork",
+        "144.8cc Engine",
+        "12 PS @ 7500 rpm",
+        "12.55 Nm @ 5000 rpm", 
+        "5-Speed Transmission",
         "17\" Alloy Wheels",
-        "USB Charging Port"
+        "USB Charging Port",
+        "Telescopic Front Fork",
+        "SNS Rear Suspension",
+        "5 Years / 100,000 kms Warranty"
       ],
       specifications: {
-        "Engine": "149.5cc Single Cylinder, Air Cooled",
-        "Power": "12 BHP @ 7500 rpm", 
-        "Torque": "12.8 Nm @ 4500 rpm",
+        "Engine": "144.8cc 4-Stroke, Natural Air Cooled",
+        "Power": "12 PS @ 7500 rpm", 
+        "Torque": "12.55 Nm @ 5000 rpm",
         "Transmission": "5-Speed Manual",
-        "Fuel Tank": "11.5 Liters",
-        "Weight": "140 kg",
-        "Wheels": "17\" Alloy with Tubeless Tires"
+        "Fuel Tank": "11L (2.5L Reserve)",
+        "Kerb Weight": "125 kg",
+        "Wheels": "17\" Alloy with Tubeless Tires",
+        "Brakes": "130mm Drum Front & Rear",
+        "Warranty": "5 Years / 100,000 KMs"
       },
-      colors: ["Red Graphics", "Black Yellow", "Blue", "Red", "White"]
+      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black", "Ebony Black Gray", "Ebony Black Red"]
     },
     "bajaj-re4s": {
       name: "Bajaj RE4S",
