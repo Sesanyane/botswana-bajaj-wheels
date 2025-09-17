@@ -55,36 +55,21 @@ const Contact = () => {
         return;
       }
 
-      let submitted = false;
-
-      // Try Zapier webhook first if provided
-      if (webhookUrl.trim()) {
-        try {
-          await fetch(webhookUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            mode: "no-cors",
-            body: JSON.stringify({
-              ...formData,
-              timestamp: new Date().toISOString(),
-              source: "Bajaj Gaborone Website"
-            }),
-          });
-          
-          toast({
-            title: "Message Sent via Zapier!",
-            description: "Your message was sent successfully. We'll get back to you soon.",
-          });
-          submitted = true;
-        } catch (error) {
-          console.error('Zapier webhook error:', error);
+      // Call the Supabase Edge Function to send email and store submission
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          subject: formData.subject.trim(),
+          message: formData.message.trim(),
         }
-      }
+      });
 
-      // Try Supabase if Zapier failed or wasn't configured
-      if (!submitted) {
+      if (error) {
+        console.error('Edge function error:', error);
+        
+        // Fallback: Try storing in database directly
         const submission: Omit<ContactSubmission, 'id' | 'created_at'> = {
           name: formData.name.trim(),
           email: formData.email.trim(),
@@ -93,14 +78,13 @@ const Contact = () => {
           message: formData.message.trim(),
         };
 
-        const { data, error } = await supabase
+        const { error: dbError } = await supabase
           .from('contact_submissions')
-          .insert([submission])
-          .select();
+          .insert([submission]);
 
-        if (error) {
-          console.error('Supabase error:', error);
-          // Fallback to mailto if both Zapier and Supabase fail
+        if (dbError) {
+          console.error('Database error:', dbError);
+          // Final fallback to mailto
           const subject = encodeURIComponent(formData.subject || "Inquiry from Bajaj Gaborone Website");
           const body = encodeURIComponent(
             `Name: ${formData.name}\n` +
@@ -109,7 +93,7 @@ const Contact = () => {
             `Message:\n${formData.message}`
           );
           
-          const mailtoLink = `mailto:info@bajajgaborone.com?subject=${subject}&body=${body}`;
+          const mailtoLink = `mailto:leanosasanyane32@gmail.com?subject=${subject}&body=${body}`;
           window.open(mailtoLink, '_blank');
           
           toast({
@@ -118,10 +102,15 @@ const Contact = () => {
           });
         } else {
           toast({
-            title: "Message Sent Successfully!",
-            description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+            title: "Message Saved",
+            description: "Your message was saved. We'll get back to you within 24 hours.",
           });
         }
+      } else {
+        toast({
+          title: "Message Sent Successfully!",
+          description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+        });
       }
       
       // Reset form
