@@ -31,20 +31,22 @@ const Products = () => {
       category: "Quadricycle",
       engine: "217cc",
       mileage: "36 kmpl",
-      fuelRange: "100km/3L",
+      fuelRange: "36 kmpl",
       fuelTank: "8L",
-      transmission: "5 Speed Manual Mesh",
-      power: "13.2 BHP",
-      capacity: "4 Seater",
+      transmission: "5 Forward + 1 Reverse",
+      power: "13.46 PS",
+      torque: "19.6 Nm",
+      capacity: "Driver + 3",
       maxSpeed: "70 kmph",
-      storage: "191L",
+      storage: "191L (850L folded)",
+      kerbWeight: "399 kg",
       image: bajajaQuteYellow,
       gallery: [
         bajajaQuteYellow,
         bajajQuteBlue,
         bajajQuteBlueWithParts
       ],
-      features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "850L Storage (Folded)", "European Standards"],
+      features: ["DTS-i Technology", "WVTA Certified", "Monocoque Body", "European Standards", "Liquid Cooled Engine"],
       description: "First and last mile transportation solution with European certification and advanced manufacturing quality",
       brochureUrl: "/brochures/bajaj-qute-brochure.pdf"
     },
@@ -52,11 +54,13 @@ const Products = () => {
       id: "bajaj-boxer-150",
       name: "Bajaj Boxer 150",
       category: "Motorcycle",
-      engine: "149.5cc",
+      engine: "144.8cc",
       mileage: "70 kmpl",
-      fuelRange: "70km/L",
+      fuelRange: "70 kmpl",
       fuelTank: "11L",
-      power: "12 BHP",
+      power: "12 PS @ 7500 rpm",
+      torque: "12.55 Nm @ 5000 rpm",
+      kerbWeight: "125 kg",
       image: "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png",
       gallery: [
         "/lovable-uploads/634473d2-626e-48be-a6fe-974c5ddb6f5f.png", // Black Boxer 150
@@ -73,23 +77,27 @@ const Products = () => {
         "/lovable-uploads/258247d8-616f-460a-ae45-b85fa2377c08.png", // Street view
         "/lovable-uploads/12485d64-b46b-4347-9f03-4c06cf5bc41c.png"  // With delivery box
       ],
-      colors: ["Black", "Red", "Silver"],
-      features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology"],
-      description: "Perfect for daily commuting with excellent fuel efficiency",
+      colors: ["Cocktail Wine Red", "Arctic White", "Ebony Black"],
+      features: ["Electric Start", "Tubeless Tyres", "LED Headlamp", "DTS-i Technology", "5 Speed Gearbox"],
+      description: "Perfect for daily commuting with excellent fuel efficiency and 4-stroke air-cooled engine",
       brochureUrl: "/brochures/Boxer_150_Brochure.pdf"
     },
     {
       id: "bajaj-tuk-tuk",
-      name: "Bajaj RE Auto Rickshaw (Tuk Tuk)",
+      name: "Bajaj RE4s Auto Rickshaw (Tuk Tuk)",
       category: "Three Wheeler",
-      engine: "236cc",
-      mileage: "35-40 kmpl",
+      engine: "198.88cc",
+      mileage: "100km/3L",
       fuelRange: "100km/3L",
       fuelTank: "8L",
-      power: "8.1 BHP",
+      power: "7.6 kW @ 5000 rpm",
+      torque: "17.0 Nm @ 3500 rpm",
+      maxSpeed: "65 kmph",
+      kerbWeight: "348 kg",
       image: "/lovable-uploads/50d089c2-f609-4d5e-84ac-903a3177f409.png",
-      features: ["Compact Design", "High Fuel Efficiency", "Low Maintenance", "Weather Protection"],
-      description: "Perfect commercial vehicle for passenger transport and last-mile connectivity",
+      colors: ["Yellow", "Green", "White", "Black", "Blue", "Red"],
+      features: ["DTS-i Technology", "Strong Chassis", "Car Type Seats", "Ergonomic Cabin", "Weather Protection"],
+      description: "Perfect commercial vehicle for passenger transport with powerful DTS-i engine and reinforced chassis",
       brochureUrl: "/brochures/Bajaj_RE4sBrochure.pdf"
     }
   ];
@@ -282,18 +290,20 @@ const Products = () => {
               <div className="mb-4">
                 <h4 className="text-sm font-semibold text-gray-700 mb-2">Available Colors:</h4>
                 <div className="flex gap-2">
-                  {product.colors.map((color, index) => (
-                    <div key={color} className="flex items-center space-x-2">
-                      <div className={`w-4 h-4 rounded-full border border-gray-300 ${
-                        color.toLowerCase() === 'red' ? 'bg-red-500' :
-                        color.toLowerCase() === 'black' ? 'bg-black' :
-                        color.toLowerCase() === 'silver' ? 'bg-gray-300' :
-                        color.toLowerCase() === 'blue' ? 'bg-blue-500' :
-                        'bg-gray-400'
-                      }`}></div>
-                      <span className="text-xs text-gray-600">{color}</span>
-                    </div>
-                  ))}
+                   {product.colors.map((color, index) => (
+                     <div key={color} className="flex items-center space-x-2">
+                       <div className={`w-4 h-4 rounded-full border border-gray-300 ${
+                         color.toLowerCase().includes('red') ? 'bg-red-500' :
+                         color.toLowerCase().includes('black') || color.toLowerCase().includes('ebony') ? 'bg-black' :
+                         color.toLowerCase().includes('white') || color.toLowerCase().includes('arctic') ? 'bg-gray-100 border-gray-400' :
+                         color.toLowerCase().includes('blue') ? 'bg-blue-500' :
+                         color.toLowerCase().includes('green') ? 'bg-green-500' :
+                         color.toLowerCase().includes('yellow') ? 'bg-yellow-400' :
+                         'bg-gray-400'
+                       }`}></div>
+                       <span className="text-xs text-gray-600">{color}</span>
+                     </div>
+                   ))}
                 </div>
               </div>
             )}
